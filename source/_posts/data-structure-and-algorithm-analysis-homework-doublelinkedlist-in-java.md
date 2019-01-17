@@ -1,7 +1,8 @@
 ---
 title: 数据结构与算法分析作业之自己实现Java双链表
 date: 2018-05-27 17:30:16
-tags: [数据结构,Java]
+updated: 2018-05-27 17:30:16
+tags: [数据结构,java]
 categories: 数据结构与算法分析:Java语言描述
 ---
 

@@ -305,6 +305,62 @@
 
       <h3 class="post-title">
         
+            <a class="post-title-link" href="/2019/01/17/java-exception-handle/" itemprop="url">
+              
+                <span itemprop="name">Java中的异常处理</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-01-17T19:24:16+08:00"
+              content="2019-01-17" >
+          01-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2019/01/12/java-inner-class/" itemprop="url">
+              
+                <span itemprop="name">Java中的内部类</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-01-12T15:52:48+08:00"
+              content="2019-01-12" >
+          01-12
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
             <a class="post-title-link" href="/2018/08/23/java-initialization-block/" itemprop="url">
               
                 <span itemprop="name">Java中的初始化块</span>
@@ -466,6 +522,62 @@
 
 
       
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2018/05/27/data-structure-and-algorithm-analysis-homework-doublelinkedlist-in-java/" itemprop="url">
+              
+                <span itemprop="name">数据结构与算法分析作业之自己实现Java双链表</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-05-27T17:30:16+08:00"
+              content="2018-05-27" >
+          05-27
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2018/05/26/data-structure-and-algorithm-analysis-homework-singlelinkedlist-in-java/" itemprop="url">
+              
+                <span itemprop="name">数据结构与算法分析作业之自己实现Java单链表</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-05-26T20:14:55+08:00"
+              content="2018-05-26" >
+          05-26
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
     </div>
 
   </div>
@@ -474,6 +586,10 @@
   
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/tags/java/page/2/">2</a><a class="extend next" rel="next" href="/tags/java/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -521,7 +637,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">76</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -532,7 +648,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -543,7 +659,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -644,7 +760,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1119,111 +1235,6 @@
               })
               searchResultList += "</ul>";
               resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
-
-  
-
-  
-
-</body>
-</html>
-          resultContent.innerHTML = searchResultList;
             }
           }
 

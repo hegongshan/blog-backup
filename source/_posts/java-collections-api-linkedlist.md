@@ -1,8 +1,9 @@
 ---
 title: Java集合框架源码阅读之双链表LinkedList
 date: 2018-04-01 16:33:12
-tags: Java
-categories: Java Collections API
+updated: 2018-04-01 16:33:12
+tags: java collections api
+categories: java
 ---
 >本文只分析LinkedList的增(add) 删(remove) 改(set) 查(get)的实现，剩余的部分留给读者自己去浏览吧
 

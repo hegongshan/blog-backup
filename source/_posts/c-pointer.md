@@ -1,8 +1,9 @@
 ---
 title: 浅析C语言指针
 date: 2018-05-26 19:13:35
-tags: C
-categories: C
+updated: 2018-05-26 19:13:35
+tags: c
+categories: c
 ---
 
 &nbsp;&nbsp;&nbsp;&nbsp;指针是一个地址，而指针变量是存放地址的变量。

@@ -1,8 +1,9 @@
 ---
 title: CCF CSP每日一练之201803-2 碰撞的小球
 date: 2018-06-06 20:35:08
-tags: CCF CSP
-categories: CCF CSP
+updated: 2018-06-06 20:35:08
+tags: ccf csp
+categories: ccf csp
 ---
 
 **问题描述**

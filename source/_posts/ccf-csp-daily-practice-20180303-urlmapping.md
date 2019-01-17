@@ -1,8 +1,9 @@
 ---
 title: CCF CSP每日一练之201803-3 URL映射
 date: 2018-06-06 22:20:10
-tags: CCF CSP
-categories: CCF CSP
+updated: 2018-06-06 22:20:10
+tags: ccf csp
+categories: ccf csp
 ---
 
 **问题描述**

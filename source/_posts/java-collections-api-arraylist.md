@@ -1,8 +1,9 @@
 ---
 title: Java集合框架源码阅读之顺序表ArrayList
 date: 2018-03-30 21:40:42
-tags: Java
-categories: Java Collections API
+updated: 2018-03-30 21:40:42
+tags: java collections api
+categories: java
 ---
 今天是《Java集合框架源码阅读》的第一篇，我们来讲讲Java中的顺序表ArrayList
 首先来看下ArrayList的继承结构

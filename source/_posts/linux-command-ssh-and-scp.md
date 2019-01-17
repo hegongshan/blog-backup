@@ -1,8 +1,9 @@
 ---
 title: 在Linux中存活下来之ssh和scp命令
 date: 2018-08-17 14:06:25
-tags: Linux
-categories: Linux
+updated: 2018-08-17 14:06:25
+tags: linux
+categories: linux
 ---
 
 前面我们讲了如何在Windows系统中登录Linux服务器，以及实现windows和Linux之间的文件传输操作。今天我们来讲下在Linux系统（如ubuntu）中如何登录Linux服务器及实现文件传输。

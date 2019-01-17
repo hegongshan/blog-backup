@@ -1,7 +1,8 @@
 ---
 title: Java网络爬虫之详解HttpURLConnection
 date: 2018-05-21 15:14:04
-tags: [Java,网络爬虫]
+updated: 2018-05-21 15:14:04
+tags: [java,网络爬虫]
 categories: 网络爬虫
 ---
 

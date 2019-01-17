@@ -1,8 +1,9 @@
 ---
 title: 在Linux中存活下来之tar压缩和解压缩文件
 date: 2018-05-14 21:08:13
-tags: [Linux,压缩,解压缩]
-categories: Linux
+updated: 2018-05-14 21:08:13
+tags: [linux,压缩,解压缩]
+categories: linux
 ---
 >最近需要在Linux服务器上解压tar.gz文件，于是乎学习了下tar命令的使用。
 

@@ -1,8 +1,9 @@
 ---
 title: C语言结构体
 date: 2018-05-31 12:04:44
-tags: C
-categories: C
+updated: 2018-05-31 12:04:44
+tags: c
+categories: c
 ---
 
 C语言允许用户自己建立由不同类型数据组成的组合型的数据结构，它称为结构体。（类似于Java中的类）

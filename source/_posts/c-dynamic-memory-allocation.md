@@ -1,8 +1,9 @@
 ---
 title: C语言中的动态内存分配
 date: 2018-06-01 11:42:24
-tags: C
-categories: C
+updated: 2018-06-01 11:42:24
+tags: c
+categories: c
 ---
 
 ### 简介

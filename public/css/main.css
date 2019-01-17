@@ -1954,7 +1954,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b5d54d;
+  background: #d7befa;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3268,6 +3268,11 @@ pre .javascript .function {
 }
 .unfold {
   display: block;
+}
+.links-of-blogroll-item {
+  float: left;
+  margin: 5px 0 0;
+  width: 50%;
 }
 .booklist-tabs {
   margin: 15px 20px;

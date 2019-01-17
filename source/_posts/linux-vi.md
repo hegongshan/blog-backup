@@ -2,8 +2,8 @@
 title: 在Linux中存活下来之vi编辑器的使用
 date: 2018-05-11 20:59:51
 updated: 2018-05-12 20:59:51
-tags: [Linux,vi]
-categories: Linux
+tags: [linux,vi]
+categories: linux
 ---
 
 > 前话：学习vi编辑器，是一个循序渐进的过程，本篇是博主自己的学习总结，会持续更新。

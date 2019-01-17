@@ -1,8 +1,9 @@
 ---
 title: CCF CSP每日一练之201803-1跳一跳
 date: 2018-06-05 14:24:03
-tags: CCF CSP
-categories: CCF CSP
+updated: 2018-06-05 14:24:03
+tags: ccf csp
+categories: ccf csp
 ---
 
 > 为了准备九月的CCF CSP第十四次认证，从今天起，尽量保证每天刷一道CCF CSP的题。

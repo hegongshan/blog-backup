@@ -1,8 +1,9 @@
 ---
 title: Java集合框架源码阅读之栈Stack
 date: 2018-04-02 14:36:12
-tags: Java
-categories: Java Collections API
+updated: 2018-04-02 14:36:12
+tags: java collections api
+categories: java
 ---
 >什么是栈？
 >栈是限制插入和删除只能在一个位置上进行的表，它是一个后进先出(last-in-first-out，LIFO)表
