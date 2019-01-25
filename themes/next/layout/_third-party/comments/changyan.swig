@@ -12,6 +12,18 @@
         window.changyan.api.config({appid:appid,conf:conf})});
       }
     })();
+    var popAd = document.getElementById("pop_ad");
+    if(popAd) {
+    	popAd.style.display = "none";
+    }   
+    function closeAd() {
+	var feedAd = document.getElementById("feedAv");
+	if(feedAd) {
+		feedAd.style.display = "none";
+
+	}    
+    }
+    setInterval(closeAd,1000);
     </script>
     <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
   {% endif %}

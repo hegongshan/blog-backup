@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,19 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-
-
-  <meta name="keywords" content="java," />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
 
@@ -70,19 +60,29 @@
 
 
 
+  <meta name="keywords" content="java,">
 
-<meta name="description" content="Java中的内部类可以分为以下四种：  成员内部类:作为外部类的成员定义 局部内部类:在外部类的方法中定义 匿名内部类（anonymous inner class） 静态内部类（static inner class）  内部类是一种编译器现象，与虚拟机无关。编译器将会把内部类翻译成文件名为“外部类名$内部类名.class”的class文件。">
+
+
+
+
+
+
+
+
+
+<meta name="description" content="将一个类的定义放在另一个类的定义内部，这就是内部类。如下所示 123456class OuterClass &amp;#123;    ...    class InnerClass &amp;#123;        ...    &amp;#125;&amp;#125; 从总体上来讲，Java中的内部类可以分为：  静态内部类（static inner class）：声明为static的内部类 非静态内部类（non-stat">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java中的内部类">
 <meta property="og:url" content="https://www.hegongshan.com/2019/01/12/java-inner-class/index.html">
 <meta property="og:site_name" content="贺巩山的博客">
-<meta property="og:description" content="Java中的内部类可以分为以下四种：  成员内部类:作为外部类的成员定义 局部内部类:在外部类的方法中定义 匿名内部类（anonymous inner class） 静态内部类（static inner class）  内部类是一种编译器现象，与虚拟机无关。编译器将会把内部类翻译成文件名为“外部类名$内部类名.class”的class文件。">
+<meta property="og:description" content="将一个类的定义放在另一个类的定义内部，这就是内部类。如下所示 123456class OuterClass &amp;#123;    ...    class InnerClass &amp;#123;        ...    &amp;#125;&amp;#125; 从总体上来讲，Java中的内部类可以分为：  静态内部类（static inner class）：声明为static的内部类 非静态内部类（non-stat">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-17T12:48:08.461Z">
+<meta property="og:updated_time" content="2019-01-12T07:52:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中的内部类">
-<meta name="twitter:description" content="Java中的内部类可以分为以下四种：  成员内部类:作为外部类的成员定义 局部内部类:在外部类的方法中定义 匿名内部类（anonymous inner class） 静态内部类（static inner class）  内部类是一种编译器现象，与虚拟机无关。编译器将会把内部类翻译成文件名为“外部类名$内部类名.class”的class文件。">
+<meta name="twitter:description" content="将一个类的定义放在另一个类的定义内部，这就是内部类。如下所示 123456class OuterClass &amp;#123;    ...    class InnerClass &amp;#123;        ...    &amp;#125;&amp;#125; 从总体上来讲，Java中的内部类可以分为：  静态内部类（static inner class）：声明为static的内部类 非静态内部类（non-stat">
 
 
 
@@ -112,7 +112,7 @@
 
 
 
-  <link rel="canonical" href="https://www.hegongshan.com/2019/01/12/java-inner-class/"/>
+  <link rel="canonical" href="https://www.hegongshan.com/2019/01/12/java-inner-class/">
 
 
 
@@ -130,7 +130,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -143,13 +143,13 @@
 		<img style="position:absolute;top:0;right:0;border:0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
 		alt="Follow me on Github" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"/>
 	</a>-->
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">贺巩山的博客</span>
         <span class="logo-line-after"><i></i></span>
@@ -179,7 +179,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -189,7 +189,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -199,7 +199,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -209,7 +209,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -219,7 +219,7 @@
         <li class="menu-item menu-item-booklist">
           <a href="/booklist/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
             
             书单
           </a>
@@ -229,7 +229,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -242,7 +242,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -263,9 +263,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -296,20 +294,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2019/01/12/java-inner-class/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="贺巩山的博客">
     </span>
 
@@ -348,14 +346,14 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-17T20:48:08+08:00">
-                2019-01-17
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-12T15:52:48+08:00">
+                2019-01-12
               </time>
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -366,7 +364,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/java/" itemprop="url" rel="index">
                     <span itemprop="name">java</span>
                   </a>
@@ -399,7 +397,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
             </span>
           
 
@@ -414,7 +412,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  126
+                  1.6k
                 </span>
               
 
@@ -426,7 +424,7 @@
 
           
 
-        </div>
+        </span></div>
       </header>
     
 
@@ -439,15 +437,54 @@
       
 
       
-        <p>Java中的内部类可以分为以下四种：</p>
+        <p>将一个类的定义放在另一个类的定义内部，这就是内部类。如下所示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从总体上来讲，Java中的内部类可以分为：</p>
 <ul>
-<li>成员内部类:作为外部类的成员定义</li>
-<li>局部内部类:在外部类的方法中定义</li>
-<li>匿名内部类（anonymous inner class）</li>
-<li>静态内部类（static inner class）</li>
+<li>静态内部类（static inner class）：声明为static的内部类</li>
+<li>非静态内部类（non-static inner class）</li>
 </ul>
-<p>内部类是一种编译器现象，与虚拟机无关。编译器将会把内部类翻译成文件名为“外部类名$内部类名.class”的class文件。<br><a id="more"></a></p>
-<h3 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h3><h3 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h3><h3 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h3><h3 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticInnerClass</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中，非静态内部类又可细分为以下三种：</p>
+<ul>
+<li>成员内部类：作为外部类的成员定义</li>
+<li>局部内部类（local inner class）：在外部类的方法中定义</li>
+<li>匿名内部类（anonymous inner class）：没有名字的内部类</li>
+</ul>
+<p>内部类是一种编译器现象，与虚拟机无关。它可以访问外部类中定义的所有方法和域，即使这些方法和域声明为private。此外，内部类可以使用访问说明符public、protected和private修饰。</p>
+<a id="more"></a>
+<h3 id="非静态内部类"><a href="#非静态内部类" class="headerlink" title="非静态内部类"></a>非静态内部类</h3><p><strong>非静态内部类中不能声明static方法，声明的所有静态域都必须是final</strong>。</p>
+<h4 id="内部类的特殊语法"><a href="#内部类的特殊语法" class="headerlink" title="内部类的特殊语法"></a>内部类的特殊语法</h4><p>要想实例化一个非静态内部类，需要使用一种特殊的语法<code>.new</code>，就像下面这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		OuterClass outer = <span class="keyword">new</span> OuterClass();</span><br><span class="line">		InnerClass inner = outer.new InnerClass();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在外部类的作用域之外，可以这样引用内部类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OuterClass.InnerClass</span><br></pre></td></tr></table></figure>
+<p>下面是示例展示了如何在外部类的作用域之外，实例化它的内部类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		OuterClass outer = <span class="keyword">new</span> OuterClass();</span><br><span class="line">		OuterClass.InnerClass inner = outer.new InnerClass();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">InnerClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"InnerClass实例化"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">输出结果：</span><br><span class="line">InnerClass实例化</span><br></pre></td></tr></table></figure>
+<p>在内部类中，如果需要使用外部类对象的引用，可以使用外部类的名字后紧跟圆点和<strong><em>this</em></strong>，就像这样<code>OuterClass.this​</code>,下面是一个简单的示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"OuterClass.print()"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</span><br><span class="line">    	<span class="function"><span class="keyword">public</span> OuterClass <span class="title">getOuter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    		<span class="keyword">return</span> OuterClass.<span class="keyword">this</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		OuterClass outer = <span class="keyword">new</span> OuterClass();</span><br><span class="line">		InnerClass inner = outer.new InnerClass();</span><br><span class="line">		inner.getOuter().print();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">输出结果：</span><br><span class="line">OuterClass.print()</span><br></pre></td></tr></table></figure>
+<h4 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h4><p>成员内部类是最常见的内部类，也称为普通内部类。成员内部类作为外部类的成员来定义，如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h4><p>在外围类的方法中声明的类，称为局部内部类。下面是一个简单的例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">LocalInnerClass</span> </span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.println(count);</span><br><span class="line">				count++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		LocalInnerClass inner = <span class="keyword">new</span> LocalInnerClass();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">			inner.service();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Outer main = <span class="keyword">new</span> Outer();</span><br><span class="line">		main.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">输出结果：</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p><strong>局部内部类不能用public、protected或private访问说明符声明</strong>。它的优势是对外部世界可以完全地隐藏起来，除了start方法之外，Outer的其他地方均不能访问它。</p>
+<h4 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h4><p>匿名内部类，顾名思义，就是没有命名的内部类。语法格式如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> SuperType(construction parameters) &#123;</span><br><span class="line">    方法和属性</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是匿名内部类的一个示例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Counter</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="function">Counter <span class="title">getCounter</span><span class="params">(<span class="keyword">final</span> String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Counter() &#123;</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(<span class="string">"Counter()"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.print(name);</span><br><span class="line">                <span class="keyword">return</span> count++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    	Outer outer = <span class="keyword">new</span> Outer();</span><br><span class="line">        Counter c = outer.getCounter();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">			System.out.println(c.next());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">输出结果：</span><br><span class="line">Counter()</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p>在上面的程序中，由于getCounter方法中的name这个变量不是外围类中定义的属性，所以必须声明为final类型，才能在匿名内部类中使用（对于局部内部类，情况也是一样的），否则，将产生如下的语法错误：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cannot refer to the non-<span class="keyword">final</span> local variable name defined in an enclosing scope</span><br></pre></td></tr></table></figure>
+<p>由于构造器的名字必须与类名相同，而匿名类没有类名，所以匿名类不能有构造器。因此，将参数传递给超类（父类）构造器。在匿名内部类实现接口的时候，不能有任何构造参数。</p>
+<h3 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h3><p>静态内部类，就是声明为static的内部类。<strong>实例化静态内部类，不需要其外围类对象</strong>。下面是一个静态内部类的示例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String className = <span class="string">"OUTER"</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticInnerClass</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">StaticInnerClass</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">			System.out.println(name);</span><br><span class="line">			System.out.println(<span class="string">"outer class name:"</span>+className);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Outer main = <span class="keyword">new</span> Outer();</span><br><span class="line">        <span class="comment">//下面两种实例化方法是等价的</span></span><br><span class="line">		StaticInnerClass inner = <span class="keyword">new</span> StaticInnerClass(<span class="string">"inner"</span>);</span><br><span class="line">		Outer.StaticInnerClass inner2 = <span class="keyword">new</span> Outer.StaticInnerClass(<span class="string">"inner2"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">输出结果：</span><br><span class="line">inner</span><br><span class="line">outer class name:OUTER</span><br><span class="line">inner2</span><br><span class="line">outer class name:OUTER</span><br></pre></td></tr></table></figure>
+<p>值得一提的是，<strong>静态内部类不能访问外围类中的非静态的域和方法</strong>。以上面的程序为例，StaticInnerClass类可以访问到Outer类的className属性，因为className声明为static，但StaticInnerClass类不能访问count。</p>
+<p><strong>什么时候使用静态内部类？</strong>在内部类不需要访问外围类对象的时候，应该使用静态内部类。</p>
+<h3 id="内部类标识符"><a href="#内部类标识符" class="headerlink" title="内部类标识符"></a>内部类标识符</h3><p>对于成员内部类和静态内部类，编译器将会把它编译成文件名为<code>外围类名$内部类名.class</code>的class文件。</p>
+<p>对于匿名内部类，编译器会将它编译名为<code>外围类名$n.class</code>的class文件；对于局部内部类，则被编译为<code>外围类名$n内部类名</code>的class文件。（n是由编译器简单生成的一个数字）</p>
+<p>下面通过一个简单的例子来展示这四种内部类的字节码文件的命名规则</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Counter</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">NormalCounter</span> <span class="keyword">implements</span> <span class="title">Counter</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="function">Counter <span class="title">getCounter</span><span class="params">(<span class="keyword">final</span> String name)</span> </span>&#123;</span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">LocalCounter</span> <span class="keyword">implements</span> <span class="title">Counter</span> </span>&#123;</span><br><span class="line">			<span class="keyword">static</span> <span class="keyword">final</span> String name = <span class="string">""</span>;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="title">LocalCounter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"LocalCounter()"</span>);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.print(name);</span><br><span class="line">				<span class="keyword">return</span> count++;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> LocalCounter();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function">Counter <span class="title">getCounter2</span><span class="params">(<span class="keyword">final</span> String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Counter() &#123;</span><br><span class="line">			&#123;</span><br><span class="line">				System.out.println(<span class="string">"Counter()"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">				System.out.print(name);</span><br><span class="line">				<span class="keyword">return</span> count++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticInnerClass</span></span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Outer lic = <span class="keyword">new</span> Outer();</span><br><span class="line">		Counter c1 = lic.getCounter(<span class="string">"Local inner class "</span>);</span><br><span class="line">		Counter c2 = lic.getCounter2(<span class="string">"Anonymous inner class "</span>);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">			System.out.println(c1.next());</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">			System.out.println(c2.next());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Outer.java编译之后，生成了如下几个class文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Counter.class</span><br><span class="line">Outer$<span class="number">1</span>.class</span><br><span class="line">Outer$<span class="number">1L</span>ocalCounter.class</span><br><span class="line">Outer$NormalCounter.class</span><br><span class="line">Outer$StaticInnerClass.class</span><br><span class="line">Outer.class</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -476,14 +513,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Gongshan He 微信支付"/>
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Gongshan He 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="Gongshan He 支付宝"/>
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Gongshan He 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -533,8 +570,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/04/2018-year-end-summary/" rel="next" title="2018年度总结">
-                <i class="fa fa-chevron-left"></i> 2018年度总结
+              <a href="/2019/01/10/java-final/" rel="next" title="Java中的final关键字">
+                <i class="fa fa-chevron-left"></i> Java中的final关键字
               </a>
             
           </div>
@@ -543,8 +580,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/17/java-exception-handle/" rel="prev" title="Java中的异常处理">
-                Java中的异常处理 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/13/java-inner-class-extends/" rel="prev" title="Java中的内部类继承">
+                Java中的内部类继承 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -614,11 +651,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg"
-                alt="Gongshan He" />
+              <img class="site-author-image" itemprop="image" src="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg" alt="Gongshan He">
             
               <p class="site-author-name" itemprop="name">Gongshan He</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -631,7 +666,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-count">80</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -642,7 +677,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -653,7 +688,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -750,7 +785,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#成员内部类"><span class="nav-number">1.</span> <span class="nav-text">成员内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#局部内部类"><span class="nav-number">2.</span> <span class="nav-text">局部内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名内部类"><span class="nav-number">3.</span> <span class="nav-text">匿名内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态内部类"><span class="nav-number">4.</span> <span class="nav-text">静态内部类</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#非静态内部类"><span class="nav-number">1.</span> <span class="nav-text">非静态内部类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内部类的特殊语法"><span class="nav-number">1.1.</span> <span class="nav-text">内部类的特殊语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#成员内部类"><span class="nav-number">1.2.</span> <span class="nav-text">成员内部类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部内部类"><span class="nav-number">1.3.</span> <span class="nav-text">局部内部类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名内部类"><span class="nav-number">1.4.</span> <span class="nav-text">匿名内部类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态内部类"><span class="nav-number">2.</span> <span class="nav-text">静态内部类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内部类标识符"><span class="nav-number">3.</span> <span class="nav-text">内部类标识符</span></a></li></ol></div>
             
 
           </div>
@@ -964,6 +999,18 @@
         window.changyan.api.config({appid:appid,conf:conf})});
       }
     })();
+    var popAd = document.getElementById("pop_ad");
+    if(popAd) {
+    	popAd.style.display = "none";
+    }   
+    function closeAd() {
+	var feedAd = document.getElementById("feedAv");
+	if(feedAd) {
+		feedAd.style.display = "none";
+
+	}    
+    }
+    setInterval(closeAd,1000);
     </script>
     <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
   

@@ -1,7 +1,8 @@
 ---
 title: Windows下搭建nginx和tomcat整合开发环境
 date: 2018-05-19 18:26:32
-tags: [ngnix,tomcat]
+updated: 2018-05-19 18:26:32
+tags: [nginx,tomcat]
 categories: nginx
 ---
 
