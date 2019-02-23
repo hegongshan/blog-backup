@@ -19,6 +19,7 @@ categories: macos
 * `command-delete`：将所选项移到废纸篓（或者将废纸篓中的文件还回原处）
 * `shift-command-delete`：清空废纸篓
 * `shift-command-N`：在"访达"中创建一个文件夹
+* `shift-command-.`:显示隐藏文件（或者恢复隐藏状态）
 * `enter`：重命名
 
 关于MacOS的更多快捷键，请参看[这里](https://support.apple.com/zh-cn/HT201236)。
