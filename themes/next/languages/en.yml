@@ -8,6 +8,9 @@ author: Author
 
 menu:
   home: Home
+  leetcode: LeetCode
+  pat-basic: PAT-Basic
+  pat-advanced: PAT-Advanced
   archives: Archives
   categories: Categories
   tags: Tags

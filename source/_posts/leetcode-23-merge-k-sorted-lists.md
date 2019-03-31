@@ -92,7 +92,7 @@ public class MergeKSortedLists23 {
 
 ### 复杂度分析
 
-时间复杂度：O($n\log_2n$)
+时间复杂度：O($n\log_2n​$)
 
 空间复杂度：O($n​$)
 

@@ -93,6 +93,9 @@ index_with_subtitle: false
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
   home: / || home
+  leetcode: /leetcode/ || code
+  pat-advanced: /pat-advanced/ || terminal
+  pat-basic: /pat-basic/ || angellist
   categories: /categories/ || th
   tags: /tags/ || tags
   archives: /archives/ || archive
@@ -101,8 +104,7 @@ menu:
   booklist: /booklist/ || book
   #schedule: /schedule/ || calendar
   #english-corner: /english-corner/ || graduation-cap
-  about: /about/ || user
-  
+  about: /about/ || user  
 
 # Enable/Disable menu icons.
 menu_icons:
@@ -156,9 +158,9 @@ links_layout: block　
 #links_layout: inline
 links:
   秦江波: https://www.qinjiangbo.com
+  柳婼: https://www.liuchuo.net
   刘德印: http://deyinliu.github.io
   高航: https://www.gaohangcs.com
-  杨洋: http://www.yangyang520.top
   java1234: http://blog.java1234.com
 
 # Sidebar Avatar
