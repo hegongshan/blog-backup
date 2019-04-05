@@ -8,9 +8,10 @@ author: Author
 
 menu:
   home: Home
-  leetcode: LeetCode
-  pat-basic: PAT-Basic
-  pat-advanced: PAT-Advanced
+  leetcode: LeetCode 
+  ccf-csp: CCF CSP 
+  pat-basic: PAT (Basic Level)
+  pat-advanced: PAT (Advanced Level)
   archives: Archives
   categories: Categories
   tags: Tags

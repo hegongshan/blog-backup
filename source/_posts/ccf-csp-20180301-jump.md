@@ -1,5 +1,5 @@
 ---
-title: CCF CSP每日一练之201803-1跳一跳
+title: CCF CSP 201803-1 跳一跳
 date: 2018-06-05 14:24:03
 updated: 2018-06-05 14:24:03
 tags: ccf csp

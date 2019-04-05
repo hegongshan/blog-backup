@@ -96,6 +96,7 @@ menu:
   leetcode: /leetcode/ || code
   pat-advanced: /pat-advanced/ || terminal
   pat-basic: /pat-basic/ || angellist
+  ccf-csp: /ccf-csp/ || laptop
   categories: /categories/ || th
   tags: /tags/ || tags
   archives: /archives/ || archive
@@ -157,10 +158,10 @@ links_title: 友情链接
 links_layout: block　
 #links_layout: inline
 links:
-  秦江波: https://www.qinjiangbo.com
-  柳婼: https://www.liuchuo.net
+  秦江波的博客: https://www.qinjiangbo.com
+  柳婼 の blog: https://www.liuchuo.net
   刘德印: http://deyinliu.github.io
-  高航: https://www.gaohangcs.com
+  高航的博客: https://www.gaohangcs.com
   java1234: http://blog.java1234.com
 
 # Sidebar Avatar
