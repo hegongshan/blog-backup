@@ -1,5 +1,5 @@
 ---
-title: SQL
+title: SQL简单总结
 date: 2018-09-08 19:27:36
 tags: sql
 categories: sql
@@ -19,7 +19,7 @@ categories: sql
 create table 表名 (
 	列名 数据类型 列级完整性约束,
 	...[,表级完整性约束]
-)
+);
 ```
 
 
@@ -27,7 +27,7 @@ create table 表名 (
 * 表的删除
 
 ```sql
-drop table 表名 [cascade | restrict]
+drop table 表名 [cascade | restrict];
 ```
 
 
@@ -37,19 +37,19 @@ drop table 表名 [cascade | restrict]
 1.增加新列
 
 ```sql
-alter table 表名 add (列名 数据类型,...)
+alter table 表名 add (列名 数据类型,...);
 ```
 
 2.删除已存在的某个列
 
 ```sql
-alter table 表名 drop 列名 [cascade | restrict]
+alter table 表名 drop 列名 [cascade | restrict];
 ```
 
 3.修改原有列的类型
 
 ```sql
-alter table 表名 modify 列名 数据类型
+alter table 表名 modify 列名 数据类型;
 ```
 
 
@@ -61,7 +61,7 @@ select [all | distinct]
 from 表名或视图名[,表名或视图名...]
 [where 条件表达式]
 [group by 列名1 [having 条件表达式]]
-[order by 列名2 [asc | desc]]
+[order by 列名2 [asc | desc]];
 ```
 
 ### DML
@@ -71,13 +71,13 @@ from 表名或视图名[,表名或视图名...]
 1.插入一条数据
 
 ```sql
-insert into 表名 [(列名,列名,...)] values(常量1[,常量2,...])
+insert into 表名 [(列名,列名,...)] values(常量1[,常量2,...]);
 ```
 
 2.插入子查询结果
 
 ```sql
-insert into 表名 [(列名,列名,...)] 查询语句
+insert into 表名 [(列名,列名,...)] 查询语句;
 ```
 
 * 修改数据
@@ -85,12 +85,12 @@ insert into 表名 [(列名,列名,...)] 查询语句
 ```sql
 update 表名 
 set 列名 = 表达式[,列名 = 表达式,...]
-[where 条件]
+[where 条件];
 ```
 
 * 删除数据
 
 ```sql
-delete from 表名 [where 条件]
+delete from 表名 [where 条件];
 ```
 

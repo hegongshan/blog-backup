@@ -92,6 +92,17 @@ $$
 \hat y
 $$
 
+#### 向上（下）取整
+
+向上取整：`$$\left \lceil \frac{a}{b} \right \rceil$$`
+$$
+\left \lceil \frac{a}{b} \right \rceil
+$$
+向下取整：`$$\left \lfloor \frac{a}{b} \right \rfloor$$`
+$$
+\left \lfloor \frac{a}{b} \right \rfloor
+$$
+
 #### 空格
 
 空一格：`a\ b ` => $a \ b$
@@ -189,12 +200,11 @@ A =
 \end{bmatrix}
 $$
 
-
 3.`\begin{Bmatrix}...\end{Bmatrix}`
 $$
 A = 
 \begin{Bmatrix}
-2 & 0 \\
+2 & 0 \\\
 0 & 5
 \end{Bmatrix}
 $$
@@ -202,7 +212,7 @@ $$
 $$
 A = 
 \begin{pmatrix}
-2 & 0 \\
+2 & 0 \\\
 0 & 5
 \end{pmatrix}
 $$
@@ -239,11 +249,12 @@ $$
 
 #### 关系运算法
 
-| 关系运算 |  符号  |
-| :------: | :----: |
-|  $\leq$  | `\leq` |
-|  $\geq$  | `\geq` |
-|  $\neq$  | `\neq` |
+| 关系运算  |   符号    |
+| :-------: | :-------: |
+|  $\leq$   |  `\leq`   |
+|  $\geq$   |  `\geq`   |
+|  $\neq$   |  `\neq`   |
+| $\approx$ | `\approx` |
 
 #### 逻辑运算符
 

@@ -226,6 +226,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-recommender-system">
+          <a href="/recommender-system/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-university"></i> <br>
+            
+            推荐系统
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-java">
+          <a href="/java/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-pagelines"></i> <br>
+            
+            Java攻城狮
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
@@ -339,12 +359,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/05/31/time-and-space-complexity/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2019/06/20/pat-advanced-1012/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -358,7 +378,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/31/time-and-space-complexity/" itemprop="url">算法的时间复杂度和空间复杂度</a></h2>
+                <a class="post-title-link" href="/2019/06/20/pat-advanced-1012/" itemprop="url">PAT甲级 1012.The Best Rank (25 分)</a></h2>
         
 
         <div class="post-meta">
@@ -372,8 +392,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T17:18:23+08:00">
-                2018-05-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-20T16:25:35+08:00">
+                2019-06-20
               </time>
             
 
@@ -388,8 +408,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-19T15:23:57+08:00">
-                2019-01-19
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-20T16:50:38+08:00">
+                2019-06-20
               </time>
             
           </span>
@@ -407,8 +427,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/pat甲级/" itemprop="url" rel="index">
+                    <span itemprop="name">pat甲级</span>
                   </a>
                 </span>
 
@@ -419,17 +439,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/05/31/time-and-space-complexity/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://www.hegongshan.com/2018/05/31/time-and-space-complexity/" class="cy_cmt_count" data-xid="2018/05/31/time-and-space-complexity/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -449,7 +458,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.9k
+                  836
                 </span>
               
 
@@ -461,7 +470,7 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
@@ -475,15 +484,13 @@
 
       
         
-          <p>算法效率的度量是对算法所需要的时间和空间进行估算，分别称为时间复杂度和空间复杂度。</p>
-<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>算法的时间效率称为算法的时间复杂度，它是问题规模n的某个函数，记作：T(n) = O(f(n))。</p>
-<p>其中问题规模n是指输入量的多少，一般可以从问题描述中得到。如，数组元素的个数、矩阵的阶数等。f(n) 是问题规模n的某个函数。这里的O是Order的简写，意指数量级，表示随问题规模n的增大，算法执行时间的增长率和 f(n) 的增长率相同。</p>
-<p>一个没有循环的算法基本运算次数与问题规模无关，记作O(1)，也称为常数阶。</p>
-<p>常见的算法时间复杂度由小到大排列如下：</p>
-<p>O(1) &lt; O($\log_{2}n$) &lt; O(n) &lt; O($n\log_{2}n$) &lt; O($n^2$) &lt; O($n^3$) &lt; … &lt; O($c^n$) &lt; O(n!)</p>
+          <p>To evaluate the performance of our first year CS majored students, we consider their grades of three courses only: <code>C</code> - C Programming Language, <code>M</code> - Mathematics (Calculus or Linear Algrbra), and <code>E</code> - English. At the mean time, we encourage students by emphasizing on their best ranks – that is, among the four ranks with respect to the three courses and the average grade, we print the best rank for each student.</p>
+<p>For example, The grades of <code>C</code>, <code>M</code>, <code>E</code> and <code>A</code> - Average of 4 students are given as the following:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">StudentID  C  M  E  A</span><br><span class="line">310101     98 85 88 90</span><br><span class="line">310102     70 95 88 84</span><br><span class="line">310103     82 87 94 88</span><br><span class="line">310104     91 91 91 91</span><br></pre></td></tr></table></figure>
+<p>Then the best ranks for all the students are No.1 since the 1st one has done the best in C Programming Language, while the 2nd one in Mathematics, the 3rd one in English, and the last one in average.</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/31/time-and-space-complexity/#more" rel="contents">
+            <a class="btn" href="/2019/06/20/pat-advanced-1012/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -535,12 +542,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/05/31/c-struct/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2019/06/17/reading-note-the-wandering-earth/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -554,7 +561,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/31/c-struct/" itemprop="url">C语言结构体</a></h2>
+                <a class="post-title-link" href="/2019/06/17/reading-note-the-wandering-earth/" itemprop="url">关于《流浪地球》这篇小说</a></h2>
         
 
         <div class="post-meta">
@@ -568,8 +575,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-31T12:04:44+08:00">
-                2018-05-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-17T21:55:24+08:00">
+                2019-06-17
               </time>
             
 
@@ -584,8 +591,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-31T12:04:44+08:00">
-                2018-05-31
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-19T22:29:37+08:00">
+                2019-06-19
               </time>
             
           </span>
@@ -603,8 +610,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c</span>
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
                   </a>
                 </span>
 
@@ -615,17 +622,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/05/31/c-struct/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://www.hegongshan.com/2018/05/31/c-struct/" class="cy_cmt_count" data-xid="2018/05/31/c-struct/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -645,7 +641,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.8k
+                  1.2k
                 </span>
               
 
@@ -657,7 +653,7 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
@@ -671,14 +667,11 @@
 
       
         
-          <p>C语言允许用户自己建立由不同类型数据组成的组合型的数据结构，它称为结构体。（类似于Java中的类）</p>
-<h3 id="定义结构体类型"><a href="#定义结构体类型" class="headerlink" title="定义结构体类型"></a>定义结构体类型</h3><p>声明一个结构体类型的一般形式：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> 结构体名 &#123;</span></span><br><span class="line">	成员列表  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>对结构体中各成员都应进行类型声明，即</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类型名	成员名;</span><br></pre></td></tr></table></figure>
+          <p><img alt="The Wandering Earth" src="/static/images/the-wandering-earth.jpg" height="250" width="250"></p>
+<p>《流浪地球》是一篇精彩宏大的小说，这里记录下小说中的一些设定及情节。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/31/c-struct/#more" rel="contents">
+            <a class="btn" href="/2019/06/17/reading-note-the-wandering-earth/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -730,12 +723,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/05/27/data-structure-and-algorithm-analysis-homework-doublelinkedlist-in-java/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2019/06/02/hbppc-2019-problem-k-a-good-game/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -749,7 +742,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/27/data-structure-and-algorithm-analysis-homework-doublelinkedlist-in-java/" itemprop="url">数据结构与算法分析作业之自己实现Java双链表</a></h2>
+                <a class="post-title-link" href="/2019/06/02/hbppc-2019-problem-k-a-good-game/" itemprop="url">2019年“锐捷网络杯”华中区高校研究生程序设计大赛K.A good game</a></h2>
         
 
         <div class="post-meta">
@@ -763,8 +756,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-27T17:30:16+08:00">
-                2018-05-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-02T20:07:33+08:00">
+                2019-06-02
               </time>
             
 
@@ -779,8 +772,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-27T17:30:16+08:00">
-                2018-05-27
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-02T21:26:56+08:00">
+                2019-06-02
               </time>
             
           </span>
@@ -798,8 +791,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构与算法分析-Java语言描述/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构与算法分析:Java语言描述</span>
+                  <a href="/categories/程序设计/" itemprop="url" rel="index">
+                    <span itemprop="name">程序设计</span>
                   </a>
                 </span>
 
@@ -810,17 +803,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/05/27/data-structure-and-algorithm-analysis-homework-doublelinkedlist-in-java/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://www.hegongshan.com/2018/05/27/data-structure-and-algorithm-analysis-homework-doublelinkedlist-in-java/" class="cy_cmt_count" data-xid="2018/05/27/data-structure-and-algorithm-analysis-homework-doublelinkedlist-in-java/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -840,7 +822,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  795
+                  616
                 </span>
               
 
@@ -852,7 +834,7 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
@@ -866,10 +848,13 @@
 
       
         
-          <p class="text-center">自己实现的Java双链表</p>
+          <p>Bigbrother is a cute boy who likes to play cards. One day, he gets <em>N</em> cards and every of them has a number $V_i$. Now, he wants to play a game with you.</p>
+<p>He has <em>M</em> operations.</p>
+<p>In the <em>k</em>-th operation, the sum of $V_i$ between intervals [L,R] is <em>S</em>, <em>k×S</em> is the <em>k</em>-th score.</p>
+<p>You can sort the <em>M</em> operations and get the maximum sum of scores.</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/27/data-structure-and-algorithm-analysis-homework-doublelinkedlist-in-java/#more" rel="contents">
+            <a class="btn" href="/2019/06/02/hbppc-2019-problem-k-a-good-game/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -921,12 +906,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/05/26/data-structure-and-algorithm-analysis-homework-singlelinkedlist-in-java/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2019/06/01/leetcode-946-validate-stack-sequences/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -940,7 +925,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/26/data-structure-and-algorithm-analysis-homework-singlelinkedlist-in-java/" itemprop="url">数据结构与算法分析作业之自己实现Java单链表</a></h2>
+                <a class="post-title-link" href="/2019/06/01/leetcode-946-validate-stack-sequences/" itemprop="url">LeetCode 946.验证栈序列</a></h2>
         
 
         <div class="post-meta">
@@ -954,8 +939,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-26T20:14:55+08:00">
-                2018-05-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-01T17:01:28+08:00">
+                2019-06-01
               </time>
             
 
@@ -970,8 +955,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-26T20:14:55+08:00">
-                2018-05-26
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-01T17:25:50+08:00">
+                2019-06-01
               </time>
             
           </span>
@@ -989,8 +974,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构与算法分析-Java语言描述/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构与算法分析:Java语言描述</span>
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
                   </a>
                 </span>
 
@@ -1001,17 +986,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/05/26/data-structure-and-algorithm-analysis-homework-singlelinkedlist-in-java/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://www.hegongshan.com/2018/05/26/data-structure-and-algorithm-analysis-homework-singlelinkedlist-in-java/" class="cy_cmt_count" data-xid="2018/05/26/data-structure-and-algorithm-analysis-homework-singlelinkedlist-in-java/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -1031,7 +1005,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  394
                 </span>
               
 
@@ -1043,7 +1017,7 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
@@ -1057,10 +1031,10 @@
 
       
         
-          <p class="text-center">自己实现的Java单链表</p>
+          <p>给定 <code>pushed</code> 和 <code>popped</code> 两个序列，只有当它们可能是在最初空栈上进行的推入 push 和弹出 pop 操作序列的结果时，返回 <code>true</code>；否则，返回 <code>false</code> 。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/26/data-structure-and-algorithm-analysis-homework-singlelinkedlist-in-java/#more" rel="contents">
+            <a class="btn" href="/2019/06/01/leetcode-946-validate-stack-sequences/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1112,12 +1086,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/05/26/c-pointer/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2019/05/30/whu-cs-graduate-union-election/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1131,7 +1105,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/26/c-pointer/" itemprop="url">浅析C语言指针</a></h2>
+                <a class="post-title-link" href="/2019/05/30/whu-cs-graduate-union-election/" itemprop="url">关于研会竞选这件事</a></h2>
         
 
         <div class="post-meta">
@@ -1145,8 +1119,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-26T19:13:35+08:00">
-                2018-05-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-30T13:01:10+08:00">
+                2019-05-30
               </time>
             
 
@@ -1161,8 +1135,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-26T19:13:35+08:00">
-                2018-05-26
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-03T22:02:49+08:00">
+                2019-06-03
               </time>
             
           </span>
@@ -1180,8 +1154,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index">
-                    <span itemprop="name">c</span>
+                  <a href="/categories/生活/" itemprop="url" rel="index">
+                    <span itemprop="name">生活</span>
                   </a>
                 </span>
 
@@ -1192,17 +1166,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/05/26/c-pointer/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://www.hegongshan.com/2018/05/26/c-pointer/" class="cy_cmt_count" data-xid="2018/05/26/c-pointer/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -1222,7 +1185,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  474
+                  849
                 </span>
               
 
@@ -1234,7 +1197,7 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
@@ -1248,10 +1211,11 @@
 
       
         
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;指针是一个地址，而指针变量是存放地址的变量。</p>
+          <p><img src="/static/images/whu-cs-graduate-union-election.jpg" width="500px" height="500px"></p>
+<p>2019年5月30日，武汉大学计算机学院举办了第十九届研究生代表大会，我成为了计算机学院第十九届研究生会主席团的一名成员。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/26/c-pointer/#more" rel="contents">
+            <a class="btn" href="/2019/05/30/whu-cs-graduate-union-election/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1303,12 +1267,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/05/25/data-structure-and-algorithm-analysis-homework-arraylist/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2019/05/29/pat-basic-1015/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1322,7 +1286,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/25/data-structure-and-algorithm-analysis-homework-arraylist/" itemprop="url">数据结构与算法分析作业之自己实现Java顺序表</a></h2>
+                <a class="post-title-link" href="/2019/05/29/pat-basic-1015/" itemprop="url">PAT乙级 1015.德才论/PAT甲级 1062.Talent and Virtue (25 分)</a></h2>
         
 
         <div class="post-meta">
@@ -1336,8 +1300,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-25T22:55:17+08:00">
-                2018-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T19:11:11+08:00">
+                2019-05-29
               </time>
             
 
@@ -1352,8 +1316,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-25T22:55:17+08:00">
-                2018-05-25
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-30T22:39:55+08:00">
+                2019-05-30
               </time>
             
           </span>
@@ -1371,8 +1335,19 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构与算法分析-Java语言描述/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构与算法分析:Java语言描述</span>
+                  <a href="/categories/pat乙级/" itemprop="url" rel="index">
+                    <span itemprop="name">pat乙级</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/pat乙级/pat甲级/" itemprop="url" rel="index">
+                    <span itemprop="name">pat甲级</span>
                   </a>
                 </span>
 
@@ -1383,17 +1358,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/05/25/data-structure-and-algorithm-analysis-homework-arraylist/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://www.hegongshan.com/2018/05/25/data-structure-and-algorithm-analysis-homework-arraylist/" class="cy_cmt_count" data-xid="2018/05/25/data-structure-and-algorithm-analysis-homework-arraylist/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -1413,7 +1377,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  775
+                  968
                 </span>
               
 
@@ -1425,7 +1389,7 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
@@ -1439,10 +1403,11 @@
 
       
         
-          <p class="text-center">自己实现的Java顺序表</p>
+          <p>宋代史学家司马光在《资治通鉴》中有一段著名的“德才论”：“是故才德全尽谓之圣人，才德兼亡谓之愚人，德胜才谓之君子，才胜德谓之小人。凡取人之术，苟不得圣人，君子而与之，与其得小人，不若得愚人。”</p>
+<p>现给出一批考生的德才分数，请根据司马光的理论给出录取排名。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/25/data-structure-and-algorithm-analysis-homework-arraylist/#more" rel="contents">
+            <a class="btn" href="/2019/05/29/pat-basic-1015/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1494,12 +1459,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/05/21/java-spider-httpurlconnection-in-action/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2019/05/29/leetcode-889-construct-binary-tree-from-preorder-and-postorder-traversal/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1513,7 +1478,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/21/java-spider-httpurlconnection-in-action/" itemprop="url">java网络爬虫之HttpURLConnection实战</a></h2>
+                <a class="post-title-link" href="/2019/05/29/leetcode-889-construct-binary-tree-from-preorder-and-postorder-traversal/" itemprop="url">LeetCode 889.根据前序和后序遍历构造二叉树</a></h2>
         
 
         <div class="post-meta">
@@ -1527,8 +1492,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T18:02:18+08:00">
-                2018-05-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T19:10:27+08:00">
+                2019-05-29
               </time>
             
 
@@ -1543,8 +1508,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-21T18:02:18+08:00">
-                2018-05-21
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-30T17:24:17+08:00">
+                2019-05-30
               </time>
             
           </span>
@@ -1562,8 +1527,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络爬虫/" itemprop="url" rel="index">
-                    <span itemprop="name">网络爬虫</span>
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
                   </a>
                 </span>
 
@@ -1574,17 +1539,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/05/21/java-spider-httpurlconnection-in-action/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://www.hegongshan.com/2018/05/21/java-spider-httpurlconnection-in-action/" class="cy_cmt_count" data-xid="2018/05/21/java-spider-httpurlconnection-in-action/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -1604,7 +1558,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  722
+                  411
                 </span>
               
 
@@ -1616,7 +1570,7 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
@@ -1630,20 +1584,10 @@
 
       
         
-          <p>在开始写爬虫之前，我们先来总结一下用HttpURLConnection写爬虫的操作步骤：</p>
-<p>1.实例化一个URL，调用URL类的openConnection()方法获得URLConnection对象，并强转为HttpURLConnection对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">URL url = <span class="keyword">new</span> URL(<span class="string">"http://host/path"</span>);</span><br><span class="line">HttpURLConnection connection = (HttpURLConnection) url.openConnection();</span><br></pre></td></tr></table></figure>
-<p>2.设置连接的请求属性，诸如，setRequestProperty、setConnectionTimeout、setReadTimeout等</p>
-<p>3.调用connect()方法连接远程资源</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connection.connect();</span><br></pre></td></tr></table></figure>
-<p>4.访问资源数据。使用getInputStream方法获取一个输入流用以读取信息。如果服务器端出现错误，调用getErrorStream()方法获取错误信息。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    connection.getInputStream();</span><br><span class="line">&#125; <span class="keyword">catch</span>(Exception e) &#123;</span><br><span class="line">    connection.getErrorStream();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>5.调用disconnect()关闭连接</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connection.disconnect();</span><br></pre></td></tr></table></figure>
-<p>6.解析需要的数据。</p>
+          <p>返回与给定的前序和后序遍历匹配的任何二叉树。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/21/java-spider-httpurlconnection-in-action/#more" rel="contents">
+            <a class="btn" href="/2019/05/29/leetcode-889-construct-binary-tree-from-preorder-and-postorder-traversal/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1695,12 +1639,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/05/21/java-spider-httpurlconnection/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2019/05/29/leetcode-106-construct-binary-tree-from-inorder-and-postorder-traversal/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1714,7 +1658,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/21/java-spider-httpurlconnection/" itemprop="url">Java网络爬虫之详解HttpURLConnection</a></h2>
+                <a class="post-title-link" href="/2019/05/29/leetcode-106-construct-binary-tree-from-inorder-and-postorder-traversal/" itemprop="url">LeetCode 106.从中序与后序遍历序列构造二叉树</a></h2>
         
 
         <div class="post-meta">
@@ -1728,8 +1672,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T15:14:04+08:00">
-                2018-05-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T18:51:48+08:00">
+                2019-05-29
               </time>
             
 
@@ -1744,8 +1688,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-21T15:14:04+08:00">
-                2018-05-21
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-30T16:58:03+08:00">
+                2019-05-30
               </time>
             
           </span>
@@ -1763,8 +1707,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络爬虫/" itemprop="url" rel="index">
-                    <span itemprop="name">网络爬虫</span>
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
                   </a>
                 </span>
 
@@ -1775,17 +1719,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/05/21/java-spider-httpurlconnection/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://www.hegongshan.com/2018/05/21/java-spider-httpurlconnection/" class="cy_cmt_count" data-xid="2018/05/21/java-spider-httpurlconnection/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -1805,7 +1738,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  630
+                  402
                 </span>
               
 
@@ -1817,7 +1750,7 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
@@ -1831,13 +1764,10 @@
 
       
         
-          <p>在Java.net包下有一个类HttpURLConnection，其继承结构如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpURLConnection</span> <span class="keyword">extends</span> <span class="title">URLConnection</span></span></span><br></pre></td></tr></table></figure>
-<p>它的父类URLConnection也是一个抽象类。要想取得URLConnection对象，只能通过java.net.URL下的如下方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> URLConnection <span class="title">openConnection</span><span class="params">()</span> <span class="keyword">throws</span> java.io.IOException</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> URLConnection <span class="title">openConnection</span><span class="params">(Proxy proxy)</span> <span class="keyword">throws</span> java.io.IOException</span>;</span><br></pre></td></tr></table></figure>
+          <p>根据一棵树的中序遍历与后序遍历构造二叉树。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/21/java-spider-httpurlconnection/#more" rel="contents">
+            <a class="btn" href="/2019/05/29/leetcode-106-construct-binary-tree-from-inorder-and-postorder-traversal/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1889,12 +1819,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/05/19/windows-nginx-tomcat-development-environment/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2019/05/29/leetcode-105-construct-binary-tree-from-preorder-and-inorder-traversal/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1908,7 +1838,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/19/windows-nginx-tomcat-development-environment/" itemprop="url">Windows下搭建nginx和tomcat整合开发环境</a></h2>
+                <a class="post-title-link" href="/2019/05/29/leetcode-105-construct-binary-tree-from-preorder-and-inorder-traversal/" itemprop="url">LeetCode 105.从前序与中序遍历序列构造二叉树</a></h2>
         
 
         <div class="post-meta">
@@ -1922,8 +1852,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-19T18:26:32+08:00">
-                2018-05-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T11:33:01+08:00">
+                2019-05-29
               </time>
             
 
@@ -1938,8 +1868,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-19T18:26:32+08:00">
-                2018-05-19
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-30T16:52:40+08:00">
+                2019-05-30
               </time>
             
           </span>
@@ -1957,8 +1887,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx</span>
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
                   </a>
                 </span>
 
@@ -1969,17 +1899,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/05/19/windows-nginx-tomcat-development-environment/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://www.hegongshan.com/2018/05/19/windows-nginx-tomcat-development-environment/" class="cy_cmt_count" data-xid="2018/05/19/windows-nginx-tomcat-development-environment/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -1999,7 +1918,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  406
                 </span>
               
 
@@ -2011,7 +1930,7 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
@@ -2025,14 +1944,10 @@
 
       
         
-          <blockquote>
-<p>遇到的问题越多，人成长的越快。算下日子，接手课题组的项目，已经一月有余。期间碰到了很多问题，也一直在积极面对。</p>
-</blockquote>
-<h4 id="问题引出"><a href="#问题引出" class="headerlink" title="问题引出"></a>问题引出</h4><p>接手课题组的项目后，遇到过一个很严重的问题：项目在本地tomcat上能完美运行，但是到了服务器上，就出问题了——JSP文件中el表达式${pageContext.request.contextPath}取到的上下文路径始终为空，即***“”。由于之前深受项目必须使用绝对路径这一思想的影响，我在JSP文件中定义了如下变量，用来表示外部js文件中的ajax请求地址的前缀。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	<span class="keyword">var</span> contextPath = <span class="string">"$&#123;pageContext.request.contextPath&#125;"</span>;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+          <p>根据一棵树的前序遍历与中序遍历构造二叉树。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/19/windows-nginx-tomcat-development-environment/#more" rel="contents">
+            <a class="btn" href="/2019/05/29/leetcode-105-construct-binary-tree-from-preorder-and-inorder-traversal/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2084,12 +1999,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/05/14/sql-fuzzy-query-and-highlight-keyword/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2019/05/27/leetcode-1008-construct-binary-search-tree-from-preorder-traversal/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -2103,7 +2018,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/14/sql-fuzzy-query-and-highlight-keyword/" itemprop="url">SQL模糊查询并高亮显示查询结果</a></h2>
+                <a class="post-title-link" href="/2019/05/27/leetcode-1008-construct-binary-search-tree-from-preorder-traversal/" itemprop="url">LeetCode 1008.先序遍历构造二叉树</a></h2>
         
 
         <div class="post-meta">
@@ -2117,8 +2032,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-14T21:22:31+08:00">
-                2018-05-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-27T22:39:01+08:00">
+                2019-05-27
               </time>
             
 
@@ -2133,8 +2048,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-16T18:48:20+08:00">
-                2018-05-16
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-28T17:56:39+08:00">
+                2019-05-28
               </time>
             
           </span>
@@ -2152,8 +2067,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/sql/" itemprop="url" rel="index">
-                    <span itemprop="name">sql</span>
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
                   </a>
                 </span>
 
@@ -2164,17 +2079,6 @@
           
 
           
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2018/05/14/sql-fuzzy-query-and-highlight-keyword/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://www.hegongshan.com/2018/05/14/sql-fuzzy-query-and-highlight-keyword/" class="cy_cmt_count" data-xid="2018/05/14/sql-fuzzy-query-and-highlight-keyword/" itemprop="commentsCount"></span>
-                </a>
-              
             
           
 
@@ -2194,7 +2098,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  610
+                  509
                 </span>
               
 
@@ -2206,7 +2110,7 @@
 
           
 
-        </span></div>
+        </div>
       </header>
     
 
@@ -2220,12 +2124,11 @@
 
       
         
-          <p>最近在完善课题组的项目时，遇到了一个问题：项目有个论坛模块，需要实现根据用户输入的关键字检索论坛文章，然后高亮显示检索结果。</p>
-<p>本来遇到这个需求，第一反应是用lucene来做全文检索。但是，lucene只是一个全文检索工具包，要用它实现全文检索，需要写一大堆的代码，加之虽然之前用过几次lucene，但是对lucene的API还是不太熟。想想还是算了，等以后专门研究一下lucene再说吧。</p>
-<p>有朋友可能要问了：为什么不用solr或者elasticsearch？还不是因为不熟，再说了，一个solr一百多兆，我这就是个小项目，没必要啊。思来想去，最后还是决定就用sql的模糊查询like实现。</p>
+          <p>返回与给定先序遍历 <code>preorder</code> 相匹配的二叉搜索树（binary <strong>search</strong> tree）的根结点。</p>
+<p><em>(回想一下，二叉搜索树是二叉树的一种，其每个节点都满足以下规则，对于 node.left 的任何后代，值总 &lt; node.val，而 node.right 的任何后代，值总 &gt; node.val。此外，先序遍历首先显示节点的值，然后遍历 node.left，接着遍历 node.right。）</em></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/14/sql-fuzzy-query-and-highlight-keyword/#more" rel="contents">
+            <a class="btn" href="/2019/05/27/leetcode-1008-construct-binary-search-tree-from-preorder-traversal/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2268,7 +2171,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2303,7 +2206,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://p64uw9x5j.bkt.clouddn.com/image/201607032013.jpg" alt="Gongshan He">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Gongshan He">
             
               <p class="site-author-name" itemprop="name">Gongshan He</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -2316,7 +2219,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">98</span>
+                  <span class="site-state-item-count">225</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2327,7 +2230,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2338,7 +2241,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2395,10 +2298,6 @@
                 友情链接
               </div>
               <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.qinjiangbo.com" title="秦江波的博客" target="_blank">秦江波的博客</a>
-                  </li>
                 
                   <li class="links-of-blogroll-item">
                     <a href="https://www.liuchuo.net" title="柳婼 の blog" target="_blank">柳婼 の blog</a>
@@ -2618,9 +2517,6 @@
 
 
 
-  
-    <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytwUlqjR"></script>
-  
 
 
 
@@ -3004,6 +2900,76 @@
   
 
   
+
+    <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+
+        if(result)$(this).text('复制成功')
+        else $(this).text('复制失败')
+
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
 
 </body>
 </html>

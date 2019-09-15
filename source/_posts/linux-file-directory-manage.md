@@ -16,11 +16,17 @@ tags: linux
 
 ls，全称list，用于列出某个目录下的所有文件和目录。
 
+用法：ls -options dirName
+
+参数说明：
+
+* `-a`或者`--all`：列出所有的文件，包括以点号开头的文件
+
 ### cd
 
-cd，全称change directory，用于切换路径。估计大伙对cd这个命令都很熟，因为Windows上的命令行界面也是用的cd命令来切换路径。值得一提的是，"~"表示home目录，".."表示回到当前目录的上一级目录
+cd，全称change directory，用于切换路径。估计大伙对cd这个命令都很熟，因为Windows上的命令行界面也是用cd命令来切换路径。值得一提的是，"~"表示当前用户的主目录，".."表示回到当前目录的上一级目录
 
-语法：cd [dirName]
+用法：cd [dirName]
 
 ### pwd
 
@@ -30,7 +36,7 @@ pwd，全称print working directory，用于输出当前的工作目录名。
 
 rm，全称remove，用于删除文件或目录。
 
-语法：rm [options] name...
+用法：rm [options] name...
 
 参数说明：
 
@@ -44,7 +50,7 @@ rm，全称remove，用于删除文件或目录。
 
 cp，全称copy，用于复制文件或目录。
 
-语法：cp [options] source... dest
+用法：cp [options] source... dest
 
 cp的参数比较多，这里只讲-r，其他的用到再现学。cp中的-r和rm中的-r意思差不多，都表示递归。主要用于目录复制。
 
@@ -54,35 +60,27 @@ cp的参数比较多，这里只讲-r，其他的用到再现学。cp中的-r和
 
 mv，具有rename和move两种功能，用于重命名文件或目录，或者将文件或目录移入另一个目录。
 
-语法：mv source dest
+用法：mv source dest
 
-简单来说，如果source和dest同为目录或者文件，且dest不存在，则将source重命名为dest，如果source文件，而dest为目录，则将source移到dest中
+简单来说，如果source和dest同为目录或者文件，且dest不存在，则将source重命名为dest；
 
-* 重命名文件
-
-![文件重命名](http://p64uw9x5j.bkt.clouddn.com/image/2018/05/12/201805122034120.png "重命名文件")
-
-* 重命名目录
-
-![目录重命名](http://p64uw9x5j.bkt.clouddn.com/image/2018/05/12/20180512204449.png "重命名目录")
-
-* 将文件移动另一个目录中
-
-![将文件移动到指定目录中](http://p64uw9x5j.bkt.clouddn.com/image/2018/05/12/20180512204754.png "将文件移动到指定目录中")
-
-* 将目录移动到指定目录中
-
-![将目录移动到指定目录中](http://p64uw9x5j.bkt.clouddn.com//image/2018/05/12/20180512205155.png )
+如果source为文件或目录，而dest为目录，则将source移到dest中。
 
 ### touch
 
 touch，用于创建文件。如果文件已经存在，则更新文件的时间戳。
 
+### file
+
+file，用于输出文件类型。
+
+用法：file filename
+
 ### mkdir
 
 mkdir，全称make directory，用于创建目录。
 
-语法：mkdir [options] dirName
+用法：mkdir [options] dirName
 
 mkdir的参数暂时没用过，等用到了再补上。
 
@@ -95,3 +93,4 @@ rmdir，全称remove directory，用于删除空目录。
 参数：
 
 * -p：全称parents，删除指定的空目录后，若此时该目录的父目录已变成空目录，则将父目录一并删除。
+

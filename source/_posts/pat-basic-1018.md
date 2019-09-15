@@ -1,5 +1,5 @@
 ---
-title: PAt乙级 1018.锤子剪刀布 （20 分)
+title: PAT乙级 1018.锤子剪刀布 （20 分)
 date: 2019-04-01 16:42:25
 tags: pat
 categories: pat乙级
