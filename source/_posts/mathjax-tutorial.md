@@ -48,8 +48,8 @@ $$
 
 #### 累加、累乘
 
-* 累加：`$\sum_{i=1}^{n}{I^2+1}$`　=> $\sum_{i=1}^n{(i^2+2i+1)}$
-* 累乘：`$\prod_{i=1}^n{\frac{1}{i^2}}$` => $\prod_{i=1}^n{\frac{1}{i^2}}$
+* 累加：`$\sum_{i=1}^n (i^2+2i+1)$`　=> $\sum_{i=1}^n (i^2+2i+1)$
+* 累乘：`$\prod_{i=1}^n \frac{1}{i^2}$` => $\prod_{i=1}^n \frac{1}{i^2}$
 
 #### 向量
 
@@ -227,16 +227,18 @@ $$
 
 #### 箭头
 
-|     箭头      |     符号      |
-| :-----------: | :-----------: |
-|  $\uparrow$   |  `\uparrow`   |
-|  $\Uparrow$   |  `\Uparrow`   |
-| $\downarrow$  | `\downarrow`  |
-| $\Downarrow$  | `\Downarrow`  |
-| $\rightarrow$ | `\rightarrow` |
-| $\Rightarrow$ | `\Rightarrow` |
-| $\leftarrow$  | `\leftarrow`  |
-| $\Leftarrow$  | `\Leftarrow`  |
+|       箭头        |       符号        |
+| :---------------: | :---------------: |
+|    $\uparrow$     |    `\uparrow`     |
+|    $\Uparrow$     |    `\Uparrow`     |
+|   $\downarrow$    |   `\downarrow`    |
+|   $\Downarrow$    |   `\Downarrow`    |
+|   $\rightarrow$   |   `\rightarrow`   |
+|   $\Rightarrow$   |   `\Rightarrow`   |
+|   $\leftarrow$    |   `\leftarrow`    |
+|   $\Leftarrow$    |   `\Leftarrow`    |
+| $\leftrightarrow$ | `\leftrightarrow` |
+| $\Leftrightarrow$ | `\Leftrightarrow` |
 
 #### 四则运算
 
@@ -247,47 +249,107 @@ $$
 | $\times$ | `\times` |
 |  $\div$  |  `\div`  |
 
-#### 关系运算法
+#### 特殊乘法
 
-| 关系运算  |   符号    |
-| :-------: | :-------: |
-|  $\leq$   |  `\leq`   |
-|  $\geq$   |  `\geq`   |
-|  $\neq$   |  `\neq`   |
-| $\approx$ | `\approx` |
+- `$x \cdot y$` => $x \cdot y$
+- `$x \bullet y$` => $x \bullet y$
+- `$x \odot y$` => $x \odot y$
+- `$x \otimes y$` => $x \otimes y$
+
+#### 关系运算符
+
+|      关系运算       |      符号      |
+| :-----------------: | :------------: |
+|       $\leq$        |     `\leq`     |
+|       $\geq$        |     `\geq`     |
+|       $\neq$        |     `\neq`     |
+|      $\approx$      |   `\approx`    |
+|        $\ll$        |     `\ll`      |
+|        $\gg$        |     `\gg`      |
+|    相似于$\sim$     |     `\sim`     |
+|      $\simeq$       |    `\simeq`    |
+|     全等$\cong$     |    `\cong`     |
+|    恒等$\equiv$     |    `\equiv`    |
+| 定义为$\triangleq$  |  `\triangleq`  |
+|       $\prec$       |    `\prec`     |
+|       $\succ$       |    `\succ`     |
+|   正比于$\propto$   |   `\propto`    |
+| 推出 $\to$、$\gets$ | `\to`、`\gets` |
 
 #### 逻辑运算符
 
-|   逻辑运算    |     符号      |
-| :-----------: | :-----------: |
-|   $\forall$   |   `\forall`   |
-|    $\cup$     |    `\cup`     |
-|    $\cap$     |    `\cap`     |
-|     $\in$     |     `\in`     |
-|   $\notin$    |   `\notin`    |
-| $\varnothing$ | `\varnothing` |
+| 逻辑运算  |   符号    |
+| :-------: | :-------: |
+| $\forall$ | `\forall` |
+| $\exists$ | `\exists` |
+|  $\land$  |  `\land`  |
+|  $\lor$   |  `\lor`   |
+|  $\lnot$  |  `\lnot`  |
+
+#### 集合运算符
+
+|       集合运算       |    符号     |   集合运算    |     符号      |   集合运算    |     符号      |
+| :------------------: | :---------: | :-----------: | :-----------: | :-----------: | :-----------: |
+|        $\cup$        |   `\cup`    |  $\subseteq$  |  `\subseteq`  |     $\in$     |     `\in`     |
+|        $\cap$        |   `\cap`    | $\subseteqq$  | `\subseteqq`  |   $\notin$    |   `\notin`    |
+|      $\subset$       |  `\subset`  | $\subsetneq$  | `\subsetneq`  | $\varnothing$ | `\varnothing` |
+|      $\supset$       |  `\supset`  | $\subsetneqq$ | `\subsetneqq` |  $\emptyset$  |  `\emptyset`  |
+| 集合相减 $\setminus$ | `\setminus` |  $\supseteq$  |  `\supseteq`  | $\supsetneqq$ | `\supsetneqq` |
 
 #### 希腊字母
 
-|    字母    |    符号    |
-| :--------: | :--------: |
-|  $\alpha$  |  `\alpha`  |
-|  $\beta$   |  `\beta`   |
-|  $\gamma$  |  `\gamma`  |
-| $\lambda$  | `\lambda`  |
-|   $\eta$   |   `\eta`   |
-| $\epsilon$ | `\epsilon` |
-|  $\theta$  |  `\theta`  |
-| $ \sigma $ |  `\sigma`  |
-|  $\Sigma$  |  `\Sigma`  |
+|          小写字母          |            符号            | 大写字母  |   符号    |
+| :------------------------: | :------------------------: | :-------: | :-------: |
+|          $\alpha$          |          `\alpha`          |           |           |
+|          $\beta$           |          `\beta`           |           |           |
+|          $\gamma$          |          `\gamma`          | $\Gamma$  | `\Gamma`  |
+|          $\delta$          |          `\delta`          | $\Delta$  |  `Delta`  |
+|         $\lambda$          |         `\lambda`          | $\Lambda$ | `\Lambda` |
+|           $\eta$           |           `\eta`           |           |           |
+| $\epsilon$   $\varepsilon$ | `\epsilon`   `\varepsilon` |           |           |
+|           $\rho$           |           `\rho`           |           |           |
+|          $\zeta$           |          `\zeta`           |           |           |
+|           $\xi$            |           `\xi`            |   $\Xi$   |   `\Xi`   |
+|           $\pi$            |           `\pi`            |   $\Pi$   |   `\Pi`   |
+|          $\theta$          |          `\theta`          | $\Theta$  | `\Theta`  |
+|         $ \sigma $         |          `\sigma`          | $\Sigma$  | `\Sigma`  |
+|           $\phi$           |           `\phi`           |  $\Phi$   |  `\Phi`   |
+|           $\psi$           |           `\psi`           |  $\Psi$   |  `\Psi`   |
+|           $\mu$            |           `\mu`            |           |           |
+|          $\omega$          |          `\omega`          | $\Omega$  | `\Omega`  |
+|           $\tau$           |           `\tau`           |           |           |
 
+#### 字体
 
+* 粗体（boldface）：`\mathbf{X}` => $\mathbf{X}$
 
+* 罗马体（roman）：`\mathrm{d}x` => $\mathrm{d}x$
 
+导数的正式写法：`\frac{\mathrm{d} y } {\mathrm{d} x }`
+$$
+\frac{\mathrm{d} y } {\mathrm{d} x }
+$$
+以下三种字体仅支持大写字母
 
+* 书写体（calligraphic）：`\mathcal{X}` => $\mathcal{X}$
 
+* script：`\mathscr{X}` => $\mathscr{X}$
+* 黑体（Blackboard bold）：`\mathbb{X}` => $\mathbb{X} $
 
+#### 特殊符号
 
+|               特殊符号               |        代码        |
+| :----------------------------------: | :----------------: |
+|          反斜杠$\backslash$          |    `\backslash`    |
+|             星号$\star$              |      `\star`       |
+|         度数，例如$30^\circ$         |     `30^\circ`     |
+|      手写体$\ell$，区别于数字1       |       `\ell`       |
+|         导数简写，撇$\prime$         |      `\prime`      |
+|           波浪号$\tilde x$           |    ` \tilde x`     |
+| $\overset{def}{=}$、$\overset{b}{a}$ | `\overset{def}{=}` |
+|          $\underset{b}{a}$           | `\underset{b}{a}`  |
+|       单个字符上划线 $\bar b$        |      `\bar b`      |
+|    多个字符上划线 $\overline{ab}$    |  `\overline{ab}`   |
 
 
 

@@ -1,8 +1,8 @@
 ---
 title: 《推荐系统实践》3.基于物品的协同过滤算法
 date: 2019-03-13 11:31:32
-tags: recommender system
-categories: recommender system
+tags: recommender systems
+categories: recommender systems
 mathjax: true
 ---
 

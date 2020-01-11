@@ -1,5 +1,5 @@
 ---
-title: Python字符串
+title: Python字符串（str）
 date: 2019-09-13 14:12:58
 tags: python
 categories: python

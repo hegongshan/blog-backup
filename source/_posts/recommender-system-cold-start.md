@@ -1,8 +1,8 @@
 ---
 title: 《推荐系统实践》4.推荐系统冷启动问题
 date: 2019-03-14 11:43:54
-tags: recommender system
-categories: recommender system
+tags: recommender systems
+categories: recommender systems
 mathjax: true
 ---
 

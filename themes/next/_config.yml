@@ -97,7 +97,7 @@ menu:
   pat-advanced: /pat-advanced/ || terminal
   pat-basic: /pat-basic/ || angellist
   ccf-csp: /ccf-csp/ || laptop
-  recommender-system: /recommender-system/ || university
+  recommender-systems: /recommender-systems/ || university
   java: /java/ || pagelines
   categories: /categories/ || th
   tags: /tags/ || tags
@@ -161,9 +161,11 @@ links_layout: block　
 #links_layout: inline
 links:
   柳婼 の blog: https://www.liuchuo.net
-  刘德印: http://deyinliu.github.io
+  心灵港: https://www.qinjiangbo.com
+  卢明冬的博客: https://lumingdong.cn
+  lipixun: http://lipixun.me
+  Liudeyin: http://deyinliu.github.io
   高航的博客: https://www.gaohangcs.com
-  java1234: http://blog.java1234.com
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
@@ -841,3 +843,7 @@ version: 5.1.4
 #文章结束标记
 article-end-tag:
   enabled: false
+
+cursor_effect:
+  enabled: true
+  type: love  # fireworks：礼花 | explosion：爆炸 | love：浮出爱心 | text：浮出文字

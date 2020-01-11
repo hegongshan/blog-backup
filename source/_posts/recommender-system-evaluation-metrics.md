@@ -1,10 +1,12 @@
 ---
-title: 《推荐系统实践》1.推荐系统评测
+title: 推荐系统常用评价指标
 date: 2019-03-04 16:01:27
-tags: recommender system
-categories: recommender system
+tags: recommender systems
+categories: recommender systems
 mathjax: true
 ---
+
+<!--
 
 ### 推荐系统实验方法
 
@@ -63,67 +65,163 @@ AB测试是一种很常用的在线评测算法的实验方法。它通过一定
 
 在计算该指标时需要有一个离线的数据集，该数据集包含用户的历史行为记录。然后，将该数据集通过时间分成训练集和测试集。最后，通过在训练集上建立用户的行为和兴趣模型预测用户在测试集上的行为，并计算预测行为和测试集上实际行为的重合度作为预测准确度。
 
-由于离线的推荐算法有不同的研究方向，因此下面将针对不同的研究方向介绍它们的预测准确度指标。 
+由于离线的推荐算法有不同的研究方向，因此下面将针对不同的研究方向介绍它们的预测准确度指标。
 
-* 评分预测
+ -->
+
+### 评分预测
 
 预测用户对物品评分的行为称为评分预测（rating prediction）。
 
-评分预测的预测准确度一般通过**均方根误差(Root Mean Squared Error，简称RMSE)和平均绝对误差(Mean Absolute Error，简称MAE)**计算。对于测试集中的一个用户u和物品i ，令$r_{ui}$是用户对物品i的实际评分，而$\hat{r}_{ui}$是推荐算法给出的预测评分，那么RMSE的定义为
+评分预测的预测准确度一般通过**均方根误差(Root Mean Squared Error，简称RMSE)和平均绝对误差(Mean Absolute Error，简称MAE)**计算。
+
+对于测试集中的一个用户u和物品i，令$r_{ui}$是用户对物品i的实际评分，而$\hat{r}_{ui}$是推荐算法给出的预测评分。
+
+#### RMSE
 
 $$
-RMSE = \frac {\sqrt{\sum_{u,i\in Test}{(r_{ui}-\hat{r}_{ui})^2}}} {|Test|}
+RMSE = \sqrt{ 
+	\frac {
+		\sum_{(u,i)\in Test} (r_{ui}-\hat{r}_{ui})^2
+	}{
+		\left \vert Test \right \vert
+	} 
+} \tag{1}
 $$
+
+#### MAE
 
 MAE采用绝对值计算预测误差，它的定义为:
-
 $$
-MAE = \frac {\sum_{u,i\in Test}{|r_{ui}-\hat{r}_{ui}|}} {|Test|}
+MAE = \frac {
+	\sum_{(u,i) \in Test}{|r_{ui}-\hat{r}_{ui}|}
+}{
+	\left \vert Test \right \vert
+} \tag{2}
 $$
 
-假设我们用一个列表records存放用户评分数据，令*records[i] = [u,i,rui,pui]*，其中rui是用户u对物品i的实际评分，pui是算法预测出来的用户u对物品i的评分，那么下面的代码分别实现了RMSE和MAE的计算过程。 
-
-```python
-import math
-
-def RMSE(records):
-    return math.sqrt(sum([pow(rui-pui,2) for u,i,rui,pui in records])) \
-        / float(len(records))
-        
-def MAE(records):
-    return sum([abs(rui-pui) for u,i,rui,pui in records]) \
-        / float(len(records))
-```
-
-* TopN推荐
+### TopN推荐
 
 网站在提供推荐服务时，一般是给用户一个个性化的推荐列表，这种推荐叫做TopN推荐。 
+
+**在推荐系统的论文中，经常可以看到xx@N，它是xx at rank N的缩写。**意为在TopN推荐中，该指标的值。
+
+#### Precision/Recall
 
 TopN推荐的预测准确率一般通过准确率(precision)/召回率(recall)度量。 
 
 令R(u)是根据用户在训练集上的行为给用户作出的推荐列表，而T(u)是用户在测试集上的行为列表。那么，推荐结果的召回率定义为:
 $$
-Recall = \frac {\sum_{u \in U}|R(u) \cap T(u)|} {\sum_{u \in U}|T(u)|}
+\mathrm{Recall}@N = \frac {
+	\sum_{u \in U}|R(u) \cap T(u)|
+} {
+	\sum_{u \in U}|T(u)|
+} \tag{3}
 $$
 推荐结果的准确率定义为：
 $$
-Precision = \frac {\sum_{u \in U}|R(u) \cap T(u)|} {\sum_{u \in U}|R(u)|}
+\mathrm{Precision}@N = \frac {
+	\sum_{u \in U}|R(u) \cap T(u)|
+} {
+	\sum_{u \in U}|R(u)|
+} \tag{4}
 $$
-下面用代码同时计算一个推荐算法的准确率和召回率：
+F1值
+$$
+\mathrm{F1} = \frac{
+    2 \times Precision \times Recall
+}{
+    Precision + Recall
+} \tag{5}
+$$
 
-```python
-def PrecisionRecall(test,N):
-    hit = 0
-    n_recall = 0
-    n_precision = 0
-    for user,items in test.items():
-        rank = Recommend(user,N)
-        # &按位与，表示取两个集合的交集
-        hit += len(rank & items)
-        n_recall += len(items)
-        n_precision += N
-    return [hit / (1.0 * n_recall), hit / (1.0 * n_precision)
-```
+#### AP/MAP
+
+Average Precision (AP)
+$$
+AP@N = \frac{
+    \sum_{k=1}^N 
+    \mathrm{Precision@k \times rel(k)}
+}{
+    \min \\{
+    	N, \left \vert C_{\mathrm{adopted}} \right \vert 
+    \\}
+} \tag{6}
+$$
+其中，rel(k)是指示函数，表示第k个物品是否被采纳
+$$
+\mathrm{rel(k)} = 
+\begin{cases}
+1, & I_k \in C_{\mathrm{adopted}} \\\\
+0, & \mathrm{otherwise}
+\end{cases}
+$$
+平均精度均值 Mean Average Precision (MAP)
+$$
+\mathrm{MAP}@N = \frac{1}{
+    \left \vert U \right \vert
+} 
+\sum_{u \in U} \mathrm{AP}@N \tag{7}
+$$
+
+#### Hit Ratio
+
+命中率（Hit Ratio, HR）
+$$
+\mathrm{HR}@N = \frac{
+	 \mathrm{hits}
+}{
+	\left \vert U \right \vert
+} \tag{8}
+$$
+
+#### ARHR
+
+平均命中排序倒数 Average Reciprocal Hit Rank (ARHR)
+$$
+\mathrm{ARHR}@N = \frac{1} {
+    \left \vert U \right \vert
+}
+\sum_{i=1}^{hits} \frac{1}{
+    pos_i
+} \tag{9}
+$$
+其中，$pos_i$表示第i次命中时，测试物品在推荐列表中的位置。
+
+#### NDCG
+
+折扣累计收益 Discounted Cumulative Gain (DCG)
+$$
+\mathrm{DCG}@N = \frac{1}{
+    \left \vert U \right \vert
+} 
+\sum_{u \in U} \sum_{i =1}^N 
+\frac{
+	g_{u,N_i}
+}{
+    \log_b (i + 1)
+}
+$$
+归一化折扣累计收益 Normalized Discounted Cumulative Gain (NDCG)
+$$
+\begin{align}
+\mathrm{NDCG}@N &= \frac{\mathrm{DCG}} {\mathrm{DCG}^*} \\\\
+&= \frac{1} 
+{
+    \left \vert y^{test} \right \vert
+}
+\sum_{j \in y^{test}} \frac{ 
+	\log (\hat r + 1)
+}{
+    \log ( pos_j + 1 )
+}
+\end{align} \tag{10}
+$$
+其中，$\hat r$表示在理想情况下，测试物品在TopN中的位置。
+
+在使用留一法进行评估时，$\hat r = 1​$ 。
+
+<!--
 
 #### 信任度
 
@@ -135,6 +233,4 @@ def PrecisionRecall(test,N):
 
 2.其次是考虑用户的社交网络信息，**利用用户的好友信息给用户做推荐**，并且用好友进行推荐解释。这是因为用户对他们的好友一般都比较信任，因此如果推荐的商品是好友购买过的，那么他们对推荐结果就会相对比较信任。
 
-### 参考文献
-
-《推荐系统实践》，项亮
+-->

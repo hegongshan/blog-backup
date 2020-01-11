@@ -29,28 +29,32 @@
 
     {% if not headlessPost %}
       <header class="post-header">
-
         {# Not to show title for quote posts that do not have a title #}
         {% if not (is_index and post.type === 'quote' and not post.title) %}
           <{% if theme.seo %}h2{% else %}h1{% endif %} class="post-title{% if post.direction && post.direction.toLowerCase() === 'rtl' %} rtl{% endif %}" itemprop="name headline">{#
           #}{# Link posts #}{#
           #}{% if post.link %}
+
               {% if post.sticky > 0 %}
-                {{ post.sticky }}
-                <span class="post-sticky-flag" title="{{ __('post.sticky') }}">
+                <!--<span class="post-sticky-flag" title="{{ __('post.sticky') }}">
                   <i class="fa fa-thumb-tack"></i>
-                </span>
+                </span>-->
+
+                <font style="color:red;font-size: 60%;">{{ __('post.sticky') }}</font>       
               {% endif %}
               <a class="post-title-link post-title-link-external" target="_blank" href="{{ url_for(post.link) }}" itemprop="url">
                 {{ post.title or post.link }}
                 <i class="fa fa-external-link"></i>
               </a>
+
             {% else %}{#
             #}{% if is_index %}
                 {% if post.sticky > 0 %}
-                  <span class="post-sticky-flag" title="{{ __('post.sticky') }}">
+                  <!--<span class="post-sticky-flag" title="{{ __('post.sticky') }}">
                     <i class="fa fa-thumb-tack"></i>
-                  </span>
+                  </span>-->
+                  <font style="color:red;font-size: 60%;">{{ __('post.sticky') }}</font>
+                     
                 {% endif %}
                 <a class="post-title-link" href="{{ url_for(post.path) }}" itemprop="url">{#
                 #}{{ post.title | default(__('post.untitled'))}}{#
@@ -60,8 +64,7 @@
         #}</{% if theme.seo %}h2{% else %}h1{% endif %}>
         {% endif %}
 
-        <div class="post-meta">
-		 
+        <div class="post-meta">		 
 		
           <span class="post-time">
             {% if theme.post_meta.created_at %}

@@ -108,6 +108,27 @@ print(type(ls))
 <class 'list'>
 ```
 
+#### 数组复制
+
+使用ndarray的copy()方法，可以创建数组副本。
+
+```python
+import numpy as np
+
+data = np.array([[1,2,4,5],[12,23,1234,5]])
+x = data.copy()
+print(x is data)
+print(x == data)
+```
+
+输出：
+
+```python
+False
+[[ True  True  True  True]
+ [ True  True  True  True]]
+```
+
 ### zeros, ones
 
 除了可以使用array()函数创建数组外，还可以使用zeros、ones来创建数组。
@@ -169,6 +190,92 @@ print(data.shape)
 (2, 2, 3)
 ```
 
+### full
+
+函数原型：
+
+```python
+full(shape, fill_value, dtype=None, order='C')
+```
+
+* shape：数组的维度
+* fill_value：填充的值
+* dtype：指定的数据类型
+
+示例：
+
+```python
+import numpy as np
+
+print(np.full((2,2),1.))
+```
+
+输出：
+
+```python
+[[1. 1.]
+ [1. 1.]]
+```
+
+### 广播
+
+#### broadcast_to
+
+函数原型：
+
+```python
+broadcast_to(array, shape, subok=False)
+```
+
+* array：待广播的数组
+* shape：期望的维度（用元组表示）
+
+示例：
+
+```python
+import numpy as np
+
+x = np.array([1,2,3,4])
+print(np.broadcast_to(x, (2,4)))
+```
+
+输出：
+
+```python
+[[1 2 3 4]
+ [1 2 3 4]]
+```
+
+#### tile
+
+函数原型：
+
+```python
+tile(A, reps)
+```
+
+沿着每个轴，将数组中的元素重复指定次数。
+
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.tile.html
+
+示例：
+
+```python
+import numpy as np
+
+x = np.array([1,2,3,4])
+print(np.tile(x,3))
+print(np.tile(x,(2,2)))
+```
+
+输出：
+
+```python
+[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]
+[[1 2 3 4 1 2 3 4]
+ [1 2 3 4 1 2 3 4]]
+```
+
 ### eye
 
 eye()函数用于创建一个指定大小的单位数组(类似于线性代数中的单位矩阵)。
@@ -223,7 +330,7 @@ mat()函数用于创建矩阵。
 numpy.random.randint(low, high=None, size=None, dtype='l')
 ```
 
-返回一个随机整数，范围从低（包括）到高（不包括），即[low, high)。如果没有写参数high的值，则返回[0,low)的值。
+返回一个或者多个随机整数，范围从低（包括）到高（不包括），即[low, high)。如果没有写参数high的值，则返回[0,low)的值。
 
 #### shuffle
 
