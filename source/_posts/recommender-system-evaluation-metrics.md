@@ -1,5 +1,5 @@
 ---
-title: 推荐系统常用评价指标
+title: 推荐系统常用评估指标
 date: 2019-03-04 16:01:27
 tags: recommender systems
 categories: recommender systems
@@ -137,7 +137,7 @@ $$
 
 #### AP/MAP
 
-Average Precision (AP)
+精度均值（Average Precision，简称AP)
 $$
 AP@N = \frac{
     \sum_{k=1}^N 
@@ -156,7 +156,7 @@ $$
 0, & \mathrm{otherwise}
 \end{cases}
 $$
-平均精度均值 Mean Average Precision (MAP)
+平均精度均值（Mean Average Precision，简称MAP)
 $$
 \mathrm{MAP}@N = \frac{1}{
     \left \vert U \right \vert
@@ -166,7 +166,7 @@ $$
 
 #### Hit Ratio
 
-命中率（Hit Ratio, HR）
+命中率（Hit Ratio, 简称HR）
 $$
 \mathrm{HR}@N = \frac{
 	 \mathrm{hits}
@@ -177,7 +177,7 @@ $$
 
 #### ARHR
 
-平均命中排序倒数 Average Reciprocal Hit Rank (ARHR)
+平均命中排序倒数（Average Reciprocal Hit Rank，简称ARHR)
 $$
 \mathrm{ARHR}@N = \frac{1} {
     \left \vert U \right \vert
@@ -190,36 +190,127 @@ $$
 
 #### NDCG
 
-折扣累计收益 Discounted Cumulative Gain (DCG)
+NDCG源自于信息检索领域，用于评估排序质量。在理解NDCG前，需要弄明白CG、DCG以及IDCG的概念。
+
+* CG
+
+累计收益（Cumulative Gain，简称CG）
 $$
-\mathrm{DCG}@N = \frac{1}{
-    \left \vert U \right \vert
-} 
-\sum_{u \in U} \sum_{i =1}^N 
+\mathrm{CG}@N = \sum_{i = 1}^N rel_i \tag{10}
+$$
+其中，$rel_i$是将物品i推荐给用户得到的“收益”。
+
+* DCG
+
+直观的想法：“收益”越高的物品，在列表中的位置应该越靠前。
+
+折扣累计收益（Discounted Cumulative Gain，简称DCG)在CG的基础上，加入了对物品位置的考虑：
+$$
+\mathrm{DCG}@N = \sum_{i =1}^N 
 \frac{
-	g_{u,N_i}
+	rel_i
 }{
-    \log_b (i + 1)
-}
+  \log_2 (i + 1)
+} \tag{11}
 $$
-归一化折扣累计收益 Normalized Discounted Cumulative Gain (NDCG)
+DCG的另一种形式：
+$$
+\mathrm{DCG}@N = \sum_{i =1}^N 
+\frac{
+	2^{rel_i} - 1
+}{
+  \log_2 (i + 1)
+} \tag{12}
+$$
+
+DCG的第二种形式更常用。当$rel_i \in$ &#123;0,1&#125;时，公式(11)等价于(12)。
+
+* IDCG
+
+理想的折扣累计收益（Ideal Discounted Cumulative Gain，简称IDCG）：在理想情况下，推荐列表中的物品应按照最终收益从高到低排序。
+$$
+\mathrm{IDCG}@N = \sum_{i =1}^{\left \vert REL_N \right \vert}
+\frac{
+	2^{rel_i} - 1
+}{
+    \log_2 (i + 1)
+} \tag{13}
+$$
+其中，$REL_N$表示按照收益从高到低排序后的N个物品；$rel_i \in$ &#123;0,1&#125;。
+
+* NDCG
+
+当采用DCG时，不同N下的结果无法直接进行比较。
+
+为了解决该问题，可以对DCG进行归一化，得到归一化折扣累计收益（Normalized Discounted Cumulative Gain，简称NDCG)：
+$$
+\mathrm{NDCG}@N = \frac{DCG@N} {IDCG@N} \tag{14}
+$$
+$NDCG \in [0,1]$，其值越大，表示排序的质量越高。
+
+当$rel_i \in$ &#123;0,1&#125;且采用**留一法**进行评估时，待测物品的收益rel=1，其理想位置j=1
+$$
+\mathrm{DCG}@N = \frac{1}{\log_2 (j + 1)} \\\\
+\mathrm{IDCG}@N = \frac{1}{\log_2 (1 + 1)} = \frac{1}{\log_2 (2)}
+$$
+从而：
+$$
+\mathrm{NDCG}@N = \frac{DCG@N} {IDCG@N} = \frac{ \log 2 }{ \log(j + 1) } \tag{15}
+$$
+
+* 示例
+
+为了便于理解，下面举个例子（源自于维基百科）：
+
+假设系统给用户u推荐了6部电影，推荐列表为：M1、M2、M3、M4、M5、M6，
+
+用户u对这些电影的评分依次为：3, 2, 3, 0, 1, 2。
+
+如果将用户的评分作为推荐该电影获得的收益，那么，该推荐列表的CG值为：
+$$
+\mathrm{CG}@6 = \sum_{i=1}^6 rel_i = 3 + 2 + 3 + 0 + 1 + 2 = 11
+$$
+
+|  i   | $rel_i$ | $\log_2 (i + 1)$ | $\frac{rel_i}{\log_2 (i + 1)}$ |
+| :--: | :-----: | :--------------: | :----------------------------: |
+|  1   |    3    |        1         |               3                |
+|  2   |    2    |      1.585       |             1.262              |
+|  3   |    3    |        2         |              1.5               |
+|  4   |    0    |      2.322       |               0                |
+|  5   |    1    |      2.585       |             0.387              |
+|  6   |    2    |      2.807       |             0.712              |
+
+根据上表，计算得到：
+$$
+\mathrm{DCG}@6 = \sum_{i =1}^6 
+\frac{
+	rel_i
+}{
+  \log_2 (i + 1)
+} = 6.861
+$$
+
+理想情况下，推荐列表中的电影按照评分从高到低排序：3, 3, 2, 2, 1, 0。从而：
 $$
 \begin{align}
-\mathrm{NDCG}@N &= \frac{\mathrm{DCG}} {\mathrm{DCG}^*} \\\\
-&= \frac{1} 
-{
-    \left \vert y^{test} \right \vert
-}
-\sum_{j \in y^{test}} \frac{ 
-	\log (\hat r + 1)
+\mathrm{IDCG}@6 &= \sum_{i =1}^6 
+\frac{
+	rel_i
 }{
-    \log ( pos_j + 1 )
-}
-\end{align} \tag{10}
+  \log_2 (i + 1)
+} \\\\
+&= \frac{3}{1} + \frac{3}{1.585} + \frac{2}{2} + \frac{2}{2.322} + \frac{1}{2.585} + \frac{0}{2.807} \\\\
+&= 7.141
+\end{align}
 $$
-其中，$\hat r$表示在理想情况下，测试物品在TopN中的位置。
+因此：
+$$
+\mathrm{NDCG}@6 = \frac{DCG@6} {IDCG@6} = \frac{6.861}{7.141} = 0.961 
+$$
 
-在使用留一法进行评估时，$\hat r = 1​$ 。
+### 参考资料
+
+1. https://en.wikipedia.org/wiki/Discounted_cumulative_gain
 
 <!--
 

@@ -65,6 +65,14 @@ replace A with B 用B代替A
 
 
 
+be formulated as 归结为
+
+
+
+include but are not limited to n. / doing 包括但不限于 
+
+
+
 
 
 be limited by

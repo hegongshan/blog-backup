@@ -217,6 +217,13 @@ A =
 \end{pmatrix}
 $$
 
+#### 省略号
+
+|       省略号        |   符号   |
+| :-----------------: | :------: |
+| 水平省略号 $\cdots$ | `\cdots` |
+| 垂直省略号 $\vdots$ | `\vdots` |
+| 对角省略号 $\ddots$ | `\ddots` |
 
 #### 括号
 
@@ -239,6 +246,10 @@ $$
 |   $\Leftarrow$    |   `\Leftarrow`    |
 | $\leftrightarrow$ | `\leftrightarrow` |
 | $\Leftrightarrow$ | `\Leftrightarrow` |
+|    $\nearrow$     |    `\nearrow`     |
+|    $\searrow$     |    `\searrow`     |
+|    $\swarrow$     |    `\swarrow`     |
+|    $\nwarrow$     |    `\nwarrow`     |
 
 #### 四则运算
 

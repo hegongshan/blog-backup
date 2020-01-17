@@ -17,9 +17,12 @@ date: 2019-03-20 11:00:31
 | 108  | [将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/) | [查看题解](/2019/05/20/leetcode-108-convert-sorted-array-to-binary-search-tree/) | 平衡二叉树 |  <strong style="color:green">简单</strong>  |
 | 109  | [有序链表转换二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/) | [查看题解](/2019/05/20/leetcode-109-convert-sorted-list-to-binary-search-tree/) | 平衡二叉树 | <strong style="color:#f0ad4e">中等</strong> |
 | 110  | [平衡二叉树](https://leetcode-cn.com/problems/balanced-binary-tree/) |  [查看题解](/2019/05/20/leetcode-110-balanced-binary-tree/)  | 平衡二叉树 |  <strong style="color:green">简单</strong>  |
+| 114  | [二叉树展开为链表](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/) | [查看题解](/2020/01/17/leetcode-114-flatten-binary-tree-to-linked-list/) |   二叉树   | <strong style="color:#f0ad4e">中等</strong> |
 | 144  | [二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/) | [查看题解](/2019/05/25/leetcode-144-binary-tree-preorder-traversal/) | 遍历二叉树 | <strong style="color:#f0ad4e">中等</strong> |
 | 145  | [二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/) | [查看题解](/2019/05/26/leetcode-145-binary-tree-postorder-traversal/) | 遍历二叉树 |   <strong style="color:red">困难</strong>   |
+| 147  | [对链表进行插入排序](https://leetcode-cn.com/problems/insertion-sort-list/) |  [查看题解](/2020/01/11/leetcode-147-insertion-sort-list/)   |    链表    | <strong style="color:#f0ad4e">中等</strong> |
 | 148  |   [排序链表](https://leetcode-cn.com/problems/sort-list/)    |       [查看题解](/2019/04/26/leetcode-148-sort-list/)        |    链表    | <strong style="color:#f0ad4e">中等</strong> |
+| 160  | [相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) | [查看题解](/2020/01/15/leetcode-160-intersection-of-two-linked-lists/) |    链表    |  <strong style="color:green">简单</strong>  |
 | 203  | [移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/) | [查看题解](/2019/05/08/leetcode-203-remove-linked-list-elements/) |    链表    |  <strong style="color:green">简单</strong>  |
 | 204  |  [计数质数](https://leetcode-cn.com/problems/count-primes/)  |      [查看题解](/2019/05/02/leetcode-204-count-primes/)      |    数学    |  <strong style="color:green">简单</strong>  |
 | 226  | [翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/) |   [查看题解](/2019/12/11/leetcode-226-invert-binary-tree/)   |   二叉树   |  <strong style="color:green">简单</strong>  |
