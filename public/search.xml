@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 143.重排链表]]></title>
+    <url>%2F2020%2F01%2F19%2Fleetcode-143-reorder-list%2F</url>
+    <content type="text"><![CDATA[给定一个单链表 L：L0→L1→…→Ln-1→Ln ，将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→… 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。 示例 1: 1给定链表 1-&gt;2-&gt;3-&gt;4, 重新排列为 1-&gt;4-&gt;2-&gt;3. 示例 2: 1给定链表 1-&gt;2-&gt;3-&gt;4-&gt;5, 重新排列为 1-&gt;5-&gt;2-&gt;4-&gt;3. 思路 首先，将单链表分割为前后两个部分； 然后，使用头插法反转后半部分； 最后，将后半部分节点依次插入到前半部分中。 方法一：快慢指针1234567891011121314151617181920212223242526272829303132333435363738394041424344# Definition for singly-linked list.# class ListNode:# def __init__(self, x):# self.val = x# self.next = Noneclass Solution: def reorderList(self, head: ListNode) -&gt; None: """ Do not return anything, modify head in-place instead. """ # 若单链表为空，或者仅有一个节点，或者仅有两个节点 if not head or not head.next or not head.next.next: return # 将单链表分割为前后两个部分 slow = fast = head while fast.next and fast.next.next: slow = slow.next fast = fast.next.next mid = slow.next slow.next = None # 采用头插法，反转后半部分 fast = None while mid: temp = mid.next mid.next = fast fast = mid mid = temp # 重排链表 slow = head while slow and fast: temp1 = slow.next temp2 = fast.next fast.next = slow.next slow.next = fast slow = temp1 fast = temp2]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>linked-list</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[论文阅读 Outer Product-based Neural Collaborative Filtering]]></title>
+    <url>%2F2020%2F01%2F18%2Frecommender-system-oncf%2F</url>
+    <content type="text"><![CDATA[Outer Product-based Neural Collaborative Filtering（ONCF）一文发表在IJCAI 2018上，作者使用外积对嵌入空间中各个维度之间的相互关系进行显式建模。 模型结构 目标函数作者使用了BPR损失函数：$$L = \sum_{(u,i,j) \in \mathcal{D}} - \ln \sigma(\hat y_{ui} - \hat y_{uj}) + \lambda_{\Delta} \left \Vert \Delta \right \Vert^2$$ 论文地址：https://www.ijcai.org/Proceedings/2018/0308.pdf 代码地址：https://github.com/duxy-me/ConvNCF]]></content>
+      <categories>
+        <category>recommender systems</category>
+      </categories>
+      <tags>
+        <tag>recommender systems</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 114.二叉树展开为链表]]></title>
     <url>%2F2020%2F01%2F17%2Fleetcode-114-flatten-binary-tree-to-linked-list%2F</url>
     <content type="text"><![CDATA[给定一个二叉树，原地将它展开为链表。 例如，给定二叉树 1 / \ 2 5 / \ \ 3 4 6 将其展开为： 12345678910111 \ 2 \ 3 \ 4 \ 5 \ 6 题意按照先序遍历的顺序，将给定的二叉树转变为“链表”，即除叶子节点外，其他所有节点均只有右孩子的二叉树。 方法一：栈12345678910111213141516171819202122232425262728293031# Definition for a binary tree node.# class TreeNode:# def __init__(self, x):# self.val = x# self.left = None# self.right = Noneclass Solution: def flatten(self, root: TreeNode) -&gt; None: """ Do not return anything, modify root in-place instead. """ if not root: return stack = [root] # 链表中的尾节点 tail = None while stack: node = stack.pop() if node.right: stack.append(node.right) if node.left: stack.append(node.left) node.left = None if not tail: root = tail = node else: tail.right = node tail = node 方法二：递归12345678910111213141516171819202122232425# Definition for a binary tree node.# class TreeNode:# def __init__(self, x):# self.val = x# self.left = None# self.right = Noneclass Solution: def flatten(self, root: TreeNode) -&gt; None: """ Do not return anything, modify root in-place instead. """ if not root: return self.flatten(root.left) self.flatten(root.right) pre = root.left if pre: # 寻找左子树中最右边的节点 while pre.right: pre = pre.right pre.right = root.right root.right = root.left root.left = None 方法三：迭代12345678910111213141516171819202122# Definition for a binary tree node.# class TreeNode:# def __init__(self, x):# self.val = x# self.left = None# self.right = Noneclass Solution: def flatten(self, root: TreeNode) -&gt; None: """ Do not return anything, modify root in-place instead. """ while root: pre = root.left if pre: # 寻找左子树中最右边的节点 while pre.right: pre = pre.right pre.right = root.right root.right = root.left root.left = None root = root.right]]></content>
@@ -25,7 +47,7 @@
   <entry>
     <title><![CDATA[向量乘法]]></title>
     <url>%2F2020%2F01%2F14%2Fvector-product%2F</url>
-    <content type="text"><![CDATA[向量乘法 假设$\mathbf{a} \in \mathbb{R}^n, \mathbf{b} \in \mathbb{R}^n$ 内积内积（inner product或者dot product）$$\mathbf{a} \cdot \mathbf{b} = \sum_{i=1}^n a_i \times b_i \tag{1}$$ 逐元素相乘逐元素相乘（element-wise product）$$\mathbf{a} \odot \mathbf{b} =\begin{bmatrix}a_1 \times b_1 \\a_2 \times b_2 \\\cdots \\a_n \times b_n\end{bmatrix} \tag{2}$$ 外积外积（outer product）$$\mathbf{a} \otimes \mathbf{b} =\begin{bmatrix}a_1 \times b_1 &amp; a_1 \times b_2 &amp; \cdots &amp; a_1 \times b_n \\a_2 \times b_1 &amp; a_2 \times b_2 &amp; \cdots &amp; a_2 \times b_n \\\vdots &amp; \vdots &amp; \vdots &amp; \vdots \\a_n \times b_1 &amp; a_n \times b_2 &amp; \cdots &amp; a_n \times b_n\end{bmatrix} \tag{3}$$]]></content>
+    <content type="text"><![CDATA[向量乘法 假设$\mathbf{a} \in \mathbb{R}^n, \mathbf{b} \in \mathbb{R}^n$ 内积内积（inner product或者dot product）$$\mathbf{a} \cdot \mathbf{b} = \mathbf{a}^T \mathbf{b} = \sum_{i=1}^n a_i \times b_i \tag{1}$$ 逐元素相乘逐元素相乘（element-wise product）$$\mathbf{a} \odot \mathbf{b} =\begin{bmatrix}a_1 \times b_1 \\a_2 \times b_2 \\\cdots \\a_n \times b_n\end{bmatrix} \tag{2}$$ 外积外积（outer product）$$\mathbf{a} \otimes \mathbf{b}= \mathbf{a} \mathbf{b}^T= \begin{bmatrix}a_1 \times b_1 &amp; a_1 \times b_2 &amp; \cdots &amp; a_1 \times b_n \\a_2 \times b_1 &amp; a_2 \times b_2 &amp; \cdots &amp; a_2 \times b_n \\\vdots &amp; \vdots &amp; \vdots &amp; \vdots \\a_n \times b_1 &amp; a_n \times b_2 &amp; \cdots &amp; a_n \times b_n\end{bmatrix} \tag{3}$$]]></content>
       <categories>
         <category>mathematics</category>
       </categories>

@@ -16,7 +16,7 @@ mathjax: true
 
 内积（inner product或者dot product）
 $$
-\mathbf{a} \cdot \mathbf{b} = \sum_{i=1}^n a_i \times b_i \tag{1}
+\mathbf{a} \cdot \mathbf{b} = \mathbf{a}^T \mathbf{b} = \sum_{i=1}^n a_i \times b_i \tag{1}
 $$
 
 ### 逐元素相乘
@@ -36,11 +36,13 @@ $$
 
 外积（outer product）
 $$
-\mathbf{a} \otimes \mathbf{b} =
-\begin{bmatrix}
+\mathbf{a} \otimes \mathbf{b}
+= \mathbf{a} \mathbf{b}^T
+= \begin{bmatrix}
 a_1 \times b_1 & a_1 \times b_2 & \cdots & a_1 \times b_n \\\\
 a_2 \times b_1 & a_2 \times b_2 & \cdots & a_2 \times b_n \\\\
 \vdots & \vdots & \vdots & \vdots \\\\
 a_n \times b_1 & a_n \times b_2 & \cdots & a_n \times b_n 
 \end{bmatrix} \tag{3}
 $$
+
