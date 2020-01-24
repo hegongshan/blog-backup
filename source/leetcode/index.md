@@ -18,6 +18,7 @@ date: 2019-03-20 11:00:31
 | 109  | [有序链表转换二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/) | [查看题解](/2019/05/20/leetcode-109-convert-sorted-list-to-binary-search-tree/) | 平衡二叉树 | <strong style="color:#f0ad4e">中等</strong> |
 | 110  | [平衡二叉树](https://leetcode-cn.com/problems/balanced-binary-tree/) |  [查看题解](/2019/05/20/leetcode-110-balanced-binary-tree/)  | 平衡二叉树 |  <strong style="color:green">简单</strong>  |
 | 114  | [二叉树展开为链表](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/) | [查看题解](/2020/01/17/leetcode-114-flatten-binary-tree-to-linked-list/) |   二叉树   | <strong style="color:#f0ad4e">中等</strong> |
+| 138  | [复制带随机指针的链表](https://leetcode-cn.com/problems/copy-list-with-random-pointer/) | [查看题解](/2020/01/24/leetcode-138-copy-list-with-random-pointer/) |    链表    | <strong style="color:#f0ad4e">中等</strong> |
 | 143  | [ 重排链表](https://leetcode-cn.com/problems/reorder-list/)  |      [查看题解](/2020/01/19/leetcode-143-reorder-list/)      |    链表    | <strong style="color:#f0ad4e">中等</strong> |
 | 144  | [二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/) | [查看题解](/2019/05/25/leetcode-144-binary-tree-preorder-traversal/) | 遍历二叉树 | <strong style="color:#f0ad4e">中等</strong> |
 | 145  | [二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/) | [查看题解](/2019/05/26/leetcode-145-binary-tree-postorder-traversal/) | 遍历二叉树 |   <strong style="color:red">困难</strong>   |
