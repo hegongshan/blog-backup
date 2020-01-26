@@ -34,6 +34,7 @@ date: 2019-03-20 11:00:31
 | 430  | [扁平化多级双向链表](https://leetcode-cn.com/problems/flatten-a-multilevel-doubly-linked-list/) | [查看题解](/2020/01/25/leetcode-430-flatten-a-multilevel-doubly-linked-list/) |    链表    | <strong style="color:#f0ad4e">中等</strong> |
 | 509  | [斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/) |    [查看题集](/2019/11/24/leetcode-509-fibonacci-number/)    |            |  <strong style="color:green">简单</strong>  |
 | 617  | [合并二叉树](https://leetcode-cn.com/problems/merge-two-binary-trees/) | [查看题解](/2019/12/08/leetcode-617-merge-two-binary-trees/) |   二叉树   |  <strong style="color:green">简单</strong>  |
+| 725  | [分隔链表](https://leetcode-cn.com/problems/split-linked-list-in-parts/) | [查看题解](/2020/01/26/leetcode-725-split-linked-list-in-parts/) |    链表    | <strong style="color:#f0ad4e">中等</strong> |
 | 889  | [根据前序和后序遍历构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal) | [查看题解](/2019/05/29/leetcode-889-construct-binary-tree-from-preorder-and-postorder-traversal/) | 构造二叉树 | <strong style="color:#f0ad4e">中等</strong> |
 | 946  | [验证栈序列](https://leetcode-cn.com/problems/validate-stack-sequences/) | [查看题解](/2019/06/01/leetcode-946-validate-stack-sequences/) |     栈     | <strong style="color:#f0ad4e">中等</strong> |
 | 965  | [单值二叉树](https://leetcode-cn.com/problems/univalued-binary-tree/) | [查看题解](/2019/12/17/leetcode-965-univalued-binary-tree/)  |   二叉树   |  <strong style="color:green">简单</strong>  |
