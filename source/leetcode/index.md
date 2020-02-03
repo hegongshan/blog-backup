@@ -27,6 +27,7 @@ date: 2019-03-20 11:00:31
 | 160  | [相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) | [查看题解](/2020/01/15/leetcode-160-intersection-of-two-linked-lists/) |    链表    |  <strong style="color:green">简单</strong>  |
 | 203  | [移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/) | [查看题解](/2019/05/08/leetcode-203-remove-linked-list-elements/) |    链表    |  <strong style="color:green">简单</strong>  |
 | 204  |  [计数质数](https://leetcode-cn.com/problems/count-primes/)  |      [查看题解](/2019/05/02/leetcode-204-count-primes/)      |    数学    |  <strong style="color:green">简单</strong>  |
+| 206  | [反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) |  [查看题解](/2020/02/03/leetcode-206-reverse-linked-list/)   |    链表    |  <strong style="color:green">简单</strong>  |
 | 226  | [翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/) |   [查看题解](/2019/12/11/leetcode-226-invert-binary-tree/)   |   二叉树   |  <strong style="color:green">简单</strong>  |
 | 263  |    [丑数](https://leetcode-cn.com/problems/ugly-number/)     |      [查看题解](/2019/05/03/leetcode-263-ugly-number/)       |    数学    |  <strong style="color:green">简单</strong>  |
 | 264  | [丑数 II](https://leetcode-cn.com/problems/ugly-number-ii/)  |     [查看题解](/2019/05/03/leetcode-264-ugly-number-ii/)     |    数学    | <strong style="color:#f0ad4e">中等</strong> |
