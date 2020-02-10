@@ -31,6 +31,7 @@ date: 2019-03-20 11:00:31
 | 226  | [翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/) |   [查看题解](/2019/12/11/leetcode-226-invert-binary-tree/)   |   二叉树   |  <strong style="color:green">简单</strong>  |
 | 263  |    [丑数](https://leetcode-cn.com/problems/ugly-number/)     |      [查看题解](/2019/05/03/leetcode-263-ugly-number/)       |    数学    |  <strong style="color:green">简单</strong>  |
 | 264  | [丑数 II](https://leetcode-cn.com/problems/ugly-number-ii/)  |     [查看题解](/2019/05/03/leetcode-264-ugly-number-ii/)     |    数学    | <strong style="color:#f0ad4e">中等</strong> |
+| 287  | [寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/) | [查看题解](/2020/02/10/leetcode-287-find-the-duplicate-number/) |    数组    | <strong style="color:#f0ad4e">中等</strong> |
 | 328  | [奇偶链表](https://leetcode-cn.com/problems/odd-even-linked-list/) |  [查看题解](/2019/05/10/leetcode-328-odd-even-linked-list/)  |    链表    | <strong style="color:#f0ad4e">中等</strong> |
 | 430  | [扁平化多级双向链表](https://leetcode-cn.com/problems/flatten-a-multilevel-doubly-linked-list/) | [查看题解](/2020/01/25/leetcode-430-flatten-a-multilevel-doubly-linked-list/) |    链表    | <strong style="color:#f0ad4e">中等</strong> |
 | 509  | [斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/) |    [查看题集](/2019/11/24/leetcode-509-fibonacci-number/)    |            |  <strong style="color:green">简单</strong>  |

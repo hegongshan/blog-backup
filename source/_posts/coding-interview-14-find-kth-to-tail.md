@@ -3,7 +3,6 @@ title: 《剑指offer》14.链表中倒数第k个结点
 date: 2020-02-03 17:01:45
 tags: linked-list
 categories: 剑指offer
-commment: false
 ---
 
 输入一个链表，输出该链表中倒数第k个结点。
