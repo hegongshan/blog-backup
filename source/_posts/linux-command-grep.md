@@ -9,8 +9,10 @@ grep（Globally search a Regular Expression and Print）
 
 <!--more-->
 
-* E：支持正则表达式
+选项
+
+* -E：支持正则表达式
 
 * i：忽略大小写
-* v：打印不匹配的行
+* -v：打印不匹配的行
 
