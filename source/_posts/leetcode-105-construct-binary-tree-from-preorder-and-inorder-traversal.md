@@ -1,5 +1,5 @@
 ---
-title: LeetCode 105.从前序与中序遍历序列构造二叉树
+title: LeetCode 105.从前序与中序遍历序列构造二叉树/《剑指offer》7.重建二叉树
 date: 2019-05-29 11:33:01
 tags: binary-tree
 categories: leetcode
