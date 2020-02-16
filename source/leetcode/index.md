@@ -28,6 +28,7 @@ date: 2019-03-20 11:00:31
 | 203  | [移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/) | [查看题解](/2019/05/08/leetcode-203-remove-linked-list-elements/) |    链表    |  <strong style="color:green">简单</strong>  |
 | 204  |  [计数质数](https://leetcode-cn.com/problems/count-primes/)  |      [查看题解](/2019/05/02/leetcode-204-count-primes/)      |    数学    |  <strong style="color:green">简单</strong>  |
 | 206  | [反转链表](https://leetcode-cn.com/problems/reverse-linked-list/) |  [查看题解](/2020/02/03/leetcode-206-reverse-linked-list/)   |    链表    |  <strong style="color:green">简单</strong>  |
+| 225  | [用队列实现栈](https://leetcode-cn.com/problems/implement-stack-using-queues/) | [查看题解](/2020/02/16/leetcode-225-implement-stack-using-queues/) |  栈、队列  |  <strong style="color:green">简单</strong>  |
 | 226  | [翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/) |   [查看题解](/2019/12/11/leetcode-226-invert-binary-tree/)   |   二叉树   |  <strong style="color:green">简单</strong>  |
 | 232  | [用栈实现队列](https://leetcode-cn.com/problems/implement-queue-using-stacks/) | [查看题解](/2020/02/15/leetcode-232-implement-queue-using-stacks/) |  栈、队列  |  <strong style="color:green">简单</strong>  |
 | 240  | [搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/) | [查看题解](/2020/02/12/leetcode-240-search-a-2d-matrix-ii/)  |    数组    | <strong style="color:#f0ad4e">中等</strong> |
