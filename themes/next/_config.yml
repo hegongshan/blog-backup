@@ -93,6 +93,7 @@ index_with_subtitle: false
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
   home: / || home
+  coding-interview: /coding-interview/ || offer
   leetcode: /leetcode/ || code
   pat-advanced: /pat-advanced/ || terminal
   pat-basic: /pat-basic/ || angellist
