@@ -43,7 +43,7 @@ categories: leetcode
 
 ### 方法一：位运算+循环
 
-n对2取模，相当于n和1做位与运算。
+**n对2取模，相当于和1做按位与运算，即 n % 2 等价于 n & 1。**
 
 ```java
 public class Solution {
