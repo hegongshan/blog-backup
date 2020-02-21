@@ -1,5 +1,5 @@
 ---
-title: LeetCode 232.用栈实现队列/《剑指offer》9.用两个栈实现队列
+title: LeetCode 232.用栈实现队列/《剑指Offer》9.用两个栈实现队列
 date: 2020-02-15 15:19:58
 tags: [stack, queue]
 categories: leetcode

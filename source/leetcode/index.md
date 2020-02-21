@@ -9,6 +9,7 @@ date: 2019-03-20 11:00:31
 |  23  | [合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) |  [查看题解](/2019/02/22/leetcode-23-merge-k-sorted-lists/)   |    链表    |   <strong style="color:red">困难</strong>   |
 |  25  | [k个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/) | [查看题解](/2019/04/04/leetcode-25-reverse-nodes-in-k-group/) |    链表    |   <strong style="color:red">困难</strong>   |
 |  50  |    [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)     |         [查看题解](/2020/02/23/leetcode-50-powx-n/)          |    数学    | <strong style="color:#f0ad4e">中等</strong> |
+|  79  |  [单词搜索](https://leetcode-cn.com/problems/word-search/)   |       [查看题解](/2020/02/20/leetcode-79-word-search/)       |    回溯    | <strong style="color:#f0ad4e">中等</strong> |
 |  82  | [删除排序链表中的重复元素 II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/) | [查看题解](/2019/02/27/leetcode-82-remove-duplicates-from-sorted-list-ii/) |    链表    | <strong style="color:#f0ad4e">中等</strong> |
 |  94  | [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) | [查看题解](/2019/05/25/leetcode-94-binary-tree-inorder-traversal/) | 遍历二叉树 | <strong style="color:#f0ad4e">中等</strong> |
 | 101  | [对称二叉树](https://leetcode-cn.com/problems/symmetric-tree/) |     [查看题解](/2019/12/06/leetcode-101-symmetric-tree/)     |   二叉树   |  <strong style="color:green">简单</strong>  |

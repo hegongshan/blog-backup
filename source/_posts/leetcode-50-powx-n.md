@@ -1,5 +1,5 @@
 ---
-title: LeetCode 50.Pow(x, n)/《剑指offer》16.数值的整数次方
+title: LeetCode 50.Pow(x, n)/《剑指Offer》16.数值的整数次方
 date: 2020-02-23 18:43:00
 tags: mathematics
 categories: leetcode

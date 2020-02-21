@@ -1,5 +1,5 @@
 ---
-title: LeetCode 287.寻找重复数/《剑指offer》3.数组中重复的数字
+title: LeetCode 287.寻找重复数/《剑指Offer》3.数组中重复的数字
 date: 2020-02-10 21:24:13
 tags: array
 categories: leetcode

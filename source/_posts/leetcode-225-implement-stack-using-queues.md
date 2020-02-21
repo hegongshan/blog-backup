@@ -1,5 +1,5 @@
 ---
-title: LeetCode 225.用队列实现栈/《剑指offer》9(相关).用两个队列实现栈
+title: LeetCode 225.用队列实现栈/《剑指Offer》9(相关).用两个队列实现栈
 date: 2020-02-16 21:49:12
 tags: [stack, queue]
 categories: leetcode

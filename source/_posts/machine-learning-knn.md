@@ -165,8 +165,6 @@ def classify(inputData,dataSet,labels,k):
     sortedkClassData = sorted(kClassData.items(),
                               key=operator.itemgetter(1),
                               reverse=True)
-    return sortedkClassData[0][0]    
+    return sortedkClassData[0][0]
 ```
-
-### 涉及的一些numpy中的函数
 

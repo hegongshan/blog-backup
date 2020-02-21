@@ -1,5 +1,5 @@
 ---
-title: 《剑指offer》8.二叉树的下一个结点
+title: 《剑指Offer》8.二叉树的下一个结点
 date: 2020-02-14 22:27:50
 tags: binary-tree
 categories: 剑指offer

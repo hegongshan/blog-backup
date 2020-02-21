@@ -1,5 +1,5 @@
 ---
-title: LeetCode 191.位1的个数/《剑指offer》15.二进制中1的个数
+title: LeetCode 191.位1的个数/《剑指Offer》15.二进制中1的个数
 date: 2020-02-22 22:45:38
 tags: 位运算
 categories: leetcode
