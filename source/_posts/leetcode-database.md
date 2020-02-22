@@ -186,3 +186,233 @@ FROM Scores AS s
 ORDER BY s.Score DESC;
 ```
 
+### [181. 超过经理收入的员工](https://leetcode-cn.com/problems/employees-earning-more-than-their-managers/)
+
+#### 题目描述
+
+`Employee` 表包含所有员工，他们的经理也属于员工。每个员工都有一个 Id，此外还有一列对应员工的经理的 Id。
+
+```
++----+-------+--------+-----------+
+| Id | Name  | Salary | ManagerId |
++----+-------+--------+-----------+
+| 1  | Joe   | 70000  | 3         |
+| 2  | Henry | 80000  | 4         |
+| 3  | Sam   | 60000  | NULL      |
+| 4  | Max   | 90000  | NULL      |
++----+-------+--------+-----------+
+```
+
+给定 `Employee` 表，编写一个 SQL 查询，该查询可以获取收入超过他们经理的员工的姓名。在上面的表格中，Joe 是唯一一个收入超过他的经理的员工。
+
+```
++----------+
+| Employee |
++----------+
+| Joe      |
++----------+
+```
+
+#### SQL
+
+```sql
+# 方法一：相关子查询
+-- SELECT Name AS Employee
+-- FROM Employee AS a
+-- WHERE a.Salary > (
+--     SELECT Salary
+--     FROM Employee AS b
+--     WHERE a.ManagerId = b.Id
+-- );
+
+# 方法二：等值连接（不使用join）
+-- SELECT a.Name AS Employee
+-- FROM Employee AS a, Employee AS b
+-- WHERE a.ManagerId = b.Id AND a.Salary > b.Salary;
+
+# 方法三：等值连接（使用join）
+SELECT a.Name AS Employee
+FROM Employee AS a INNER JOIN Employee AS b
+ON a.ManagerId = b.Id AND a.Salary > b.Salary;
+```
+
+### [182. 查找重复的电子邮箱](https://leetcode-cn.com/problems/duplicate-emails/)
+
+#### 题目描述
+
+编写一个 SQL 查询，查找 `Person` 表中所有重复的电子邮箱。
+
+**示例：**
+
+```
++----+---------+
+| Id | Email   |
++----+---------+
+| 1  | a@b.com |
+| 2  | c@d.com |
+| 3  | a@b.com |
++----+---------+
+```
+
+根据以上输入，你的查询应返回以下结果：
+
+```
++---------+
+| Email   |
++---------+
+| a@b.com |
++---------+
+```
+
+#### SQL架构
+
+```sql
+Create table If Not Exists Person (Id int, Email varchar(255))
+Truncate table Person
+insert into Person (Id, Email) values ('1', 'a@b.com')
+insert into Person (Id, Email) values ('2', 'c@d.com')
+insert into Person (Id, Email) values ('3', 'a@b.com')
+```
+
+#### SQL
+
+```sql
+# 方法一：自连接
+-- SELECT DISTINCT a.Email
+-- FROM Person AS a INNER JOIN Person AS b
+-- ON a.Email = b.Email AND a.Id <> b.Id;
+
+# 方法二：group by
+SELECT Email
+FROM Person
+GROUP BY Email
+HAVING COUNT(Email) > 1;
+```
+
+### [183. 从不订购的客户](https://leetcode-cn.com/problems/customers-who-never-order/)
+
+#### 题目描述
+
+某网站包含两个表，`Customers` 表和 `Orders` 表。编写一个 SQL 查询，找出所有从不订购任何东西的客户。
+
+`Customers` 表：
+
+```
++----+-------+
+| Id | Name  |
++----+-------+
+| 1  | Joe   |
+| 2  | Henry |
+| 3  | Sam   |
+| 4  | Max   |
++----+-------+
+```
+
+`Orders` 表：
+
+```
++----+------------+
+| Id | CustomerId |
++----+------------+
+| 1  | 3          |
+| 2  | 1          |
++----+------------+
+```
+
+#### SQL架构
+
+```sql
+Create table If Not Exists Customers (Id int, Name varchar(255))
+Create table If Not Exists Orders (Id int, CustomerId int)
+Truncate table Customers
+insert into Customers (Id, Name) values ('1', 'Joe')
+insert into Customers (Id, Name) values ('2', 'Henry')
+insert into Customers (Id, Name) values ('3', 'Sam')
+insert into Customers (Id, Name) values ('4', 'Max')
+Truncate table Orders
+insert into Orders (Id, CustomerId) values ('1', '3')
+insert into Orders (Id, CustomerId) values ('2', '1')
+```
+
+#### SQL
+
+```sql
+SELECT Name AS Customers
+FROM Customers 
+WHERE Id NOT IN (
+    SELECT DISTINCT CustomerId
+    FROM Orders
+);
+```
+
+### [184. 部门工资最高的员工](https://leetcode-cn.com/problems/department-highest-salary/)
+
+`Employee` 表包含所有员工信息，每个员工有其对应的 Id, salary 和 department Id。
+
+```
++----+-------+--------+--------------+
+| Id | Name  | Salary | DepartmentId |
++----+-------+--------+--------------+
+| 1  | Joe   | 70000  | 1            |
+| 2  | Henry | 80000  | 2            |
+| 3  | Sam   | 60000  | 2            |
+| 4  | Max   | 90000  | 1            |
++----+-------+--------+--------------+
+```
+
+`Department` 表包含公司所有部门的信息。
+
+```
++----+----------+
+| Id | Name     |
++----+----------+
+| 1  | IT       |
+| 2  | Sales    |
++----+----------+
+```
+
+编写一个 SQL 查询，找出每个部门工资最高的员工。例如，根据上述给定的表格，Max 在 IT 部门有最高工资，Henry 在 Sales 部门有最高工资。
+
+```
++------------+----------+--------+
+| Department | Employee | Salary |
++------------+----------+--------+
+| IT         | Max      | 90000  |
+| Sales      | Henry    | 80000  |
++------------+----------+--------+
+```
+
+#### SQL架构
+
+```sql
+Create table If Not Exists Employee (Id int, Name varchar(255), Salary int, DepartmentId int)
+Create table If Not Exists Department (Id int, Name varchar(255))
+Truncate table Employee
+insert into Employee (Id, Name, Salary, DepartmentId) values ('1', 'Joe', '70000', '1')
+insert into Employee (Id, Name, Salary, DepartmentId) values ('2', 'Jim', '90000', '1')
+insert into Employee (Id, Name, Salary, DepartmentId) values ('3', 'Henry', '80000', '2')
+insert into Employee (Id, Name, Salary, DepartmentId) values ('4', 'Sam', '60000', '2')
+insert into Employee (Id, Name, Salary, DepartmentId) values ('5', 'Max', '90000', '1')
+Truncate table Department
+insert into Department (Id, Name) values ('1', 'IT')
+insert into Department (Id, Name) values ('2', 'Sales')
+```
+
+### SQL
+
+```sql
+SELECT 
+    dep.Name AS 'Department', 
+    emp.Name AS 'Employee', 
+    emp.Salary
+FROM 
+    Department AS dep 
+    INNER JOIN 
+    Employee AS emp ON dep.Id = emp.DepartmentId
+WHERE (emp.DepartmentId, emp.Salary) IN (
+    SELECT DepartmentId, MAX(Salary)
+    FROM Employee
+    GROUP BY DepartmentId
+);
+```
+
