@@ -5,7 +5,7 @@ tags: linux
 categories: linux
 ---
 
-Linux中查看文件内容的常用命令有head、tail、cat、tac、more以及less。
+在Linux中，查看文件内容的常用命令有head、tail、cat、tac、more以及less。
 
 <!--more-->
 
@@ -34,13 +34,30 @@ tail [-F | -f | -r] [-q] [-b number | -c number | -n number] [file ...]
 
 * -b：显示文件的后number个512字节块。
 * -c：显示文件的后number个字节。
+* -f：循环读取
 * -n：显示文件的后number行
 * -q：不显示文件名称。
 * -r：按照从后往前的顺序输出。
 
+**如果number前面有+号，表示从第number开始到文件末尾。**
+
 如果指定了多个文件，则每个文件前面都有一个由字符串“ ==> XXX <== ”组成的标头，其中XXX是文件名称。
 
 如果指定了-q参数，则不会输出由字符串“ ==> XXX <== ”组成的标头。
+
+示例：
+
+1.显示err.log的最后20行
+
+```shell
+tail -n 20 err.log
+```
+
+2.显示err.log的内容，从第20行至文件末尾
+
+```shell
+tail -n +20 err.log
+```
 
 ### cat
 

@@ -186,6 +186,52 @@ FROM Scores AS s
 ORDER BY s.Score DESC;
 ```
 
+### [180. 连续出现的数字](https://leetcode-cn.com/problems/consecutive-numbers/)
+
+#### 题目描述
+
+编写一个 SQL 查询，查找所有至少连续出现三次的数字。
+
+```
++----+-----+
+| Id | Num |
++----+-----+
+| 1  |  1  |
+| 2  |  1  |
+| 3  |  1  |
+| 4  |  2  |
+| 5  |  1  |
+| 6  |  2  |
+| 7  |  2  |
++----+-----+
+```
+
+例如，给定上面的 `Logs` 表， `1` 是唯一连续出现至少三次的数字。
+
+```
++-----------------+
+| ConsecutiveNums |
++-----------------+
+| 1               |
++-----------------+
+```
+
+#### SQL
+
+```sql
+SELECT 
+    DISTINCT l1.Num AS ConsecutiveNums
+FROM 
+    Logs AS l1, 
+    Logs AS l2, 
+    Logs AS l3
+WHERE 
+    l1.Id + 1= l2.Id 
+    AND l2.Id + 1 = l3.Id 
+    AND l1.Num = l2.Num 
+    AND l2.Num = l3.Num;
+```
+
 ### [181. 超过经理收入的员工](https://leetcode-cn.com/problems/employees-earning-more-than-their-managers/)
 
 #### 题目描述
@@ -264,16 +310,6 @@ ON a.ManagerId = b.Id AND a.Salary > b.Salary;
 +---------+
 ```
 
-#### SQL架构
-
-```sql
-Create table If Not Exists Person (Id int, Email varchar(255))
-Truncate table Person
-insert into Person (Id, Email) values ('1', 'a@b.com')
-insert into Person (Id, Email) values ('2', 'c@d.com')
-insert into Person (Id, Email) values ('3', 'a@b.com')
-```
-
 #### SQL
 
 ```sql
@@ -319,21 +355,6 @@ HAVING COUNT(Email) > 1;
 +----+------------+
 ```
 
-#### SQL架构
-
-```sql
-Create table If Not Exists Customers (Id int, Name varchar(255))
-Create table If Not Exists Orders (Id int, CustomerId int)
-Truncate table Customers
-insert into Customers (Id, Name) values ('1', 'Joe')
-insert into Customers (Id, Name) values ('2', 'Henry')
-insert into Customers (Id, Name) values ('3', 'Sam')
-insert into Customers (Id, Name) values ('4', 'Max')
-Truncate table Orders
-insert into Orders (Id, CustomerId) values ('1', '3')
-insert into Orders (Id, CustomerId) values ('2', '1')
-```
-
 #### SQL
 
 ```sql
@@ -346,6 +367,8 @@ WHERE Id NOT IN (
 ```
 
 ### [184. 部门工资最高的员工](https://leetcode-cn.com/problems/department-highest-salary/)
+
+#### 题目描述
 
 `Employee` 表包含所有员工信息，每个员工有其对应的 Id, salary 和 department Id。
 
@@ -382,23 +405,7 @@ WHERE Id NOT IN (
 +------------+----------+--------+
 ```
 
-#### SQL架构
-
-```sql
-Create table If Not Exists Employee (Id int, Name varchar(255), Salary int, DepartmentId int)
-Create table If Not Exists Department (Id int, Name varchar(255))
-Truncate table Employee
-insert into Employee (Id, Name, Salary, DepartmentId) values ('1', 'Joe', '70000', '1')
-insert into Employee (Id, Name, Salary, DepartmentId) values ('2', 'Jim', '90000', '1')
-insert into Employee (Id, Name, Salary, DepartmentId) values ('3', 'Henry', '80000', '2')
-insert into Employee (Id, Name, Salary, DepartmentId) values ('4', 'Sam', '60000', '2')
-insert into Employee (Id, Name, Salary, DepartmentId) values ('5', 'Max', '90000', '1')
-Truncate table Department
-insert into Department (Id, Name) values ('1', 'IT')
-insert into Department (Id, Name) values ('2', 'Sales')
-```
-
-### SQL
+#### SQL
 
 ```sql
 SELECT 
@@ -415,4 +422,226 @@ WHERE (emp.DepartmentId, emp.Salary) IN (
     GROUP BY DepartmentId
 );
 ```
+
+### [197. 上升的温度](https://leetcode-cn.com/problems/rising-temperature/)
+
+#### 题目描述
+
+给定一个 `Weather` 表，编写一个 SQL 查询，来查找与之前（昨天的）日期相比温度更高的所有日期的 Id。
+
+```
++---------+------------------+------------------+
+| Id(INT) | RecordDate(DATE) | Temperature(INT) |
++---------+------------------+------------------+
+|       1 |       2015-01-01 |               10 |
+|       2 |       2015-01-02 |               25 |
+|       3 |       2015-01-03 |               20 |
+|       4 |       2015-01-04 |               30 |
++---------+------------------+------------------+
+```
+
+例如，根据上述给定的 `Weather` 表格，返回如下 Id:
+
+```
++----+
+| Id |
++----+
+|  2 |
+|  4 |
++----+
+```
+
+#### SQL
+
+```sql
+SELECT a.Id
+FROM Weather AS a JOIN Weather AS b
+ON DATEDIFF(a.RecordDate, b.RecordDate) = 1 AND a.Temperature > b.Temperature;
+```
+
+注意：**DATEDIFF()函数用于计算两个日期之差。**
+
+例如，DATEDIFF('2015-01-04','2015-01-03')返回1，DATEDIFF('2015-01-03','2015-01-04')返回-1。
+
+### [595. 大的国家](https://leetcode-cn.com/problems/big-countries/)
+
+#### 题目描述
+
+这里有张 `World` 表
+
+```
++-----------------+------------+------------+--------------+---------------+
+| name            | continent  | area       | population   | gdp           |
++-----------------+------------+------------+--------------+---------------+
+| Afghanistan     | Asia       | 652230     | 25500100     | 20343000      |
+| Albania         | Europe     | 28748      | 2831741      | 12960000      |
+| Algeria         | Africa     | 2381741    | 37100000     | 188681000     |
+| Andorra         | Europe     | 468        | 78115        | 3712000       |
+| Angola          | Africa     | 1246700    | 20609294     | 100990000     |
++-----------------+------------+------------+--------------+---------------+
+```
+
+如果一个国家的面积超过300万平方公里，或者人口超过2500万，那么这个国家就是大国家。
+
+编写一个SQL查询，输出表中所有大国家的名称、人口和面积。
+
+例如，根据上表，我们应该输出:
+
+```
++--------------+-------------+--------------+
+| name         | population  | area         |
++--------------+-------------+--------------+
+| Afghanistan  | 25500100    | 652230       |
+| Algeria      | 37100000    | 2381741      |
++--------------+-------------+--------------+
+```
+
+#### SQL
+
+```sql
+SELECT name, population, area
+FROM World
+WHERE area > 3000000 OR population > 25000000;
+```
+
+### [596. 超过5名学生的课](https://leetcode-cn.com/problems/classes-more-than-5-students/)
+
+#### 题目描述
+
+有一个`courses` 表 ，有: **student (学生)** 和 **class (课程)**。
+
+请列出所有超过或等于5名学生的课。
+
+例如,表:
+
+```
++---------+------------+
+| student | class      |
++---------+------------+
+| A       | Math       |
+| B       | English    |
+| C       | Math       |
+| D       | Biology    |
+| E       | Math       |
+| F       | Computer   |
+| G       | Math       |
+| H       | Math       |
+| I       | Math       |
++---------+------------+
+```
+
+应该输出:
+
+```
++---------+
+| class   |
++---------+
+| Math    |
++---------+
+```
+
+**Note:**
+学生在每个课中不应被重复计算。
+
+#### SQL
+
+思路：使用分组语句，并注意去重。
+
+```sql
+SELECT class
+FROM courses
+GROUP BY class
+HAVING COUNT(DISTINCT student) >= 5; 
+```
+
+### [620. 有趣的电影](https://leetcode-cn.com/problems/not-boring-movies/)
+
+#### 题目描述
+
+某城市开了一家新的电影院，吸引了很多人过来看电影。该电影院特别注意用户体验，专门有个 LED显示板做电影推荐，上面公布着影评和相关电影描述。
+
+作为该电影院的信息部主管，您需要编写一个 SQL查询，找出所有影片描述为非 boring (不无聊) 的并且 id 为奇数 的影片，结果请按等级 rating 排列。
+
+例如，下表 cinema:
+
+```
++---------+-----------+--------------+-----------+
+|   id    | movie     |  description |  rating   |
++---------+-----------+--------------+-----------+
+|   1     | War       |   great 3D   |   8.9     |
+|   2     | Science   |   fiction    |   8.5     |
+|   3     | irish     |   boring     |   6.2     |
+|   4     | Ice song  |   Fantacy    |   8.6     |
+|   5     | House card|   Interesting|   9.1     |
++---------+-----------+--------------+-----------+
+```
+
+对于上面的例子，则正确的输出是为：
+
+```
++---------+-----------+--------------+-----------+
+|   id    | movie     |  description |  rating   |
++---------+-----------+--------------+-----------+
+|   5     | House card|   Interesting|   9.1     |
+|   1     | War       |   great 3D   |   8.9     |
++---------+-----------+--------------+-----------+
+```
+
+#### SQL
+
+```sql
+SELECT id, movie, description, rating
+FROM cinema
+WHERE description <> 'boring' AND MOD(id, 2) = 1
+ORDER BY rating DESC
+```
+
+注意：**MOD()函数用于求余数。**
+
+### [627. 交换工资](https://leetcode-cn.com/problems/swap-salary/)
+
+#### 题目描述
+
+给定一个 salary 表，如下所示，有 m = 男性 和 f = 女性 的值。交换所有的 f 和 m 值（例如，将所有 f 值更改为 m，反之亦然）。要求只使用一个更新（Update）语句，并且没有中间的临时表。
+
+注意，您必只能写一个 Update 语句，请不要编写任何 Select 语句。
+
+**例如：**
+
+```
+| id | name | sex | salary |
+|----|------|-----|--------|
+| 1  | A    | m   | 2500   |
+| 2  | B    | f   | 1500   |
+| 3  | C    | m   | 5500   |
+| 4  | D    | f   | 500    |
+```
+
+运行你所编写的更新语句之后，将会得到以下表:
+
+```
+| id | name | sex | salary |
+|----|------|-----|--------|
+| 1  | A    | f   | 2500   |
+| 2  | B    | m   | 1500   |
+| 3  | C    | f   | 5500   |
+| 4  | D    | m   | 500    |
+```
+
+#### SQL
+
+```sql
+# 方法一：CASE ... WHEN
+-- UPDATE salary
+-- SET SEX = CASE SEX
+--     WHEN 'm' THEN 'f'
+--     ELSE 'm'
+-- END;
+
+# 方法二：IF函数
+UPDATE salary
+SET SEX = IF(SEX='m', 'f', 'm');
+```
+
+
 
