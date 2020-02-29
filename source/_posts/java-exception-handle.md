@@ -14,11 +14,19 @@ Java异常处理
 
 Java中的异常层次结构
 
-​	派生于Error类或RuntimeException类的所有异常称为非受查（unchecked）异常，所有其他异常称为受查（check）异常。
+```java
+Throwable
+├── Error
+└── Exception
+    ├── IOException
+    └── RuntimeException
+```
+
+派生于Error类或RuntimeException类的所有异常称为非受查（unchecked）异常，所有其他异常称为受查（check）异常。
 
 ### 声明异常
 
-​	方法应该在其首部声明所有可能抛出的异常。语法如下：
+方法应该在其首部声明所有可能抛出的异常。语法如下：
 
 ```java
 public FileInputStream(String name) throws FileNotFoundException
@@ -40,7 +48,7 @@ public FileInputStream(String name) throws FileNotFoundException
 
 ### finally子句
 
-
+return
 
 ### 带资源的try语句
 

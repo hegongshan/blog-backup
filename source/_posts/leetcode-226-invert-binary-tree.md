@@ -1,5 +1,5 @@
 ---
-title: LeetCode 226.翻转二叉树
+title: LeetCode 226.翻转二叉树/《剑指Offer》27.二叉树的镜像
 date: 2019-12-11 17:25:43
 tags: binary-tree
 categories: leetcode
@@ -49,7 +49,9 @@ class Solution:
         return root
 ```
 
-### 方法二：迭代
+复杂度分析：时间复杂度和空间复杂度均为O(n)。
+
+### 方法二：迭代（深度优先）
 
 ```python
 # Definition for a binary tree node.
@@ -58,23 +60,63 @@ class Solution:
 #         self.val = x
 #         self.left = None
 #         self.right = None
-
 class Solution:
     def invertTree(self, root: TreeNode) -> TreeNode:
+        if not root:
+            return root;
         stack = [root]
-        temp = None
         while stack:
             node = stack.pop()
-            if node:
-                temp = node.left
-                node.left = node.right
-                node.right = temp
+
+            temp = node.left
+            node.left = node.right
+            node.right = temp
+            
+            if node.left:
                 stack.append(node.left)
+            if node.right:
                 stack.append(node.right)
         return root
 ```
 
+复杂度分析：时间复杂度和空间复杂度均为O(n)。
 
+### 方法三：迭代（广度优先）
 
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if(root == null) {
+            return root;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()) {
+            TreeNode node = queue.poll();
 
+            TreeNode temp = node.left;
+            node.left = node.right;
+            node.right = temp;
 
+            if(node.left != null) {
+                queue.offer(node.left);
+            }
+            if(node.right != null) {
+                queue.offer(node.right);
+            }
+        }
+        return root;
+    }
+}
+```
+
+复杂度分析：时间复杂度和空间复杂度均为O(n)。

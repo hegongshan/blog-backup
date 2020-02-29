@@ -1,5 +1,5 @@
 ---
-title: LeetCode 206./《剑指offer》15.反转链表
+title: LeetCode 206./《剑指offer》24.反转链表
 date: 2020-02-03 17:55:00
 tags: linked-list
 categories: leetcode

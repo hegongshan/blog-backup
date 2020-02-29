@@ -40,7 +40,7 @@ categories: 正则表达式
 | 字符 |      说明       |        举例        |
 | :--: | :-------------: | :----------------: |
 |  xy  |      x并y       |       [xy]         |
-| x&#124;y |      x或y   |      [x&#124;y]|
+| x&#124;y |      x或y   | (x&#124;y) |
 | (X)  | 将X定义为一个组 | [xy(bc)]，(x&#124;y)|
 
 其他预定义字符以及不是特别常用的字符，详见 [java正则表达式](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html  "正则表达式")

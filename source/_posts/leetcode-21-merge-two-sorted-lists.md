@@ -1,5 +1,5 @@
 ---
-title: LeetCode 21.合并两个有序链表
+title: LeetCode 21.合并两个有序链表/《剑指Offer》25.合并两个排序的链表
 date: 2019-04-05 11:16:42
 tags: linked-list
 categories: leetcode

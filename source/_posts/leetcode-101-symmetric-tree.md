@@ -1,5 +1,5 @@
 ---
-title: LeetCode 101.对称二叉树
+title: LeetCode 101./《剑指Offer》28.对称二叉树
 date: 2019-12-06 13:44:42
 tags: binary-tree
 categories: leetcode
@@ -54,9 +54,9 @@ class Solution:
         return self.isSymmetric2(node1.left, node2.right) and self.isSymmetric2(node1.right, node2.left)
 ```
 
+复杂度分析：时间复杂度和空间复杂度均为O(n)。
 
-
-### 方法二：迭代
+### 方法二：迭代（深度优先）
 
 ```python
 # Definition for a binary tree node.
@@ -87,3 +87,49 @@ class Solution:
         return True
 ```
 
+复杂度分析：时间复杂度和空间复杂度均为O(n)。
+
+### 方法三：迭代（广度优先）
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        if(root == null) {
+            return true;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root.left);
+        queue.add(root.right);
+
+        while(!queue.isEmpty()) {
+            TreeNode node1 = queue.poll();
+            TreeNode node2 = queue.poll();
+            if(node1 == null && node2 == null) {
+                continue;
+            }
+            if(node1 == null || node2 == null) {
+                return false;
+            }
+            if(node1.val != node2.val) {
+                return false;
+            }
+            queue.offer(node1.left);
+            queue.offer(node2.right);
+            queue.offer(node1.right);
+            queue.offer(node2.left);           
+        }
+        return true;
+    }
+}
+```
+
+复杂度分析：时间复杂度和空间复杂度均为O(n)。
