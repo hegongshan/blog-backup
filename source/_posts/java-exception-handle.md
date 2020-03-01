@@ -36,6 +36,10 @@ public FileInputStream(String name) throws FileNotFoundException
 
 ### 抛出异常
 
+```java
+throw new FileNotFoundException();
+```
+
 
 
 ### 创建异常
@@ -53,5 +57,7 @@ return
 ### 带资源的try语句
 
 
+
+未完待续...
 
  

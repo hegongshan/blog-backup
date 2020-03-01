@@ -11,7 +11,7 @@ categories: java
 
 TreeMap底层的数据结构为红黑树（Red Black Tree）。
 
-红黑树是一种含有红黑结点并能自平衡的二叉查找树。它必须满足下面性质：
+红黑树是一种含有红黑结点并能自平衡的二叉查找树。它必须满足下面的性质：
 
 - 性质1：每个节点要么是黑色，要么是红色。
 - 性质2：根节点是黑色。
@@ -19,9 +19,7 @@ TreeMap底层的数据结构为红黑树（Red Black Tree）。
 - 性质4：每个红色结点的两个子结点一定都是黑色。
 - 性质5：任意一结点到每个叶子结点的路径都包含数量相同的黑结点。
 
-### 存储结构
-
-* 成员变量
+### 成员变量
 
 ```java
 private final Comparator<? super K> comparator;
@@ -34,7 +32,7 @@ private static final boolean RED   = false;
 private static final boolean BLACK = true;
 ```
 
-* 存储结构
+### 存储结构
 
 ```java
 static final class Entry<K,V> implements Map.Entry<K,V> {
@@ -135,13 +133,24 @@ final int compare(Object k1, Object k2) {
 
 #### 修复插入
 
-重点在于修正红黑树。
+插入操作可能会破坏红黑树的性质，因此插入以后需要执行修复操作。
 
 首先，将结点x的颜色设置为红色。
 
 然后，判断x的父结点P是否红色。若P为黑色，则不需要调整，方法结束。
 
-接着，变色：（P为红色）若P是其父结点G的左孩子，则将P变为黑色，G变为红色。
+接着，若P是其父结点G的左孩子：
+
+1.若x的叔叔节点U是红色，则将P和U涂黑，G涂红。然后，将G作为当前节点，继续执行修复操作。
+
+2.若x的叔叔节点U是黑色，此时祖父节点G必为黑色
+
+* 2.1 若x是父节点P的右孩子，则对父节点P执行左旋操作，此时转变为2.2。
+* 2.2 若x是父节点P的左孩子，则将父节点P涂黑，祖父节点G涂红，然后对祖父节点G执行右旋操作。
+
+若P是其父结点G的右孩子，则刚好与上面相反。
+
+最后，将根结点涂黑。
 
 ```java
 private void fixAfterInsertion(Entry<K,V> x) {
@@ -152,22 +161,20 @@ private void fixAfterInsertion(Entry<K,V> x) {
     while (x != null && x != root && x.parent.color == RED) {
         if (parentOf(x) == leftOf(parentOf(parentOf(x)))) {
             Entry<K,V> y = rightOf(parentOf(parentOf(x)));
-    				// 若父结点和叔叔节点均为红色，则执行变色操作
+            // 若父结点和叔叔节点均为红色
             if (colorOf(y) == RED) {
                 setColor(parentOf(x), BLACK);
                 setColor(y, BLACK);
                 setColor(parentOf(parentOf(x)), RED);
                 x = parentOf(parentOf(x));
             } else { // 若父结点为红色，叔叔节点为黑色
-    						// 插入结点为父结点的右孩子，则执行左旋
+    						// 插入结点为父结点的右孩子，则对父节点执行左旋
                 if (x == rightOf(parentOf(x))) {
                     x = parentOf(x);
                     rotateLeft(x);
                 }
-              	// 变色：将父节点涂黑，祖父节点涂红
                 setColor(parentOf(x), BLACK);
                 setColor(parentOf(parentOf(x)), RED);
-              	// 对祖父结点执行右旋操作
                 rotateRight(parentOf(parentOf(x)));
             }
         } else {
@@ -192,6 +199,53 @@ private void fixAfterInsertion(Entry<K,V> x) {
 }
 ```
 
+#### 左旋操作
+
+让当前节点p成为其右孩子r的左孩子，并让右孩子r原来的左孩子，成为p的右孩子。
+
+```java
+private void rotateLeft(Entry<K,V> p) {
+    if (p != null) {
+        Entry<K,V> r = p.right;
+        p.right = r.left;
+        if (r.left != null)
+            r.left.parent = p;
+        r.parent = p.parent;
+        if (p.parent == null)
+            root = r;
+        else if (p.parent.left == p)
+            p.parent.left = r;
+        else
+            p.parent.right = r;
+        r.left = p;
+        p.parent = r;
+    }
+}
+```
+
+#### 右旋操作
+
+让当前节点p成为其左孩子l的右孩子，并让左孩子l原来的右孩子，成为p的左孩子。
+
+```java
+private void rotateRight(Entry<K,V> p) {
+    if (p != null) {
+        Entry<K,V> l = p.left;
+        p.left = l.right;
+        if (l.right != null) l.right.parent = p;
+        l.parent = p.parent;
+        // 若p为根结点
+        if (p.parent == null)
+            root = l;
+        else if (p.parent.right == p)
+            p.parent.right = l;
+        else p.parent.left = l;
+        l.right = p;
+        p.parent = l;
+    }
+}
+```
+
 ### 删除操作
 
 #### remove方法
@@ -208,7 +262,7 @@ public V remove(Object key) {
 }
 ```
 
-#### 查找值
+#### 根据键名查找值
 
 getEntry()方法比较简单，利用二叉查找树的性质，根据键名寻找对应的值。
 
@@ -239,11 +293,9 @@ final Entry<K,V> getEntry(Object key) {
 
 删除结点有三种情况：
 
-* 没有孩子
-* 有一个孩子
-* 有两个孩子
-
-deleteEntry()方法
+* 该结点没有孩子；
+* 该结点有一个孩子；
+* 该结点有两个孩子。
 
 ```java
 private void deleteEntry(Entry<K,V> p) {
@@ -295,7 +347,9 @@ private void deleteEntry(Entry<K,V> p) {
 }
 ```
 
-寻找当前结点的后继结点，即中序遍历顺序的下一个结点。
+#### 寻找后继结点
+
+寻找当前结点的后继结点，即中序遍历顺序的下一个结点。（[《剑指Offer》8.二叉树的**下一个**结点](http://localhost:4000/2020/02/14/coding-interview-8-find-binary-tree-next-node/)）
 
 ```java
 static <K,V> TreeMap.Entry<K,V> successor(Entry<K,V> t) {

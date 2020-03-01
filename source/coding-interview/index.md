@@ -20,4 +20,5 @@ date: 2020-02-18 23:36:43
 |  27  |          二叉树的镜像          |   [查看题解](/2019/12/11/leetcode-226-invert-binary-tree/)   |      二叉树       |
 |  28  |          对称的二叉树          |     [查看题解](/2019/12/06/leetcode-101-symmetric-tree/)     |      二叉树       |
 |  29  |         顺时针打印矩阵         |      [查看题解](/2020/03/01/leetcode-54-spiral-matrix/)      |       数组        |
+|  30  |        包含min函数的栈         |       [查看题解](/2020/03/02/leetcode-155-min-stack/)        |        栈         |
 

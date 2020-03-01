@@ -29,6 +29,7 @@ date: 2019-03-20 11:00:31
 | 147  | [对链表进行插入排序](https://leetcode-cn.com/problems/insertion-sort-list/) |  [查看题解](/2020/01/11/leetcode-147-insertion-sort-list/)   |    链表    | <strong style="color:#f0ad4e">中等</strong> |
 | 148  |   [排序链表](https://leetcode-cn.com/problems/sort-list/)    |       [查看题解](/2019/04/26/leetcode-148-sort-list/)        |    链表    | <strong style="color:#f0ad4e">中等</strong> |
 | 154  | [寻找旋转排序数组中的最小值 II](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/) | [查看题解](/2020/02/19/leetcode-154-find-minimum-in-rotated-sorted-array-ii/) |    二分    |   <strong style="color:red">困难</strong>   |
+| 155  |    [最小栈](https://leetcode-cn.com/problems/min-stack/)     |       [查看题解](/2020/03/02/leetcode-155-min-stack/)        |     栈     |  <strong style="color:green">简单</strong>  |
 | 160  | [相交链表](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/) | [查看题解](/2020/01/15/leetcode-160-intersection-of-two-linked-lists/) |    链表    |  <strong style="color:green">简单</strong>  |
 | 191  | [位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/) |    [查看题解](/2020/02/22/leetcode-191-number-of-1-bits/)    |   位运算   |  <strong style="color:green">简单</strong>  |
 | 203  | [移除链表元素](https://leetcode-cn.com/problems/remove-linked-list-elements/) | [查看题解](/2019/05/08/leetcode-203-remove-linked-list-elements/) |    链表    |  <strong style="color:green">简单</strong>  |
