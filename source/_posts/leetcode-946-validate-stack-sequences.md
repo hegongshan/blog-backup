@@ -1,5 +1,5 @@
 ---
-title: LeetCode 946.验证栈序列
+title: LeetCode 946.验证栈序列/《剑指Offer》31.栈的压入、弹出序列
 date: 2019-06-01 17:01:28
 tags: stack
 categories: leetcode
@@ -48,6 +48,9 @@ push(5), pop() -> 5, pop() -> 3, pop() -> 2, pop() -> 1
 ```java
 class Solution {
     public boolean validateStackSequences(int[] pushed, int[] popped) {
+        if(pushed == null || popped == null || pushed.length != popped.length) {
+            return false;
+        }
         // 用一个数组模拟栈的操作
         int[] stack = new int[pushed.length];
         // 栈的实际长度
@@ -67,3 +70,26 @@ class Solution {
 }
 ```
 
+当然，我们也可以使用Stack类来实现上述操作。
+
+```java
+class Solution {
+    public boolean validateStackSequences(int[] pushed, int[] popped) {
+        if(pushed == null || popped == null || pushed.length != popped.length) {
+            return false;
+        }
+
+        Stack<Integer> stack = new Stack<>();          
+        for (int i = 0, j = 0; i < pushed.length; i++) {   
+            stack.push(pushed[i]);        
+            while (!stack.empty() && stack.peek() == popped[j]) {
+                stack.pop();
+                j++;
+            }
+        }
+        return stack.empty();
+    }
+}
+```
+
+复杂度分析：时间复杂度和空间复杂度均为O(n)。其中，n表示pushed序列的长度。
