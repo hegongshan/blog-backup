@@ -116,7 +116,7 @@ public V put(K key, V value) {
 }
 ```
 
-hash方法的目的在于将给定的key转换成一个整数。
+hash方法的目的在于将给定的key转换成一个整数。如果key为null，那么将其放入第0个桶中。
 
 ```java
 static final int hash(Object key) {
@@ -147,6 +147,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
         else if (p instanceof TreeNode)
             e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
         else {
+            // 对链表采用尾插法
             for (int binCount = 0; ; ++binCount) {
                 if ((e = p.next) == null) {
                     p.next = newNode(hash, key, value, null);

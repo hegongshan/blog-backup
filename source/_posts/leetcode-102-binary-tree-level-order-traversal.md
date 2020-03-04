@@ -1,5 +1,5 @@
 ---
-title: LeetCode 102.二叉树的层次遍历
+title: LeetCode 102.二叉树的层次遍历/《剑指Offer》32-II.从上到下打印二叉树
 date: 2019-05-26 16:11:29
 tags: binary-tree
 categories: leetcode
@@ -32,9 +32,13 @@ categories: leetcode
 
 ### 解决方案
 
-* **思路：**使用队列。先将根结点root进队，在队列不为空时循环：
+* **思路：**使用队列来模拟二叉树的层次遍历。
 
-此时队列中的元素个数size即为二叉树中当前层的节点个数，循环执行size次如下操作：将队首元素出队，若其有左孩子，则将其左孩子进队。若其还有右孩子，再将右孩子也进队。
+让根结点root进队，当队列不为空时，循环执行如下操作：
+
+1.获取当前层的节点个数，它等于队列中的元素个数size；
+
+2.遍历当前层的节点。循环执行size次出队操作，每次执行出队操作时，判断当前节点是否有孩子。如果它有左孩子，则将其左孩子进队。若它(还)有右孩子，让右孩子(也)进队。
 
 ```java
 /*public class TreeNode {
@@ -45,13 +49,13 @@ categories: leetcode
  }*/
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> list = new ArrayList<>();
+        List<List<Integer>> list = new LinkedList<>();
         if (root != null) {
-            Deque<TreeNode> queue = new ArrayDeque<>();
+            Queue<TreeNode> queue = new LinkedList<>();
             // 进队
             queue.offer(root);
             while (!queue.isEmpty()) {
-                List<Integer> levels = new ArrayList<>();
+                List<Integer> levels = new LinkedList<>();
                 // 当前层的节点个数
                 int size = queue.size();
                 for (int i = 0; i < size; i++) {

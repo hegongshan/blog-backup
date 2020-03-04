@@ -22,4 +22,8 @@ date: 2020-02-18 23:36:43
 |  29  |         顺时针打印矩阵         |      [查看题解](/2020/03/01/leetcode-54-spiral-matrix/)      |       数组        |
 |  30  |        包含min函数的栈         |       [查看题解](/2020/03/02/leetcode-155-min-stack/)        |        栈         |
 |  31  |       栈的压入、弹出序列       | [查看题解](/2019/06/01/leetcode-946-validate-stack-sequences/) |        栈         |
+| 32.1 |      从上到下打印二叉树 I      | [查看题解](/2020/03/03/coding-interview-32-binary-tree-level-order-tranversal-i/) |      二叉树       |
+| 32.2 |     从上到下打印二叉树 II      | [查看题解](/2019/05/26/leetcode-102-binary-tree-level-order-traversal/) |      二叉树       |
+| 32.3 |     从上到下打印二叉树 III     | [查看题解](/2020/03/03/coding-interview-32-binary-tree-level-order-tranversal-iii/) |      二叉树       |
+|  33  |    二叉搜索树的后序遍历序列    | [查看题解](/2020/03/04/coding-interview-33-binary-search-tree-postorder-traversal/) |      二叉树       |
 
