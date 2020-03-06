@@ -31,12 +31,13 @@ date: 2019-04-09 17:58:35
 4. [哈希表Map](/2020/02/17/java-collections-api-map/)
 5. [基于红黑树的哈希表 TreeMap](/2020/02/17/java-collections-api-treemap/)
 6. [基于拉链法的哈希表 HashMap](/2020/02/18/java-collections-api-hashmap/)
-
 7. [LinkedHashMap](/2020/02/18/java-collections-api-linkedhashmap/)
+9. [Hashtable](/2020/03/05/java-collections-api-hashtable/)
+
 <!--
-9. Hashtable
-10. ConcurrentHashMap
-11. Set/HashSet/TreeSet
+
+1. ConcurrentHashMap
+2. Set/HashSet/TreeSet
 
 -->
 ### 数据结构

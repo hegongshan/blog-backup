@@ -5,7 +5,7 @@ tags: java collections api
 categories: java
 ---
 
-HashMap底层的数据结构为数组+单链表+红黑树。
+HashMap底层的数据结构为数组+单链表+红黑树，它最多只允许一个记录的键为null，但可以有多条记录的值为null。
 
 <!--more-->
 
@@ -116,7 +116,7 @@ public V put(K key, V value) {
 }
 ```
 
-hash方法的目的在于将给定的key转换成一个整数。如果key为null，那么将其放入第0个桶中。
+hash方法的目的在于将给定的key转换成一个整数。如果key为null（最多只允许有一条记录的key为null），那么将其放入第0个桶中。否则，让键哈希码h的低16位与高16位做异或运算，使得HashMap中记录分布更加均匀。
 
 ```java
 static final int hash(Object key) {
@@ -177,7 +177,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
 }
 ```
 
-### 扩容
+### 扩容操作
 
 扩容后的大小为原来容量的2倍。
 
@@ -294,7 +294,7 @@ final void treeifyBin(Node<K,V>[] tab, int hash) {
 }
 ```
 
-### get操作
+### 按键取值
 
 ```java
 public V get(Object key) {
@@ -309,8 +309,10 @@ final Node<K,V> getNode(int hash, Object key) {
             ((k = first.key) == key || (key != null && key.equals(k))))
             return first;
         if ((e = first.next) != null) {
+            // 若桶中为红黑树
             if (first instanceof TreeNode)
                 return ((TreeNode<K,V>)first).getTreeNode(hash, key);
+            // 若桶中为单链表
             do {
                 if (e.hash == hash &&
                     ((k = e.key) == key || (key != null && key.equals(k))))

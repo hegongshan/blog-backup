@@ -5,11 +5,11 @@ tags: java collections api
 categories: java
 ---
 
-通过阅读TreeMap的源码，学习红黑树。
+TreeMap底层的数据结构为红黑树，它不允许任何记录的键为null，但可以有多条记录的值为null。
 
 <!--more-->
 
-TreeMap底层的数据结构为红黑树（Red Black Tree）。
+### 红黑树的性质
 
 红黑树是一种含有红黑结点并能自平衡的二叉查找树。它必须满足下面的性质：
 
