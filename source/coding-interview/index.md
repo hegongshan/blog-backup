@@ -29,4 +29,6 @@ date: 2020-02-18 23:36:43
 |  35  |         复杂链表的复制         | [查看题解](/2020/01/24/leetcode-138-copy-list-with-random-pointer/) |       链表        |
 |  36  |      二叉搜索树与双向链表      | [查看题解](/2020/03/05/coding-interview-36-convert-binary-search-tree-to-doubly-linked-list/) |      二叉树       |
 |  37  |          序列化二叉树          | [查看题解](/2020/03/06/leetcode-297-serialize-and-deserialize-binary-tree/) |      二叉树       |
+|  39  |  数组中出现次数超过一半的数字  |    [查看题解](/2020/03/07/leetcode-169-majority-element/)    |       数组        |
+|  40  |          最小的k个数           | [查看题解](/2020/03/08/coding-interview-40-smallest-k-numbers/) |        堆         |
 

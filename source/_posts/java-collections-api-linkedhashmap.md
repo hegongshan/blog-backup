@@ -124,20 +124,12 @@ LRU（Least Recently Used，最近最少使用）算法，其核心思想是“�
 当缓存容量达到上限时，在写入新数据之前需要删除最近最少使用的数据值，从而为新的数据值留出空间。
 
 ```java
-class LRUCache extends LinkedHashMap<K, V>{
+class LRUCache<K, V> extends LinkedHashMap<K, V>{
     private int capacity;
     public LRUCache(int capacity) {
         // 使用accessOrder
         super(capacity, 0.75f, true);
         this.capacity = capacity;
-    }
-    
-    public V get(K key) {
-        return super.get(key);
-    }
-    
-    public void put(K key, V value) {
-        super.put(key, value);
     }
 
     @Override
