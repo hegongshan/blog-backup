@@ -28,10 +28,11 @@ transient volatile Node<K,V>[] table;
 与HashMap相比，val和next字段均使用了volatile关键字。
 
 ```java
-// hash值为正数
 static class Node<K,V> implements Map.Entry<K,V> {
+    // hash >= 0
     final int hash;
     final K key;
+    // val和next均被volatile修饰
     volatile V val;
     volatile Node<K,V> next;
 
@@ -163,7 +164,7 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
         if (tab == null || (n = tab.length) == 0)
             tab = initTable();
         else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {
-            // 若所在的桶为空，则使用cas算法设置头结点
+            // 若所在的桶为空，则使用CAS算法设置头结点
             if (casTabAt(tab, i, null,
                          new Node<K,V>(hash, key, value, null)))
                 break;                   // no lock when adding to empty bin
@@ -292,15 +293,115 @@ static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
                                     Node<K,V> c, Node<K,V> v) {
     return U.compareAndSwapObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
 }
-// 设置第i个桶的头结点（当需要删除第i个桶的头结点时，才被使用）
+// 设置第i个桶的头结点（用于删除头结点或者扩容操作中）
 static final <K,V> void setTabAt(Node<K,V>[] tab, int i, Node<K,V> v) {
     U.putObjectVolatile(tab, ((long)i << ASHIFT) + ABASE, v);
 }
 ```
 
+### 单链表与红黑树的相互转化
+
+#### 单链表=>红黑树
+
+```java
+private final void treeifyBin(Node<K,V>[] tab, int index) {
+    Node<K,V> b; int n, sc;
+    if (tab != null) {
+        // 1.若桶中的结点个数>=树化阈值(8)，但是表的长度<最小树化容量（64），则尝试扩容
+        if ((n = tab.length) < MIN_TREEIFY_CAPACITY)
+            tryPresize(n << 1);
+        else if ((b = tabAt(tab, index)) != null && b.hash >= 0) {
+            // 2. b.hash>=0 确保桶中依然是单链表
+            synchronized (b) {
+                // 3.再次检查，确保头结点未发生变化
+                if (tabAt(tab, index) == b) {
+                    TreeNode<K,V> hd = null, tl = null;
+                    // 4.将单链表（普通结点）转变为双链表（树结点）
+                    for (Node<K,V> e = b; e != null; e = e.next) {
+                        TreeNode<K,V> p =
+                            new TreeNode<K,V>(e.hash, e.key, e.val,
+                                              null, null);
+                        if ((p.prev = tl) == null)
+                            hd = p;
+                        else
+                            tl.next = p;
+                        tl = p;
+                    }
+                    // 5.红黑树的构建由TreeBin的构造方法完成
+                    // 6.将桶的首结点设置为TreeBin（hash=-2），表示桶中为红黑树
+                    setTabAt(tab, index, new TreeBin<K,V>(hd));
+                }
+            }
+        }
+    }
+}
+```
+
+#### 红黑树=>单链表
+
+```java
+static <K,V> Node<K,V> untreeify(Node<K,V> b) {
+    Node<K,V> hd = null, tl = null;
+    for (Node<K,V> q = b; q != null; q = q.next) {
+        Node<K,V> p = new Node<K,V>(q.hash, q.key, q.val, null);
+        if (tl == null)
+            hd = p;
+        else
+            tl.next = p;
+        tl = p;
+    }
+    return hd;
+}
+```
+
 ### 扩容机制
 
-#### 帮助扩容
+#### 扩容操作
+
+```java
+private final void tryPresize(int size) {
+    int c = (size >= (MAXIMUM_CAPACITY >>> 1)) ? MAXIMUM_CAPACITY :
+        tableSizeFor(size + (size >>> 1) + 1);
+    int sc;
+    while ((sc = sizeCtl) >= 0) {
+        Node<K,V>[] tab = table; int n;
+        if (tab == null || (n = tab.length) == 0) {
+            n = (sc > c) ? sc : c;
+            if (U.compareAndSwapInt(this, SIZECTL, sc, -1)) {
+                try {
+                    if (table == tab) {
+                        @SuppressWarnings("unchecked")
+                        Node<K,V>[] nt = (Node<K,V>[])new Node<?,?>[n];
+                        table = nt;
+                        sc = n - (n >>> 2);
+                    }
+                } finally {
+                    sizeCtl = sc;
+                }
+            }
+        }
+        else if (c <= sc || n >= MAXIMUM_CAPACITY)
+            break;
+        else if (tab == table) {
+            int rs = resizeStamp(n);
+            if (sc < 0) {
+                Node<K,V>[] nt;
+                if ((sc >>> RESIZE_STAMP_SHIFT) != rs || sc == rs + 1 ||
+                    sc == rs + MAX_RESIZERS || (nt = nextTable) == null ||
+                    transferIndex <= 0)
+                    break;
+                if (U.compareAndSwapInt(this, SIZECTL, sc, sc + 1))
+                    transfer(tab, nt);
+            }
+            else if (U.compareAndSwapInt(this, SIZECTL, sc,
+                                         (rs << RESIZE_STAMP_SHIFT) + 2))
+                transfer(tab, null);
+        }
+    }
+}
+```
+
+#### 帮助迁移
 
 ```java
 final Node<K,V>[] helpTransfer(Node<K,V>[] tab, Node<K,V> f) {
@@ -328,10 +429,10 @@ static final int resizeStamp(int n) {
 }
 ```
 
-#### 扩容操作
+#### 移动操作
 
 ```java
- private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
+private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
     int n = tab.length, stride;
     if ((stride = (NCPU > 1) ? (n >>> 3) / NCPU : n) < MIN_TRANSFER_STRIDE)
         stride = MIN_TRANSFER_STRIDE; // subdivide range
@@ -471,21 +572,23 @@ static final int resizeStamp(int n) {
 
 ### 按键取值
 
+由于Node的val和next属性均使用了volatile关键字修饰，因此，get方法没有加锁。
+
 ```java
 public V get(Object key) {
     Node<K,V>[] tab; Node<K,V> e, p; int n, eh; K ek;
     int h = spread(key.hashCode());
     if ((tab = table) != null && (n = tab.length) > 0 &&
         (e = tabAt(tab, (n - 1) & h)) != null) {
-        // 若为桶中的第一个结点
+        // 1.若为桶中的第一个结点
         if ((eh = e.hash) == h) {
             if ((ek = e.key) == key || (ek != null && key.equals(ek)))
                 return e.val;
         }
         else if (eh < 0)
-            // 若正在扩容（hash = -1），或者桶中为红黑树（hash = -2）
+            // 2.若正在扩容（hash = -1），或者桶中为红黑树（hash = -2）
             return (p = e.find(h, key)) != null ? p.val : null;
-        // 若桶中为单链表
+        // 3.若桶中为单链表
         while ((e = e.next) != null) {
             if (e.hash == h &&
                 ((ek = e.key) == key || (ek != null && key.equals(ek))))

@@ -39,7 +39,7 @@ public interface Set<E> extends Collection<E> {
     boolean containsAll(Collection<?> c);
 
     boolean addAll(Collection<? extends E> c);
-
+    // 只保留包含在c中的元素，即删除不在c中的所有元素
     boolean retainAll(Collection<?> c);
 
     boolean removeAll(Collection<?> c);
@@ -129,7 +129,7 @@ public boolean remove(Object o) {
 
 ### TreeSet
 
-与HashSet的实现方式类似，TreeSet使用TreeMap实现，从而导致存储在其中的元素是**有序且不重复的**，它**不允许值为null**（TreeMap不允许任何记录的键为null）。
+与HashSet的实现方式类似，TreeSet使用TreeMap实现，从而导致存储在其中的元素是**有序且不重复的。**此外，它**不允许值为null**（TreeMap不允许任何记录的键为null）。
 
 #### 存储结构
 
@@ -158,7 +158,7 @@ public TreeSet(Comparator<? super E> comparator) {
 
 ### CopyOnWriteArraySet
 
-基于CopyOnWriteArrayList实现，
+CopyOnWriteArraySet是基于CopyOnWriteArrayList实现的，存储在其中的元素是**有序且不重复的**，并且它**允许值为null。**
 
 #### 存储结构
 
@@ -189,4 +189,12 @@ public boolean remove(Object o) {
     return al.remove(o);
 }
 ```
+
+### 实现类比较
+
+|       实现类        |             实现机制             | 是否允许为null | 是否有序 |  是否线程安全   |
+| :-----------------: | :-------------------------------: | :------------: | :-------------: | :------: |
+|       HashSet       | 基于HashMap |      允许      |      **无序**      |   线程不安全    |
+|       TreeSet       |       基于TreeMap       |     **不允许**     |     有序     |   线程不安全    |
+| CopyOnWriteArraySet | 基于CopyOnWriteArrayList |      允许      |      有序      | **线程安全** |
 

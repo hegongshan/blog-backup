@@ -8,6 +8,7 @@ date: 2019-03-20 11:00:31
 |  21  | [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) | [查看题解](/2019/04/05/leetcode-21-merge-two-sorted-lists/)  |    链表    |  <strong style="color:green">简单</strong>  |
 |  23  | [合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) |  [查看题解](/2019/02/22/leetcode-23-merge-k-sorted-lists/)   |    链表    |   <strong style="color:red">困难</strong>   |
 |  25  | [k个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/) | [查看题解](/2019/04/04/leetcode-25-reverse-nodes-in-k-group/) |    链表    |   <strong style="color:red">困难</strong>   |
+|  34  | [在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | [查看题解](/2020/03/19/leetcode-34-find-first-and-last-position-of-element-in-sorted-array/) |  二分查找  | <strong style="color:#f0ad4e">中等</strong> |
 |  50  |    [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)     |         [查看题解](/2020/02/23/leetcode-50-powx-n/)          |    数学    | <strong style="color:#f0ad4e">中等</strong> |
 |  54  | [螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/)  |      [查看题解](/2020/03/01/leetcode-54-spiral-matrix/)      |    数组    | <strong style="color:#f0ad4e">中等</strong> |
 |  65  |  [有效数字](https://leetcode-cn.com/problems/valid-number/)  |      [查看题解](/2020/02/26/leetcode-65-valid-number/)       |   字符串   |   <strong style="color:red">困难</strong>   |
@@ -43,6 +44,7 @@ date: 2019-03-20 11:00:31
 | 263  |    [丑数](https://leetcode-cn.com/problems/ugly-number/)     |      [查看题解](/2019/05/03/leetcode-263-ugly-number/)       |    数学    |  <strong style="color:green">简单</strong>  |
 | 264  | [丑数 II](https://leetcode-cn.com/problems/ugly-number-ii/)  |     [查看题解](/2019/05/03/leetcode-264-ugly-number-ii/)     |    数学    | <strong style="color:#f0ad4e">中等</strong> |
 | 287  | [寻找重复数](https://leetcode-cn.com/problems/find-the-duplicate-number/) | [查看题解](/2020/02/10/leetcode-287-find-the-duplicate-number/) |    数组    | <strong style="color:#f0ad4e">中等</strong> |
+| 295  | [数据流的中位数](https://leetcode-cn.com/problems/find-median-from-data-stream/) | [查看题解](/2020/03/09/leetcode-295-find-median-from-data-stream/) |     堆     |   <strong style="color:red">困难</strong>   |
 | 297  | [二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/) | [查看题解](/2020/03/06/leetcode-297-serialize-and-deserialize-binary-tree/) | 遍历二叉树 |   <strong style="color:red">困难</strong>   |
 | 328  | [奇偶链表](https://leetcode-cn.com/problems/odd-even-linked-list/) |  [查看题解](/2019/05/10/leetcode-328-odd-even-linked-list/)  |    链表    | <strong style="color:#f0ad4e">中等</strong> |
 | 343  | [整数拆分](https://leetcode-cn.com/problems/integer-break/)  |     [查看题解](/2020/02/22/leetcode-343-integer-break/)      |  动态规划  | <strong style="color:#f0ad4e">中等</strong> |

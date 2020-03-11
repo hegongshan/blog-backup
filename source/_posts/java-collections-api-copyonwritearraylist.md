@@ -187,7 +187,7 @@ private static boolean eq(Object o1, Object o2) {
 
 ### 查询元素
 
-所有的查询操作都在原数组中进行。
+所有的查询操作都在原数组中进行。由于get方法没有加锁，因此，可能会出现**脏读（dirty read）**。
 
 ```java
 public E get(int index) {
@@ -257,7 +257,7 @@ public E remove(int index) {
 
 #### 按值删除
 
-删除数组中的值等于0的首个元素。
+删除数组中值为o（字母）的首个元素。
 
 ```java
 public boolean remove(Object o) {
