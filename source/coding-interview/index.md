@@ -33,8 +33,10 @@ date: 2020-02-18 23:36:43
 |   40   |          最小的k个数           | [查看题解](/2020/03/08/coding-interview-40-smallest-k-numbers/) |        堆         |
 |   41   |         数据流的中位数         | [查看题解](/2020/03/09/leetcode-295-find-median-from-data-stream/) |        堆         |
 |   45   |       把数组排成最小的数       | [查看题解](/2020/03/13/coding-interview-45-arrange-array-into-min-number/) |       数组        |
+|   46   |       把数字翻译成字符串       | [查看题解](/2020/03/14/coding-interview-46-translate-number-into-string/) |     动态规划      |
 |  50-I  |     第一个只出现一次的字符     | [查看题解](/2020/03/17/coding-interview-50-first-unique-char-i/) |      哈希表       |
 | 50-II  |   字符流中第一个不重复的字符   | [查看题解](/2020/03/17/coding-interview-50-first-unique-char-ii/) |      哈希表       |
 |  53-I  |      在排序数组中查找数字      | [查看题解](/2020/03/19/leetcode-34-find-first-and-last-position-of-element-in-sorted-array/) |     二分查找      |
 | 53-II  |       0～n-1中缺失的数字       | [查看题解](/2020/03/19/coding-interview-53-ii-missing-number/) |     二分查找      |
+|  55-I  |          二叉树的深度          | [查看题解](/2020/03/21/leetcode-104-maximum-depth-of-binary-tree/) |      二叉树       |
 

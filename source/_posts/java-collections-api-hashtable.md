@@ -5,7 +5,7 @@ tags: java collections api
 categories: java
 ---
 
-Hashtable底层的数据结构为数组+单链表，它不允许任何记录的键或者值为null。
+Hashtable低层的数据结构为数组和单链表，它使用除留余数法确定下标，使用拉链法解决哈希冲突，不允许任何记录的键或者值为null。
 
 <!--more-->
 
@@ -81,7 +81,9 @@ public synchronized V put(K key, V value) {
     // Makes sure the key is not already in the hashtable.
     Entry<?,?> tab[] = table;
     int hash = key.hashCode();
+    // 1.除留余数法——确定下标
     int index = (hash & 0x7FFFFFFF) % tab.length;
+    // 2.拉链法——解决哈希冲突
     @SuppressWarnings("unchecked")
     Entry<K,V> entry = (Entry<K,V>)tab[index];
     for(; entry != null ; entry = entry.next) {
