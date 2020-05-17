@@ -61,11 +61,27 @@ private void linkNodeLast(LinkedHashMap.Entry<K,V> p) {
 }
 ```
 
-### 插入操作
-
-每当执行put方法时，如果key已经存在，那么LinkedHashMap将会执行如下方法：
+### 按键取值
 
 ```java
+public V get(Object key) {
+    Node<K,V> e;
+    if ((e = getNode(hash(key), key)) == null)
+        return null;
+    if (accessOrder)
+        afterNodeAccess(e);
+    return e.value;
+}
+```
+
+当采用访问顺序时，调用了afterNodeAccess方法，将当前节点移动到链表尾部。
+
+### 访问或更新以后
+
+当执行put方法却发现key已经存在，或者调用get方法后，LinkedHashMap都将会执行如下方法：
+
+```java
+// 若采用访问顺序，则将当前节点移动到链表尾部
 void afterNodeAccess(Node<K,V> e) { // move node to last
     LinkedHashMap.Entry<K,V> last;
     if (accessOrder && (last = tail) != e) {
@@ -94,11 +110,33 @@ void afterNodeAccess(Node<K,V> e) { // move node to last
 }
 ```
 
-### 删除最老项
+### 删除以后
+
+每当执行删除操作后，LinkedHashMap都将执行如下方法：
+
+```java
+// 从双链表中删除该节点
+void afterNodeRemoval(Node<K,V> e) { // unlink
+    LinkedHashMap.Entry<K,V> p =
+        (LinkedHashMap.Entry<K,V>)e, b = p.before, a = p.after;
+    p.before = p.after = null;
+    if (b == null)
+        head = a;
+    else
+        b.after = a;
+    if (a == null)
+        tail = b;
+    else
+        a.before = b;
+}
+```
+
+### 插入以后
 
 每当插入新元素后，LinkedHashMap都将执行如下方法：
 
 ```java
+// 如果插入新元素后，需要删除最老的项
 void afterNodeInsertion(boolean evict) { // possibly remove eldest
     LinkedHashMap.Entry<K,V> first;
     if (evict && (first = head) != null && removeEldestEntry(first)) {
@@ -108,7 +146,9 @@ void afterNodeInsertion(boolean evict) { // possibly remove eldest
 }
 ```
 
-这里调用了removeEldestEntry方法，用于判断是否删除最老的项。由于LinkedHashMap采用的是尾插法，所以双链表中最老的项就是头结点。
+这里调用了removeEldestEntry方法，用于判断是否删除最老的项。
+
+由于LinkedHashMap采用的是尾插法，所以双链表中最老的项就是头结点。
 
 ```java
 protected boolean removeEldestEntry(Map.Entry<K,V> eldest) {

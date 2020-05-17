@@ -1,7 +1,7 @@
 ---
 title: LeetCode 154.寻找旋转排序数组中的最小值 II/《剑指Offer》11.旋转数组的最小数字
 date: 2020-02-19 21:13:57
-tags: binary-search
+tags: binary search
 categories: leetcode
 ---
 

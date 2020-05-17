@@ -44,14 +44,14 @@ mathjax: true
 
 返回 `false` 。
 
-### 解决方案
+### 方法一：自顶向下递归
 
-本题可以采用递归法，递归表达式如下所示：
+递归表达式如下所示：
 $$
 isBalanced(root)=
 \begin{cases}
-true, & root为空 \\\\
-isBalanced(root.left) \cap isBalanced(root.right), & root节点是平衡的 \\\\
+true, & \mathrm{如果root为null} \\\\
+isBalanced(root.left) \land isBalanced(root.right), & \mathrm{如果root节点是平衡的} \\\\
 \end{cases}
 $$
 
@@ -66,17 +66,17 @@ $$
  */
 class Solution {
     public boolean isBalanced(TreeNode root) {
-        if(root == null) {
+        if (root == null) {
             return true;
         }
-        if(Math.abs(getHeight(root.left) - getHeight(root.right)) <= 1) {
+        if (Math.abs(getHeight(root.left) - getHeight(root.right)) <= 1) {
             return isBalanced(root.left) && isBalanced(root.right);
         } 
         return false;
     }
     //求树的高度
     public int getHeight(TreeNode root) {
-        if(root == null) {
+        if (root == null) {
             return 0;
         }
         return Math.max(getHeight(root.left), getHeight(root.right)) + 1;   
@@ -84,5 +84,48 @@ class Solution {
 }
 ```
 
+复杂度分析：时间复杂度为O(n log n)，空间复杂度为O(n)。其中，n为二叉树中节点的个数。
 
+### 方法二：自底向上递归
 
+思路：方法一从根节点出发，逐一判断当前节点是否平衡，从而导致每次判断都需要计算左右子树的高度。
+
+如果从叶子节点开始，在递归的同时，就可以将每个节点的高度记录下来，从而避免了方法一中的重复计算。
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+import java.util.AbstractMap.SimpleEntry;
+
+class Solution {
+    public boolean isBalanced(TreeNode root) {
+        return isBalanced0(root).getValue();       
+    }
+
+    // key为当前节点的高度，value表示以当前节点为根结点的子树是否为平衡二叉树
+    private SimpleEntry<Integer, Boolean> isBalanced0(TreeNode root) {
+        if (root == null) {
+            return new SimpleEntry<Integer, Boolean>(0, true);
+        }
+        SimpleEntry<Integer, Boolean> left = isBalanced0(root.left);
+        SimpleEntry<Integer, Boolean> right = isBalanced0(root.right);
+        int height = left.getKey() - right.getKey();
+
+        // 如果左右子树均为平衡二叉树，且以当前节点为根结点的子树也是平衡二叉树
+        if (left.getValue() && right.getValue() && Math.abs(height) <= 1) {
+            return new SimpleEntry<Integer, Boolean>(Math.max(left.getKey(), right.getKey()) + 1, true);
+        }
+        return new SimpleEntry<Integer, Boolean>(Math.max(left.getKey(), right.getKey()) + 1, false);
+    }
+}
+
+```
+
+复杂度分析：时间复杂度和空间复杂度均为O(n)。其中，n为二叉树中节点的个数。

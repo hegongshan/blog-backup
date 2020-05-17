@@ -1,15 +1,17 @@
 ---
 title: Java容器探秘之旅 ConcurrentHashMap
 date: 2020-03-06 17:15:13
-tags: java collections api
+tags: java collections framework
 categories: java
 ---
 
-ConcurrentHashMap使用CAS算法和synchronized关键字，保证了线程安全，它不允许任何记录的键或者值为null。
+ConcurrentHashMap使用CAS操作和synchronized关键字，保证了并发安全，它不允许任何记录的键或者值为null。
 
 <!--more-->
 
-虽然ConcurrentHashMap类名中带有HashMap字样，但它并不是HashMap的子类。
+此外，虽然ConcurrentHashMap类名中带有HashMap字样，但它并不是HashMap的子类。
+
+> **在JDK 8-11中，ConcurrentHashMap::tryPresize方法存在bug**（[JDK-8214427](https://bugs.java.com/bugdatabase/view_bug.do?bug_id=JDK-8214427)），该bug在JDK 12中已被修复。此外，JDK12对ConcurrentHashMap进行了部分调整，因此，本文将基于JDK 12来进行分析。
 
 ### 存储结构
 
@@ -111,7 +113,7 @@ static final class TreeBin<K,V> extends Node<K,V> {
 }
 ```
 
-* 占位
+* 占位：用于序列化和
 
 ```java
 // hash值为-3
@@ -149,32 +151,38 @@ public V put(K key, V value) {
 }
 ```
 
-实际执行插入操作的是putVal方法。该方法内部使用了CAS算法和同步代码块。
+实际执行插入操作的是putVal方法。该方法内部使用了CAS操作和同步代码块。
 
 ```java
+// onlyIfAbsent: 若为true，则只有当key不存在时，才会执行插入。
 final V putVal(K key, V value, boolean onlyIfAbsent) {
-    // key或value不允许为空
+    // 1.key和value都不允许为空
     if (key == null || value == null) throw new NullPointerException();
-    // 计算键的hash值
+    // 2.计算键的hash值
     int hash = spread(key.hashCode());
     int binCount = 0;
     for (Node<K,V>[] tab = table;;) {
-        Node<K,V> f; int n, i, fh;
-        // 若表未被初始化
+        Node<K,V> f; int n, i, fh; K fk; V fv;
+        // 3.若表尚未初始化
         if (tab == null || (n = tab.length) == 0)
             tab = initTable();
         else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {
-            // 若所在的桶为空，则使用CAS算法设置头结点
-            if (casTabAt(tab, i, null,
-                         new Node<K,V>(hash, key, value, null)))
+            // 4.若所在的桶为空，则使用CAS操作设置头结点
+            if (casTabAt(tab, i, null, new Node<K,V>(hash, key, value)))
                 break;                   // no lock when adding to empty bin
         }
         else if ((fh = f.hash) == MOVED)
-            // 若表正在扩容，则帮助扩容
+            // 5.若在执行迁移操作，则帮助迁移
             tab = helpTransfer(tab, f);
+        else if (onlyIfAbsent // check first node without acquiring lock
+                 && fh == hash
+                 && ((fk = f.key) == key || (fk != null && key.equals(fk)))
+                 && (fv = f.val) != null)
+            // 6.若给定的key为桶中的第一个节点，并且不允许执行更新操作
+            return fv;
         else {
             V oldVal = null;
-            // 锁住桶中的第一个结点
+            // 7.否则，先锁住桶中的第一个结点
             synchronized (f) {
                 if (tabAt(tab, i) == f) {
                     // 若桶中为单链表
@@ -195,8 +203,7 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
                             Node<K,V> pred = e;
                             // 若桶中没有该记录，则将其添加到尾部
                             if ((e = e.next) == null) {
-                                pred.next = new Node<K,V>(hash, key,
-                                                          value, null);
+                                pred.next = new Node<K,V>(hash, key, value);
                                 break;
                             }
                         }
@@ -212,6 +219,8 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
                                 p.val = value;
                         }
                     }
+                    else if (f instanceof ReservationNode)
+                        throw new IllegalStateException("Recursive update");
                 }
             }
             // 若桶中为单链表
@@ -230,13 +239,32 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
 }
 ```
 
+一、循环执行如下过程：
+
+1.若哈希表尚未初始化，则先进行初始化操作；否则，执行2。
+
+2.计算当前项所在的桶下标。若桶为空，则使用CAS操作，将当前项设置为桶中的第一个元素；否则，执行3。
+
+3.若哈希表正在执行迁移操作，则让当前线程帮助执行该过程；否则，执行4。
+
+4.若当前项为桶中的第一个结点，并且不允许执行更新操作，则循环结束；否则，执行5。
+
+5.锁住桶中的第一个结点，然后根据桶中第一个结点的hash值判断桶中的数据结构类型。若为单链表（hash >= 0），则从前往后寻找当前项的插入（或者所在）位置，执行7；否则，执行6。
+
+6.若桶中为红黑树，则根据二叉查找树的性质，寻找当前项的插入（或者所在）位置，执行7。
+
+7.若桶中的元素>=树化阈值（8），则尝试将单链表转变为红黑树。
+
+二、更新哈希表中的元素个数。
+
 #### 重散列
 
 ```java
-static final int HASH_BITS = 0x7fffffff;
+// 返回的值为非负
 static final int spread(int h) {
     return (h ^ (h >>> 16)) & HASH_BITS;
 }
+static final int HASH_BITS = 0x7fffffff;
 ```
 
 #### 初始化操作
@@ -275,11 +303,11 @@ private final Node<K,V>[] initTable() {
 
 #### CAS操作
 
-* 什么是CAS算法
+* 什么是CAS操作
 
-**CAS（Compare And Swap，比较并交换）**是一种无锁算法。CAS操作包含有3个操作数：内存值V，预期原值E，新值N。当且仅当预期值E和内存值V相同时，才会将内存值V修改为N；如果V值和E值不同，则说明已经有其他线程做了更新，则当前线程什么都不做。
+**CAS（Compare And Swap，比较并交换）**是一种无锁算法。CAS操作包含有3个操作数：内存位置V，预期原值E，新值N。当且仅当内存位置V符合预期值E时，才会用N更新V；否则，说明已经有其他线程做了更新，则当前线程什么都不做。
 
-* 当桶为空时，putVal方法使用CAS算法设置桶中的第一个结点，该操作由sun.misc.Unsafe类实现。
+* 当桶为空时，putVal方法使用CAS操作设置桶中的第一个结点，该操作由sun.misc.Unsafe类实现。
 
 ```java
 private static final sun.misc.Unsafe U;
@@ -288,7 +316,7 @@ private static final sun.misc.Unsafe U;
 static final <K,V> Node<K,V> tabAt(Node<K,V>[] tab, int i) {
     return (Node<K,V>)U.getObjectVolatile(tab, ((long)i << ASHIFT) + ABASE);
 }
-// 使用CAS算法，设置第i个桶的头结点（当第i个桶为空时，才被使用）
+// 使用CAS操作，设置第i个桶的头结点（当第i个桶为空时，才被使用）
 static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
                                     Node<K,V> c, Node<K,V> v) {
     return U.compareAndSwapObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
@@ -351,222 +379,6 @@ static <K,V> Node<K,V> untreeify(Node<K,V> b) {
         tl = p;
     }
     return hd;
-}
-```
-
-### 扩容机制
-
-#### 扩容操作
-
-```java
-private final void tryPresize(int size) {
-    int c = (size >= (MAXIMUM_CAPACITY >>> 1)) ? MAXIMUM_CAPACITY :
-        tableSizeFor(size + (size >>> 1) + 1);
-    int sc;
-    while ((sc = sizeCtl) >= 0) {
-        Node<K,V>[] tab = table; int n;
-        if (tab == null || (n = tab.length) == 0) {
-            n = (sc > c) ? sc : c;
-            if (U.compareAndSwapInt(this, SIZECTL, sc, -1)) {
-                try {
-                    if (table == tab) {
-                        @SuppressWarnings("unchecked")
-                        Node<K,V>[] nt = (Node<K,V>[])new Node<?,?>[n];
-                        table = nt;
-                        sc = n - (n >>> 2);
-                    }
-                } finally {
-                    sizeCtl = sc;
-                }
-            }
-        }
-        else if (c <= sc || n >= MAXIMUM_CAPACITY)
-            break;
-        else if (tab == table) {
-            int rs = resizeStamp(n);
-            if (sc < 0) {
-                Node<K,V>[] nt;
-                if ((sc >>> RESIZE_STAMP_SHIFT) != rs || sc == rs + 1 ||
-                    sc == rs + MAX_RESIZERS || (nt = nextTable) == null ||
-                    transferIndex <= 0)
-                    break;
-                if (U.compareAndSwapInt(this, SIZECTL, sc, sc + 1))
-                    transfer(tab, nt);
-            }
-            else if (U.compareAndSwapInt(this, SIZECTL, sc,
-                                         (rs << RESIZE_STAMP_SHIFT) + 2))
-                transfer(tab, null);
-        }
-    }
-}
-```
-
-#### 帮助迁移
-
-```java
-final Node<K,V>[] helpTransfer(Node<K,V>[] tab, Node<K,V> f) {
-    Node<K,V>[] nextTab; int sc;
-    if (tab != null && (f instanceof ForwardingNode) &&
-        (nextTab = ((ForwardingNode<K,V>)f).nextTable) != null) {
-        int rs = resizeStamp(tab.length);
-        while (nextTab == nextTable && table == tab &&
-               (sc = sizeCtl) < 0) {
-            if ((sc >>> RESIZE_STAMP_SHIFT) != rs || sc == rs + 1 ||
-                sc == rs + MAX_RESIZERS || transferIndex <= 0)
-                break;
-            if (U.compareAndSwapInt(this, SIZECTL, sc, sc + 1)) {
-                transfer(tab, nextTab);
-                break;
-            }
-        }
-        return nextTab;
-    }
-    return table;
-}
-private static int RESIZE_STAMP_BITS = 16;
-static final int resizeStamp(int n) {
-    return Integer.numberOfLeadingZeros(n) | (1 << (RESIZE_STAMP_BITS - 1));
-}
-```
-
-#### 移动操作
-
-```java
-private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
-    int n = tab.length, stride;
-    if ((stride = (NCPU > 1) ? (n >>> 3) / NCPU : n) < MIN_TRANSFER_STRIDE)
-        stride = MIN_TRANSFER_STRIDE; // subdivide range
-    if (nextTab == null) {            // initiating
-        try {
-            // 新的容量是原来容量的2倍
-            @SuppressWarnings("unchecked")
-            Node<K,V>[] nt = (Node<K,V>[])new Node<?,?>[n << 1];
-            nextTab = nt;
-        } catch (Throwable ex) {      // try to cope with OOME
-            sizeCtl = Integer.MAX_VALUE;
-            return;
-        }
-        nextTable = nextTab;
-        transferIndex = n;
-    }
-    int nextn = nextTab.length;
-    ForwardingNode<K,V> fwd = new ForwardingNode<K,V>(nextTab);
-    boolean advance = true;
-    boolean finishing = false; // to ensure sweep before committing nextTab
-    for (int i = 0, bound = 0;;) {
-        Node<K,V> f; int fh;
-        while (advance) {
-            int nextIndex, nextBound;
-            if (--i >= bound || finishing)
-                advance = false;
-            else if ((nextIndex = transferIndex) <= 0) {
-                i = -1;
-                advance = false;
-            }
-            else if (U.compareAndSwapInt
-                     (this, TRANSFERINDEX, nextIndex,
-                      nextBound = (nextIndex > stride ?
-                                   nextIndex - stride : 0))) {
-                bound = nextBound;
-                i = nextIndex - 1;
-                advance = false;
-            }
-        }
-        if (i < 0 || i >= n || i + n >= nextn) {
-            int sc;
-            if (finishing) {
-                nextTable = null;
-                table = nextTab;
-                sizeCtl = (n << 1) - (n >>> 1);
-                return;
-            }
-            if (U.compareAndSwapInt(this, SIZECTL, sc = sizeCtl, sc - 1)) {
-                if ((sc - 2) != resizeStamp(n) << RESIZE_STAMP_SHIFT)
-                    return;
-                finishing = advance = true;
-                i = n; // recheck before commit
-            }
-        }
-        else if ((f = tabAt(tab, i)) == null)
-            advance = casTabAt(tab, i, null, fwd);
-        else if ((fh = f.hash) == MOVED)
-            advance = true; // already processed
-        else {
-            synchronized (f) {
-                if (tabAt(tab, i) == f) {
-                    Node<K,V> ln, hn;
-                    // 若桶中为单链表
-                    if (fh >= 0) {
-                        int runBit = fh & n;
-                        Node<K,V> lastRun = f;
-                        for (Node<K,V> p = f.next; p != null; p = p.next) {
-                            int b = p.hash & n;
-                            if (b != runBit) {
-                                runBit = b;
-                                lastRun = p;
-                            }
-                        }
-                        if (runBit == 0) {
-                            ln = lastRun;
-                            hn = null;
-                        }
-                        else {
-                            hn = lastRun;
-                            ln = null;
-                        }
-                        for (Node<K,V> p = f; p != lastRun; p = p.next) {
-                            int ph = p.hash; K pk = p.key; V pv = p.val;
-                            // 头插法
-                            if ((ph & n) == 0)
-                                ln = new Node<K,V>(ph, pk, pv, ln);
-                            else
-                                hn = new Node<K,V>(ph, pk, pv, hn);
-                        }
-                        setTabAt(nextTab, i, ln);
-                        setTabAt(nextTab, i + n, hn);
-                        setTabAt(tab, i, fwd);
-                        advance = true;
-                    }
-                    else if (f instanceof TreeBin) {
-                        TreeBin<K,V> t = (TreeBin<K,V>)f;
-                        TreeNode<K,V> lo = null, loTail = null;
-                        TreeNode<K,V> hi = null, hiTail = null;
-                        int lc = 0, hc = 0;
-                        for (Node<K,V> e = t.first; e != null; e = e.next) {
-                            int h = e.hash;
-                            TreeNode<K,V> p = new TreeNode<K,V>
-                                (h, e.key, e.val, null, null);
-                            if ((h & n) == 0) {
-                                if ((p.prev = loTail) == null)
-                                    lo = p;
-                                else
-                                    loTail.next = p;
-                                loTail = p;
-                                ++lc;
-                            }
-                            else {
-                                if ((p.prev = hiTail) == null)
-                                    hi = p;
-                                else
-                                    hiTail.next = p;
-                                hiTail = p;
-                                ++hc;
-                            }
-                        }
-                        // 若红黑树中的结点个数<=不树化阈值，则将红黑树还原为单链表
-                        ln = (lc <= UNTREEIFY_THRESHOLD) ? untreeify(lo) :
-                            (hc != 0) ? new TreeBin<K,V>(lo) : t;
-                        hn = (hc <= UNTREEIFY_THRESHOLD) ? untreeify(hi) :
-                            (lc != 0) ? new TreeBin<K,V>(hi) : t;
-                        setTabAt(nextTab, i, ln);
-                        setTabAt(nextTab, i + n, hn);
-                        setTabAt(tab, i, fwd);
-                        advance = true;
-                    }
-                }
-            }
-        }
-    }
 }
 ```
 
@@ -690,4 +502,3 @@ final V replaceNode(Object key, V value, Object cv) {
     return null;
 }
 ```
-
