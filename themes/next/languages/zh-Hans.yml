@@ -10,8 +10,8 @@ menu:
   home: 首页
   coding-interview: 剑指Offer
   leetcode: LeetCode题解
-  recommender-systems: 推荐系统
   java: Java攻城狮
+  recsys: 推荐系统
   ccf-csp: CCF CSP题解 
   pat-advanced: PAT甲级题解
   pat-basic: PAT乙级题解

@@ -237,26 +237,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-recommender-systems">
-          <a href="/recommender-systems/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-university"></i> <br>
-            
-            推荐系统
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-java">
-          <a href="/java/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-pagelines"></i> <br>
-            
-            Java攻城狮
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
@@ -370,7 +350,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/04/11/java-regular-expression/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/08/23/machine-learning-apriori/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
@@ -387,8 +367,9 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/11/java-regular-expression/" itemprop="url">正则表达式及Java对其的支持</a></h2>
+                <a class="post-title-link" href="/2018/08/23/machine-learning-apriori/" itemprop="url">
+                  
+                   机器学习之Apriori算法</a></h2>
         
 
         <div class="post-meta">		 
@@ -401,8 +382,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T15:19:46+08:00">
-                2018-04-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-23T18:58:22+08:00">
+                2018-08-23
               </time>
             
 
@@ -417,8 +398,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-11T15:19:46+08:00">
-                2018-04-11
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-23T21:38:20+08:00">
+                2018-08-23
               </time>
             
           </span>
@@ -436,8 +417,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/正则表达式/" itemprop="url" rel="index">
-                    <span itemprop="name">正则表达式</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -467,7 +448,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  706
                 </span>
               
 
@@ -493,55 +474,213 @@
 
       
         
-          <h3 id="简述正则表达式"><a href="#简述正则表达式" class="headerlink" title="简述正则表达式"></a>简述正则表达式</h3><p>​    今天我们来讲下正则表达式，先来看下正则表达式中的数量表示</p>
+          
+            <p>支持度(support)：数据集中包含该项集的记录所占的比例。</p>
+<p>可信度或置信度（confidence）：</p>
+<p>$A \rightarrow B$的置信度为<br>$$<br>confidence（A\rightarrow B） = \frac{support(A , B)}{support(A)}<br>$$<br>Apriori原理：如果一个项集是非频繁的，那么它的所有超集也是非频繁的。</p>
+<blockquote class="blockquote-center"><br>    If an itemset is not frequent, any of its superset is never frequent.<br></blockquote>
+
+<p>Apriori算法</p>
+<p>1.从大小为k的频繁项集中生成大小为k+1的候选频繁项集$C_{k+1}$</p>
+<p>2.扫描数据库，计算每一个候选频繁项集的支持度</p>
+<p>3.将满足最小支持度的频繁项集加到$F_{k+1}$中<br>$$<br>\begin{align}<br>\hline<br>&amp; 算法\ Apriori \\<br>\hline \\<br>&amp; F_1 = (大小为1的频繁项集); \\<br>&amp; for(k = 1; F_k \neq \varnothing; k++)\ do\ begin \\<br>&amp; \qquad C_{k+1} = apriori-gen(F_k);//新的候选频繁集 \\<br>&amp; \qquad for\ 所有的交易记录t \in 数据集\ do\ begin \\<br>&amp; \qquad \qquad C_{t}^{‘}= subset(C_{k+1},t);\ //包含在t中的候选集 \\<br>&amp; \qquad \qquad for\ 所有的候选c \in C_{t}^{‘}\ do \\<br>&amp; \qquad \qquad \qquad c.count ++; \\<br>&amp; \qquad \qquad end \\<br>&amp; \qquad \qquad F_{k+1} = \{C \in C_{k+1} |\ c.count \geq 最小的支持度 \} \\<br>&amp; \qquad end \\<br>&amp; end \\<br>&amp; Answer \cup_{k} F_k;<br>\end{align}<br>$$<br>算法第三行中的apriori-gen函数经过下面两步，从$F_k$生成$C_{k+1}$</p>
+<p>1.连接</p>
+<p>通过合并两个大小为k，且前$k-1$项相同的频繁项集$P_k$和$Q_k$，生成大小为k+1的频繁项集$R_{k+1}$<br>$$<br>\begin{align}<br>&amp; R_{k+1} = P_{k} \cup Q_{k} = \{items_{1},\dots ,items_{k-1},items_{k},items_{k^{‘}}\} \\<br>&amp; P_{k} = \{items_{1},\dots ,items_{k-1},items_{k}\} \\<br>&amp; Q_{k} = \{items_{1},\dots ,items_{k-1},items_{k^{‘}}\}<br>\end{align}<br>$$<br>其中，$items_1 &lt; \dots &lt; items_k &lt; items_{k^{‘}}$</p>
+<p>2.剪枝</p>
+<p>检查$R_{k+1}$中的所有大小为的项集中的所有大小为的项集是不是频繁的，删除中的所有大小为的项集中的所有大小为k的项集是不是频繁的，删除$R_{k+1}$中那些非频繁的项集，从而得到中那些非频繁的项集，从而得到$C_{k+1}$。因为$C_{k+1}$中大小为且非频繁的所有子集不是大小为中大小为k且非频繁的所有子集不是大小为k+1的频繁项集的子集。</p>
+<p>示例：</p>
+<p>假设最小支持度为2</p>
+<p>数据库D</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">字符</th>
-<th style="text-align:center">说明</th>
-<th style="text-align:center">举例</th>
+<th style="text-align:center">TID</th>
+<th style="text-align:center">Items</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">?</td>
-<td style="text-align:center">零次或一次匹配？前的字符或子表达式，<strong><em>等价于{0,1}</em></strong></td>
-<td style="text-align:center">gong(shan)?匹配gong或gongshan</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">$1 \quad 3 \quad 4$</td>
 </tr>
 <tr>
-<td style="text-align:center">*</td>
-<td style="text-align:center">零次或多次匹配*前的字符或子表达式，<strong><strong>等价于{0,}</strong></strong></td>
-<td style="text-align:center">sm*匹配sm或者s</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">$2 \quad 3 \quad 5$</td>
 </tr>
 <tr>
-<td style="text-align:center">+</td>
-<td style="text-align:center">一次或多次匹配*前的字符或子表达式，<strong><strong>等价于{1,}</strong></strong></td>
-<td style="text-align:center">zoo+匹配zoo或者zooo等</td>
+<td style="text-align:center">300</td>
+<td style="text-align:center">$1 \quad 2  \quad  3 \quad  5$</td>
 </tr>
 <tr>
-<td style="text-align:center">{n}</td>
-<td style="text-align:center">n为非负整数，正好匹配n次</td>
-<td style="text-align:center">zo{2}匹配zoo</td>
-</tr>
-<tr>
-<td style="text-align:center">{n,}</td>
-<td style="text-align:center">n为非负整数，至少匹配n次</td>
-<td style="text-align:center">zo{1,}可匹配zo，zoo，zooo等</td>
-</tr>
-<tr>
-<td style="text-align:center">{n,m}</td>
-<td style="text-align:center">n和m均为非负整数，表示至少匹配n次，至多匹配m次</td>
-<td style="text-align:center">zo{1,2}则只匹配zo或者zoo</td>
+<td style="text-align:center">400</td>
+<td style="text-align:center">$2 \quad 5$</td>
 </tr>
 </tbody>
 </table>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/11/java-regular-expression/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p>$C_1$</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">{1}</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">{2}</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">{3}</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">{4}</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">{5}</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+<p>$F_1$</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">项集</th>
+<th style="text-align:center">支持度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">{1}</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">{2}</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">{3}</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">{5}</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+<p>$C_2$</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">项集</th>
+<th style="text-align:center">支持度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">{ 1, 2 }</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">{ 1, 3 }</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">{ 1, 5 }</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">{ 2, 3 }</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">{ 2, 5 }</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">{ 3, 5 }</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+<p>$F_2$</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">项集</th>
+<th style="text-align:center">支持度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">{ 1, 3 }</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">{ 2, 3 }</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">{ 2, 5 }</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">{ 3, 5 }</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+<p>$C_3$</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">项集</th>
+<th style="text-align:center">支持度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">{ 1 , 2 , 3 }</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">{ 1 , 2 , 5 }</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">{ 1 , 3 , 5 }</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">{ 2 , 3 , 5 }</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+<p>$F_3$</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">项集</th>
+<th style="text-align:center">支持度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">{ 2 , 3 , 5 }</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+
+          
         
       
     </div>
@@ -589,7 +728,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/04/02/java-collections-api-stack/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/08/23/java-initialization-block/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
@@ -606,8 +745,9 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/02/java-collections-api-stack/" itemprop="url">Java集合框架源码阅读之栈Stack</a></h2>
+                <a class="post-title-link" href="/2018/08/23/java-initialization-block/" itemprop="url">
+                  
+                   Java中的初始化块</a></h2>
         
 
         <div class="post-meta">		 
@@ -620,8 +760,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-02T14:36:12+08:00">
-                2018-04-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-23T15:23:11+08:00">
+                2018-08-23
               </time>
             
 
@@ -636,8 +776,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-02T14:36:12+08:00">
-                2018-04-02
+              <time title="更新于" itemprop="dateModified" datetime="2020-02-20T20:36:25+08:00">
+                2020-02-20
               </time>
             
           </span>
@@ -686,7 +826,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  528
                 </span>
               
 
@@ -712,14 +852,10 @@
 
       
         
-          <blockquote>
-<p>什么是栈？<br>栈是限制插入和删除只能在一个位置上进行的表，它是一个后进先出(last-in-first-out，LIFO)表</p>
-</blockquote>
-<p>本文是《Java集合框架源码阅读》系列的第三篇，我们来说说Java中的栈<br>在Java Collections API中有一个类叫做java.util.Stack，它的继承结构如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Vector</span>&lt;<span class="title">E</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>它是在java.util.Vector类的基础上扩展了5个方法而来的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">push</span><span class="params">(E item)</span><span class="comment">//进栈</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> E <span class="title">pop</span><span class="params">()</span><span class="comment">//出栈，返回栈顶元素并将其删除</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> E <span class="title">peek</span><span class="params">()</span><span class="comment">//取得栈顶元素（不删除）</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span><span class="comment">//判断是否为空栈</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(Object o)</span><span class="comment">//详见问题四</span></span></span><br></pre></td></tr></table></figure></p>
+          <p>Java中的初始化代码块用一对<strong>花括号{}</strong>标明，初始化代码块在构造方法之前执行。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/02/java-collections-api-stack/#more" rel="contents">
+            <a class="btn" href="/2018/08/23/java-initialization-block/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -771,7 +907,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/04/01/java-collections-api-linkedlist/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/08/22/java-object/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
@@ -788,8 +924,9 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/01/java-collections-api-linkedlist/" itemprop="url">Java集合框架源码阅读之双链表LinkedList</a></h2>
+                <a class="post-title-link" href="/2018/08/22/java-object/" itemprop="url">
+                  
+                   Java中的Object类</a></h2>
         
 
         <div class="post-meta">		 
@@ -802,545 +939,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-01T16:33:12+08:00">
-                2018-04-01
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-04-01T16:33:12+08:00">
-                2018-04-01
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.2k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>本文只分析LinkedList的增(add) 删(remove) 改(set) 查(get)的实现，剩余的部分留给读者自己去浏览吧</p>
-</blockquote>
-<p>本文是《Java集合框架源码阅读》系列的第二篇，我们的主角是java.util.LinkedList<br>老规矩，先看LinkedList继承结构<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractSequentialList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/01/java-collections-api-linkedlist/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/03/30/java-collections-api-arraylist/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gongshan He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="贺巩山的博客">
-    </span>
-
-    
-      <header class="post-header">
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/30/java-collections-api-arraylist/" itemprop="url">Java集合框架源码阅读之顺序表ArrayList</a></h2>
-        
-
-        <div class="post-meta">		 
-		
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-30T21:40:42+08:00">
-                2018-03-30
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-30T21:40:42+08:00">
-                2018-03-30
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.1k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>今天是《Java集合框架源码阅读》的第一篇，我们来讲讲Java中的顺序表ArrayList<br>首先来看下ArrayList的继承结构<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/30/java-collections-api-arraylist/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/03/29/java-collections-list/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gongshan He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="贺巩山的博客">
-    </span>
-
-    
-      <header class="post-header">
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/29/java-collections-list/" itemprop="url">Java集合类之列表List</a></h2>
-        
-
-        <div class="post-meta">		 
-		
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-29T11:00:18+08:00">
-                2018-03-29
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2020-04-18T18:41:03+08:00">
-                2020-04-18
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  256
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>List是一种有序且允许重复的集合。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/29/java-collections-list/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/03/24/blog/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gongshan He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="贺巩山的博客">
-    </span>
-
-    
-      <header class="post-header">
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/24/blog/" itemprop="url">从阿里云服务器到使用github pages的变迁</a></h2>
-        
-
-        <div class="post-meta">		 
-		
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-24T20:01:39+08:00">
-                2018-03-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-22T16:30:33+08:00">
+                2018-08-22
               </time>
             
 
@@ -1374,8 +974,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -1405,7 +1005,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  201
+                  151
                 </span>
               
 
@@ -1431,10 +1031,1279 @@
 
       
         
-          <p>&nbsp;&nbsp;&nbsp;&nbsp;从2016年5月20号晚上注册了域名 <a href="http://www.hegongshan.com">http://www.hegongshan.com</a> ，一直到2017年9月，我在阿里云上租用了一年多的云服务器。由于那时候是新手，所以保守的选择了windows server，而且是最低档的配置——1核1G内存20G磁盘，每个月80多，没办法，谁叫咱穷。</p>
+          
+            <p>java.lang.Object是Java中所有类的父类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Object</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">registerNatives</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        registerNatives();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> Class&lt;?&gt; getClass();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">this</span> == obj);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">native</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getClass().getName() + <span class="string">"@"</span> + Integer.toHexString(hashCode());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notify</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">notifyAll</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout)</span> <span class="keyword">throws</span> InterruptedException</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">(<span class="keyword">long</span> timeout, <span class="keyword">int</span> nanos)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (timeout &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"timeout value is negative"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (nanos &lt; <span class="number">0</span> || nanos &gt; <span class="number">999999</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(</span><br><span class="line">                                <span class="string">"nanosecond timeout value out of range"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (nanos &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            timeout++;</span><br><span class="line">        &#125;</span><br><span class="line">        wait(timeout);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">wait</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        wait(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/08/20/java-enum/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gongshan He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="贺巩山的博客">
+    </span>
+
+    
+      <header class="post-header">
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                <a class="post-title-link" href="/2018/08/20/java-enum/" itemprop="url">
+                  
+                   Java中的枚举类型</a></h2>
+        
+
+        <div class="post-meta">		 
+		
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-20T12:15:33+08:00">
+                2018-08-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-19T15:23:57+08:00">
+                2019-01-19
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  771
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>枚举类的主要作用是便捷地定义静态常量，替代public static final xxx。</p>
+<p>所有的枚举类型都是java.lang.Enum类的子类，java.lang.Enum的类结构如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Enum</span>&lt;<span class="title">E</span> <span class="keyword">extends</span> <span class="title">Enum</span>&lt;<span class="title">E</span>&gt;&gt; </span></span><br><span class="line"><span class="class"><span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">E</span>&gt;, <span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
+<p>方法列表：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">name</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Enum <span class="title">valueOf</span><span class="params">(Class enumClass,String name)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">ordinal</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/03/24/blog/#more" rel="contents">
+            <a class="btn" href="/2018/08/20/java-enum/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/08/17/machine-learning-locally-weighted-linear-regression/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gongshan He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="贺巩山的博客">
+    </span>
+
+    
+      <header class="post-header">
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                <a class="post-title-link" href="/2018/08/17/machine-learning-locally-weighted-linear-regression/" itemprop="url">
+                  
+                   机器学习之局部加权线性回归</a></h2>
+        
+
+        <div class="post-meta">		 
+		
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-17T19:35:13+08:00">
+                2018-08-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-19T15:23:57+08:00">
+                2019-01-19
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  127
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>局部加权线性回归（Locally Weighted Linear Regression，LWLR）。</p>
+<p>在该算法中，给预测点附近的每个点赋予一定的权重，在这个子集上基于最小均方差来进行普通的回归。</p>
+<p>局部加权线性回归的均值误差可用下式表示<br>$$<br>\sum_{i=1}^{m} w_i (y_i - x_i^{T} \theta_i)^2<br>$$<br>其中，$w_i$是权重，$y_i$是真实值，$x_i$是输入值，$\theta_i$为对应的回归系数。</p>
+<p>回归系数$w$为<br>$$<br>\hat w = (X^{T} W X )^{-1} X^{T} W y<br>$$</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/08/17/machine-learning-linear-regression/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gongshan He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="贺巩山的博客">
+    </span>
+
+    
+      <header class="post-header">
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                <a class="post-title-link" href="/2018/08/17/machine-learning-linear-regression/" itemprop="url">
+                  
+                   机器学习之线性回归</a></h2>
+        
+
+        <div class="post-meta">		 
+		
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-17T15:34:42+08:00">
+                2018-08-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-19T15:23:57+08:00">
+                2019-01-19
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  360
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>线性回归（linear regression），就是将输入项分别乘以一些常量，再将结果加起来得到预测值，而这些常量称之为回归系数。</p>
+<p>线性回归可以用如下的等式来表示：<br>$$<br>Y = X^{T} w<br>$$<br>其中，$Y$为预测值，$X$为输入值，$w$是一个包含回归系数的向量</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/17/machine-learning-linear-regression/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/08/17/matrix-derivative/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gongshan He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="贺巩山的博客">
+    </span>
+
+    
+      <header class="post-header">
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                <a class="post-title-link" href="/2018/08/17/matrix-derivative/" itemprop="url">
+                  
+                   矩阵求导</a></h2>
+        
+
+        <div class="post-meta">		 
+		
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-17T14:07:11+08:00">
+                2018-08-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-04T20:45:09+08:00">
+                2019-12-04
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  190
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最近在学习机器学习的时候，经常会碰到矩阵求导，这里记录下矩阵的求导操作。</p>
+<p>向量和矩阵的导数满足乘法法则（product rule）<br>$$<br>\frac {\partial x^{T} \alpha}{ \partial x } = \frac {\partial \alpha^{T} x }{ \partial x } = \alpha<br>$$</p>
+<p>$$<br>\frac {\partial AB} {\alpha x} = \frac{\partial A} {\partial x} B + A \frac{\partial B} {\partial x}<br>$$</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/17/matrix-derivative/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/08/17/linux-command-ssh-and-scp/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gongshan He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="贺巩山的博客">
+    </span>
+
+    
+      <header class="post-header">
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                <a class="post-title-link" href="/2018/08/17/linux-command-ssh-and-scp/" itemprop="url">
+                  
+                   在Linux中存活下来之ssh和scp命令</a></h2>
+        
+
+        <div class="post-meta">		 
+		
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-17T14:06:25+08:00">
+                2018-08-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-17T14:06:25+08:00">
+                2018-08-17
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  361
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>前面我们讲了如何在Windows系统中登录Linux服务器，以及实现windows和Linux之间的文件传输操作。今天我们来讲下在Linux系统（如ubuntu）中如何登录Linux服务器及实现文件传输。</p>
+<p>Linux中使用<strong>ssh命令</strong>登录其他的Linux，使用<strong>scp命令</strong>实现文件传输。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/17/linux-command-ssh-and-scp/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/08/17/putty-file-upload-and-download/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gongshan He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="贺巩山的博客">
+    </span>
+
+    
+      <header class="post-header">
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                <a class="post-title-link" href="/2018/08/17/putty-file-upload-and-download/" itemprop="url">
+                  
+                   使用PuTTY实现Windows和Linux的文件传输</a></h2>
+        
+
+        <div class="post-meta">		 
+		
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-17T14:04:30+08:00">
+                2018-08-17
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-19T15:23:57+08:00">
+                2019-01-19
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/putty/" itemprop="url" rel="index">
+                    <span itemprop="name">putty</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  142
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>安装完PuTTY以后，进入命令行界面，就可以使用PuTTY的<strong>pscp命令</strong>进行文件传输。</p>
+<h3 id="pscp"><a href="#pscp" class="headerlink" title="pscp"></a>pscp</h3><p>语法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pscp 源文件路径 目标文件路径</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/17/putty-file-upload-and-download/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2018/08/16/putty-ssh/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gongshan He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="贺巩山的博客">
+    </span>
+
+    
+      <header class="post-header">
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                <a class="post-title-link" href="/2018/08/16/putty-ssh/" itemprop="url">
+                  
+                   使用PuTTY远程登录Linux服务器</a></h2>
+        
+
+        <div class="post-meta">		 
+		
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-16T14:55:33+08:00">
+                2018-08-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-19T15:23:57+08:00">
+                2019-01-19
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/putty/" itemprop="url" rel="index">
+                    <span itemprop="name">putty</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  420
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>使用PuTTY已经很长时间了，是时候总结下PuTTY的用法了。</p>
+<ul>
+<li>什么是PuTTY?</li>
+</ul>
+<p>下面是PuTTY官网的介绍</p>
+<p>PuTTY is an SSH and telnet client, developed originally by Simon Tatham for the Windows platform. </p>
+<p>翻译过来就是说，PuTTY是Windows平台下的一个SSH客户端。</p>
+<ul>
+<li>为什么要使用PuTTY？</li>
+</ul>
+<p>与商用的XShell相比，PuTTY是开源免费的&gt;_&lt;。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/16/putty-ssh/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1477,7 +2346,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/38/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><span class="page-number current">39</span>
+    <a class="extend prev" rel="prev" href="/page/38/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/38/">38</a><span class="page-number current">39</span><a class="page-number" href="/page/40/">40</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" href="/page/40/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1525,7 +2394,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">386</span>
+                  <span class="site-state-item-count">427</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1536,7 +2405,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1547,7 +2416,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">77</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1606,19 +2475,19 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://www.liuchuo.net" title="柳婼 の blog" target="_blank">柳婼 の blog</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.qinjiangbo.com" title="心灵港" target="_blank">心灵港</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
                     <a href="https://lumingdong.cn" title="卢明冬的博客" target="_blank">卢明冬的博客</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
                     <a href="http://lipixun.me" title="lipixun" target="_blank">lipixun</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liuchuo.net" title="柳婼 の blog" target="_blank">柳婼 の blog</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.qinjiangbo.com" title="心灵港" target="_blank">心灵港</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
@@ -1652,7 +2521,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" style="color:red;">
     <i class="fa fa-heart"></i>
   </span>

@@ -12,7 +12,7 @@ mathjax: true
 
 ### 符号说明
 
-1.所有的向量使用**粗体小写字母**表示，例如$\mathbf{p,q}​$。
+1.所有的向量使用**粗体小写字母**表示，例如$\mathbf{p,q}$。
 
 2.所有的矩阵使用**粗体大写字母**表示，例如$\mathbf{R}$。此外，$\mathbf{p_j}$表示矩阵$\mathbf{P}$的第j行。
 
@@ -20,7 +20,7 @@ mathjax: true
 
 4.$\mathcal{C}$和$\mathcal{D}$分别表示用户和物品集合，$\vert \mathcal{C} \vert=n$，$\vert \mathcal{D} \vert=m$。
 
-5.$\mathbf{R}​$表示用户-物品隐式反馈矩阵；$\mathcal{R}_u^+​$表示用户u评分过的物品集合；$\mathcal{R}_u^-​$表示用户u未评分过的物品集合。
+5.$\mathbf{R}$表示用户-物品隐式反馈矩阵；$\mathcal{R}_u^+$表示用户u评分过的物品集合；$\mathcal{R}_u^-$表示用户u未评分过的物品集合。
 
 6.$\vert \mathcal{R}_u^+ \vert = n_u^+ $
 
@@ -61,7 +61,7 @@ $$
 $$
 **NSVD的不足之处在于**：在估计评分时，没有排除物品自己对自己的影响。
 
-例如，在训练时，要估计用户u对物品i的评分$\hat r_{ui}​$，且$i \in \mathcal{R}_u^+​$
+例如，在训练时，要估计用户u对物品i的评分$\hat r_{ui}$，且$i \in \mathcal{R}_u^+$
 
 根据公式(3)可以得到：
 $$
@@ -87,7 +87,7 @@ $$
 $$
 \hat r_{ui} = b_u + b_i + (\left \vert R_u^+ \right \vert - 1)^{- \alpha} \sum_{j \in \mathcal{R_u^+ \setminus \ \\{i\\}}} \mathbf{p}_j \mathbf{q}_i^T \tag{8}
 $$
-由于FISM只关注隐式反馈，$\forall j \in \mathcal{R}_u^+$，$r_{uj} = 1$，因此，在公式(7)中省略了$r_{uj}$。
+由于FISM只关注隐式反馈，$\forall j \in \mathcal{R}_u^+$，$r_{uj} = 1$，因此，在公式(8)中省略了$r_{uj}$。
 
 目标函数：
 $$
@@ -99,7 +99,7 @@ $$
 
 其中，$\rho$是采样因子（sample factor），$nnz(R)$是$\mathbf{R}$中非零项（non-zero entries）的个数。
 
-实验表明，当采样比$\rho \in [3,15]​$时，足够产生最佳的模型。
+实验表明，当采样比$\rho \in [3,15]$时，足够产生最佳的模型。
 
 训练算法：
 
@@ -131,18 +131,18 @@ $$
 $$
 \left \Vert \mathbf{A} \right \Vert_F = \sqrt{tr(\mathbf{A}^T \mathbf{A})} = \sqrt {\sum_{i=1}^m \sum_{j=1}^n A_{ij}^2} \tag{12}
 $$
-2.对于矩阵$\mathbf{A}​$
+2.对于矩阵$\mathbf{A}$
 $$
 \frac{\partial \left \Vert \mathbf{A} \right \Vert_F^2}{\partial \mathbf{A}} = 2 \mathbf{A} \tag{13}
 $$
-对于向量$\mathbf{x}​$
+对于向量$\mathbf{x}$
 $$
 \frac{\partial \left \Vert \mathbf{x} \right \Vert_2^2}{\partial \mathbf{x}} = 2 \mathbf{x} \tag{14}
 $$
 
 ### 参考文献
 
-1.S. Kabbur, X. Ning, and G. Karypis, “FISM: Factored item similar- ity models for top-n recommender systems,” in Proc. 19th ACM SIGKDD Conf. Knowl. Discovery Data Mining, 2013, pp. 659–667.
+1.S. Kabbur, X. Ning, and G. Karypis, “FISM: Factored item similarity models for top-n recommender systems,” in Proc. 19th ACM SIGKDD Conf. Knowl. Discovery Data Mining, 2013, pp. 659–667.
 
 2.https://github.com/guoguibing/librec/blob/3.0.0/core/src/main/java/net/librec/recommender/cf/ranking/FISMrmseRecommender.java
 

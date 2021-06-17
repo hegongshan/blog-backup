@@ -101,7 +101,7 @@ $$
 	2 \sigma^2
 } \sum_{i=1}^N \sum_{j=1}^M I_{ij} (R_{ij} - U_i^T V_j)^2 - 
 \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^M I_{ij} \ln \sigma^2 - 
-\frac{1}{2} N M \ln (2 \pi)
+\frac{1}{2}\sum_{i=1}^N \sum_{j=1}^M I_{ij} \ln (2 \pi)
 \end{align} \tag{6}
 $$
 
@@ -142,7 +142,7 @@ $$
 } \sum_{i=1}^N \sum_{j=1}^M I_{ij} (R_{ij} - U_i^T V_j)^2 -\frac{1}{2 \sigma_U^2} \sum_{i=1}^N U_i^T U_i - \frac{1}{2 \sigma_V^2} \sum_{j=1}^M V_j^T V_j \\\\
 &- \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^M I_{ij} \ln \sigma^2 - 
 \frac{1}{2} N D \ln \sigma_U^2 - \frac{1}{2} M D \ln \sigma_V^2 \\\\
-&- \frac{1}{2} N M \ln (2 \pi) - 
+&- \frac{1}{2}\sum_{i=1}^N \sum_{j=1}^M I_{ij} \ln (2 \pi) - 
 \frac{1}{2} N D \ln (2 \pi) - 
 \frac{1}{2} M D \ln (2 \pi) \\\\
 = 

@@ -11,6 +11,8 @@ Matplotlib是一个Python的2D绘图库。
 import matplotlib.pyplot as plt
 ```
 
+<!--more-->
+
 ### 设置图片标题
 
 ```python
@@ -156,8 +158,12 @@ linestyle or ls		float
 linewidth or lw		float
 marker			marker style
 markersize or ms	float
+markerfacecolor or mfc		设置标记面颜色
 label			线条的名字
+clip_on		bool,超出坐标轴的部分是否隐藏
 ```
+
+Tips：**当使用圆形标记时，设置`markerfacecolor='white'`可以呈现出空心圆的效果。**
 
 ### 散点图
 
@@ -196,6 +202,32 @@ pie(x, explode=None, labels=None, colors=None, autopct=None,
         center=(0, 0), frame=False, rotatelabels=False, hold=None, data=None)
 ```
 
+### 子图
+
+如果需要一次性绘制多张图片，需要使用matplotlib.pyplot中的**subplot**方法：
+
+```python
+subplot(nrows, ncols, index, **kwargs)
+subplot(pos, **kwargs)
+```
+
+* (*nrows*, *ncols*, *index*)：nrows表示总行数，ncols表示总列数，index表示当前图片的编号（index从1开始，并按照从左至右、从上至下的顺序依次增加）。
+* pos：包含三个数字的整数，每一位与上面三个参数一一对应。
+
+例如，`subplot(235)`，等价于`subplot(2,3,5)`。
+
+注意：如果使用该方式创建子图，**子图的数量不能超过9张**。
+
+#### 调整子图布局
+
+需要使用matplotlib.pyplot中的**subplots_adjust**方法
+
+```python
+subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)
+```
+
+* left：图片左边界的位置
+
 ### 保存图片
 
 保存图片，需要使用matplotlib.pyplot中的savefig方法。
@@ -220,8 +252,36 @@ plt.hlines(y=0.5, xmin=-10, xmax=10, linestyles='dashed')
 ### 显示图例
 
 ```python
-plt.legend()
+plt.legend(*args, **kwargs)
 ```
+
+* loc：图例的位置，值为字符串或者对应的数字，共有以下11种情况
+
+```python
+Location String	Location Code
+'best'	0
+'upper right'	1
+'upper left'	2
+'lower left'	3
+'lower right'	4
+'right'	5
+'center left'	6
+'center right'	7
+'lower center'	8
+'upper center'	9
+'center'	10
+```
+
+其中，'center right'和'right'是等价的。
+
+示例：
+
+```python
+# 右下角
+plt.legend(loc='lower right')
+```
+
+* ncol：图例的列数，默认为1。
 
 ### 显示网格
 

@@ -77,8 +77,16 @@ more只能向前移动↓。
 
 与more相比，less支持向前移动↓和向后移动↑两种查看方式。
 
-/pattern：从第一行向前搜索↓包含pattern的内容
+空格键：查看下一屏
 
-?pattern：从最后一行向后搜索↑包含pattern的内容
+B键：查看上一屏
 
-q：退出
+Q键：退出
+
+* 搜索
+
+/pattern：从当前位置向前搜索↓包含pattern的内容
+
+?pattern：从当前位置向后搜索↑包含pattern的内容
+
+N键：跳到下一个匹配

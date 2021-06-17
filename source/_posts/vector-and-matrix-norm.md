@@ -1,8 +1,8 @@
 ---
 title: 向量和矩阵的范数
 date: 2018-08-27 18:49:12
-tags: 线性代数
-categories: 机器学习
+tags: mathematics
+categories: mathematics
 mathjax: true
 ---
 
@@ -11,6 +11,8 @@ mathjax: true
 <!--more-->
 
 ### 向量范数
+
+<!--
 
 * 定义
 
@@ -27,6 +29,8 @@ mathjax: true
 > 什么是数域？
 >
 > 设P是包含0和1在内的数集，如果P中任意两个数的和、差、积、商（除数不为0）仍是P中的数，则称P为一个**数域**。
+
+-->
 
 * 常见的向量范数
 
@@ -49,7 +53,7 @@ $$
 $$
 \lVert x \rVert_{p} = (\sum_{i=1}^{n} \lvert x_{i} \rvert^{p})^{\frac{1}{p}}，1 \leq p < +\infty \tag{4}
 $$
-$\lVert x \rVert_{p}$称为**p范数**。若未标明p，则默认为2范数。
+$\lVert x \rVert_{p}$称为向量**p范数**。若未标明p，则默认为2范数。
 
 ### 矩阵范数
 
@@ -80,7 +84,7 @@ $$
 \lVert \mathbf{A} \rVert_{F} \equiv (\sum_{i=1}^{m}\sum_{j=1}^{n}\ \lvert a_{ij} \rvert^{2})^{\frac{1}{2}}= (tr({\mathbf{A}^{H}\mathbf{A}}))^{\frac{1}{2}} \tag{7}
 $$
 
-其中，$\lVert \mathbf{A} \rVert_{F}$称为$\mathbf{A}$的**Frobenius范数**，$A^{H}$是$A$的共轭转置矩阵。
+其中，$\lVert \mathbf{A} \rVert_{F}$称为$\mathbf{A}$的**Frobenius范数**（简称**F范数**），$A^{H}$是$A$的共轭转置矩阵。
 
 ### 补充知识
 
@@ -108,11 +112,13 @@ $$
 $$
 3.共轭转置矩阵
 
-当$A=(a_{ij})$为复矩阵时，用 $ \overline{a} $ 表示 $a $的共轭复数，记 $\overline{A} = (\overline{a_{ji}})$，则$（\overline{A}）^{T} = \overline{A^{T}}$为A的共轭转置矩阵。
+当$A=(a_{ij})$为复矩阵时，用 $ \overline{a} $ 表示 $a $的共轭复数，记 $\overline{A} = (\overline{a_{ji}})$，则$A^H = (\overline{A})^{T} = \overline{A^{T}}$为A的共轭转置矩阵。
 
 还是用上面的例子，
 $$
-(\overline{A})^{T}  =
+A^H  
+= (\overline{A})^T
+=
 \begin{vmatrix}
 3-i & 5 \\\\
 2+2i & -i
@@ -127,7 +133,7 @@ $$
 
 4.Hermite矩阵
 
-n阶复方阵A的对称元素互为共轭，即A的共轭转置矩阵等于它本身，则A是Hermite矩阵。
+n阶复方阵A的对称元素互为共轭，即A的共轭转置矩阵等于它本身，$A^H = A$，则A是Hermite矩阵。
 
 例如，
 $$
@@ -139,7 +145,7 @@ B =
 $$
 B的共轭转置矩阵如下
 $$
-\overline{B}^{T} =
+B^H =
 \begin{vmatrix}
 3 & 2-i \\\\
 2+i & 2

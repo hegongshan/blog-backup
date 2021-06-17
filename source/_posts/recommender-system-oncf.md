@@ -10,6 +10,8 @@ Outer Product-based Neural Collaborative Filtering（ONCF）一文发表在IJCAI
 
 <!--more-->
 
+> The key to design a CF model is in 1) how to represent a user and an item, and 2) how to model their interaction based on the representation.  
+
 ### 模型结构
 
 ![ONCF](/static/images/oncf.png)

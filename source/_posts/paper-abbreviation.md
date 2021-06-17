@@ -61,5 +61,10 @@ versus 与...相比
 
 with respect to
 
+### esp.
 
+especially，特殊地；尤其
 
+### ca.
+
+全称circa，大约，左右。

@@ -45,6 +45,10 @@ $$
 * 自然对数：`$\ln 8$` => $\ln 8$
 * 常用对数：`$\lg 100$` => $\lg 100$\
 
+#### 取模
+
+`a \mod b` => $a \mod b$
+
 #### 累加、累乘
 
 * 累加：`$\sum_{i=1}^n (i^2+2i+1)$`　=> $\sum_{i=1}^n (i^2+2i+1)$
@@ -66,6 +70,10 @@ $$
 
 示例：`$\frac{\partial f(x,y)}{\partial x}$` => $\frac{\partial f(x,y)}{\partial x}$
 
+#### 梯度
+
+示例：`$\nabla f$` => $\nabla f$
+
 #### 标签
 
 示例：`$$(a+b)(a-b)=a^2-b^2 \tag{1.1}$$`
@@ -82,6 +90,15 @@ $$
 最小：`$$\min_{x} y$$`
 $$
 \min_{x} y
+$$
+
+arg max：`$$\mathop{\arg\max}_{x} y$$`
+$$
+\mathop{\arg\max}_{x} y
+$$
+arg min：`$$\mathop{\arg\min}_{x} y$$`
+$$
+\mathop{\arg\min}_{x} y
 $$
 
 #### 统计估计
@@ -324,7 +341,7 @@ $$
 |          $\theta$          |          `\theta`          | $\Theta$  | `\Theta`  |
 |         $ \sigma $         |          `\sigma`          | $\Sigma$  | `\Sigma`  |
 |           $\phi$           |           `\phi`           |  $\Phi$   |  `\Phi`   |
-|           $\psi$           |           `\psi`           |  $\Psi$   |  `\Psi`   |
+|      $\psi$ $\varphi$      |      `\psi` `\varphi`      |  $\Psi$   |  `\Psi`   |
 |           $\mu$            |           `\mu`            |           |           |
 |          $\omega$          |          `\omega`          | $\Omega$  | `\Omega`  |
 |           $\tau$           |           `\tau`           |           |           |

@@ -10,7 +10,7 @@ menu:
   home: Home
   coding-interview: Offer
   leetcode: LeetCode 
-  recommender-systems: Recommender Systems
+  recsys: Recommender Systems
   java: Java Programmer
   ccf-csp: CCF CSP 
   pat-basic: PAT (Basic Level)

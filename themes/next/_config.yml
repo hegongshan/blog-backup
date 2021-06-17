@@ -98,8 +98,7 @@ menu:
   pat-advanced: /pat-advanced/ || terminal
   pat-basic: /pat-basic/ || angellist
   ccf-csp: /ccf-csp/ || laptop
-  recommender-systems: /recommender-systems/ || university
-  java: /java/ || pagelines
+  # recsys: /recommender-systems-paper/ || pagelines
   categories: /categories/ || th
   tags: /tags/ || tags
   archives: /archives/ || archive
@@ -161,10 +160,10 @@ links_title: 友情链接
 links_layout: block　
 #links_layout: inline
 links:
-  柳婼 の blog: https://www.liuchuo.net
-  心灵港: https://www.qinjiangbo.com
   卢明冬的博客: https://lumingdong.cn
   lipixun: http://lipixun.me
+  柳婼 の blog: https://www.liuchuo.net
+  心灵港: https://www.qinjiangbo.com
   Liudeyin: http://deyinliu.github.io
   高航的博客: https://www.gaohangcs.com
 
@@ -448,7 +447,7 @@ gitalk:
 # Warning: Baidu Share does not support https.
 baidushare: 
   type: slide
-  baidushare: true
+  baidushare: false
 
 # Share
 # This plugin is more useful in China, make sure you known how to use it.

@@ -49,14 +49,14 @@
 
             {% else %}{#
             #}{% if is_index %}
-                {% if post.sticky > 0 %}
-                  <!--<span class="post-sticky-flag" title="{{ __('post.sticky') }}">
-                    <i class="fa fa-thumb-tack"></i>
-                  </span>-->
-                  <font style="color:red;font-size: 60%;">{{ __('post.sticky') }}</font>
-                     
-                {% endif %}
-                <a class="post-title-link" href="{{ url_for(post.path) }}" itemprop="url">{#
+                <a class="post-title-link" href="{{ url_for(post.path) }}" itemprop="url">
+                  {% if post.sticky > 0 %}
+                    <!--<span class="post-sticky-flag" title="{{ __('post.sticky') }}">
+                      <i class="fa fa-thumb-tack"></i>
+                    </span>-->
+                    <font style="color:red;font-size: 60%;">{{ __('post.sticky') }}</font>
+                  {% endif %}
+                   {#
                 #}{{ post.title | default(__('post.untitled'))}}{#
               #}</a>{#
             #}{% else %}{{ post.title }}{% endif %}{#

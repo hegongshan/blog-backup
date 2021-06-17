@@ -40,7 +40,7 @@ $$
 $$
 \hat y_{ui} = a_{out}(\mathbf{h}^T (\mathbf{p_u} \odot \mathbf{q_i}))
 $$
-其中，$a_{out}$是激活函数，$\mathbf{h}^T$是输出层的边权值，$\otimes$表示逐元素相乘，$\mathbf{p_u}$和$\mathbf{q_i}$分别表示用户u和物品i的隐向量。
+其中，$a_{out}$是激活函数，$\mathbf{h}^T$是输出层的边权值，$\odot$表示逐元素相乘，$\mathbf{p_u}$和$\mathbf{q_i}$分别表示用户u和物品i的隐向量。
 
 ![](/static/images/ncf-gmf.png)
 
