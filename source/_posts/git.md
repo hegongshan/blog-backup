@@ -29,7 +29,7 @@ git clone -b feature-test https://github.com/hegongshan/deep_matrix_factorizatio
 
 * `--global`：设置全局变量
 
-示例1：设置全局用户名和密码
+示例1：设置全局用户名和邮箱
 
 ```shell
 git config --global user.name "xxx"
@@ -168,7 +168,13 @@ git remote add <name> <url>
 git remote add origin https://github.com/hegongshan/deep_matrix_factorization.git
 ```
 
-其中，origin是远程分支的默认命名。
+其中，origin是远程仓库的默认命名。
+
+* set-url：修改远程仓库的URL
+
+```shell
+git remote set-url origin git@github.com:hegongshan/deep_matrix_factorization.git
+```
 
 * -v：列出详细信息
 

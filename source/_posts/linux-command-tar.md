@@ -19,6 +19,7 @@ tar命令参数很多，暂时就只用到以下几个参数，其他的以后�
 * -x：用于解压文件
 * -C：切换到指定目录
 * -z：通过gzip命令处理文件。简单来说，如果需要压缩为\*.gz文件，或者解压缩\*.gz文件，就要带上-z
+* -j：处理*.bz2文件
 
 ####  示例
 
@@ -41,3 +42,23 @@ tar -zcvf archive.tar.gz file1 file2 ...
 ```
 
 archive.tar.gz是生成的压缩文件名，file1、file2等是要压缩的文件和目录列表。
+
+#### 常见问题
+
+1.没有安装bzip2
+
+```shell
+[root@hgs ~]# tar -jxf xxx.tar.bz2
+tar (child): bzip2：无法 exec: 没有那个文件或目录
+tar (child): Error is not recoverable: exiting now
+tar: Child returned status 2
+tar: Error is not recoverable: exiting now
+```
+
+安装
+
+```shell
+# CentOS
+yum install -y bzip2
+```
+

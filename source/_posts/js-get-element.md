@@ -67,7 +67,6 @@ document.querySelectorAll(".c-red");
  下面是一段简单的html片段。
 
 <div id="main-div"><div class="c-red"><p id="demo-p">JavaScript</p><p>Java</p><p>C++</p></div><div class="c-red c-green"><p>Python</p><p>Ruby</p><p>Swift</p></div></div>
-
 ```html
 <div id="main-div">
   <div class="c-red">
@@ -83,10 +82,10 @@ document.querySelectorAll(".c-red");
 </div>
 ```
 
-<a id="btn-id" href="javascript:void(0);">
-访问ID为demo-p的元素    </a>&nbsp; &nbsp;<a id="btn-tag" href="javascript:void(0);">访问标签名为p的所有元素</a>  &nbsp;<a id="btn-class-name" href="javascript:void(0);">访问类名为c-red的所有元素</a> &nbsp;<a id="btn-query" href="javascript:void(0);">访问类名为c-red的第一个元素</a>
+<a id="btn-id" href="javascript:void(0);" onclick="return false">
+访问ID为demo-p的元素    </a>&nbsp; &nbsp;<a id="btn-tag" href="javascript:void(0);" onclick="return false">访问标签名为p的所有元素</a>  &nbsp;<a id="btn-class-name" href="javascript:void(0);" onclick="return false">访问类名为c-red的所有元素</a> &nbsp;<a id="btn-query" href="javascript:void(0);" onclick="return false">访问类名为c-red的第一个元素</a>
 
-<a id="btn-query-all" href="javascript:void(0);">访问类名为c-red的所有元素（querySelectorAll）</a>
+<a id="btn-query-all" href="javascript:void(0);" onclick="return false">访问类名为c-red的所有元素（querySelectorAll）</a>
 
 <script type="text/javascript">
     window.onload = function() {

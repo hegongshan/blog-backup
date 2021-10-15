@@ -17,11 +17,15 @@ categories: mooc
 
 ### Python
 
-1.**Python网络爬虫与信息提取**，北京理工大学
+1.**Python语言程序设计**，北京理工大学
+
+地址：https://www.icourse163.org/course/BIT-268001
+
+2.**Python网络爬虫与信息提取**，北京理工大学
 
 地址：https://www.icourse163.org/course/BIT-1001870001
 
-2.**Python数据分析与展示**，北京理工大学
+3.**Python数据分析与展示**，北京理工大学
 
 地址：https://www.icourse163.org/course/BIT-1001870002
 

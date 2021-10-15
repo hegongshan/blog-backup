@@ -10,6 +10,7 @@ date: 2019-03-20 11:00:31
 |  21  | [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/) | [查看题解](/2019/04/05/leetcode-21-merge-two-sorted-lists/)  |    链表    |  <strong style="color:green">简单</strong>  |
 |  23  | [合并K个排序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/) |  [查看题解](/2019/02/22/leetcode-23-merge-k-sorted-lists/)   |    链表    |   <strong style="color:red">困难</strong>   |
 |  25  | [k个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/) | [查看题解](/2019/04/04/leetcode-25-reverse-nodes-in-k-group/) |    链表    |   <strong style="color:red">困难</strong>   |
+|  29  | [两数相除](https://leetcode-cn.com/problems/divide-two-integers/) |   [查看题解](/2021/10/06/leetcode-29-divide-two-integers/)   |   位运算   | <strong style="color:#f0ad4e">中等</strong> |
 |  34  | [在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | [查看题解](/2020/03/19/leetcode-34-find-first-and-last-position-of-element-in-sorted-array/) |  二分查找  | <strong style="color:#f0ad4e">中等</strong> |
 |  50  |    [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)     |         [查看题解](/2020/02/23/leetcode-50-powx-n/)          |    数学    | <strong style="color:#f0ad4e">中等</strong> |
 |  54  | [螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/)  |      [查看题解](/2020/03/01/leetcode-54-spiral-matrix/)      |    数组    | <strong style="color:#f0ad4e">中等</strong> |
@@ -71,5 +72,6 @@ date: 2019-03-20 11:00:31
 | 965  | [单值二叉树](https://leetcode-cn.com/problems/univalued-binary-tree/) | [查看题解](/2019/12/17/leetcode-965-univalued-binary-tree/)  |   二叉树   |  <strong style="color:green">简单</strong>  |
 | 993  | [二叉树的堂兄弟节点](https://leetcode-cn.com/problems/cousins-in-binary-tree/) | [查看题解](/2020/01/31/leetcode-993-cousins-in-binary-tree/) |   二叉树   |  <strong style="color:green">简单</strong>  |
 | 1008 | [先序遍历构造二叉树](https://leetcode-cn.com/problems/construct-binary-search-tree-from-preorder-traversal/) | [查看题解](/2019/05/27/leetcode-1008-construct-binary-search-tree-from-preorder-traversal/) | 构造二叉树 | <strong style="color:#f0ad4e">中等</strong> |
+| 1206 | [设计跳表](https://leetcode-cn.com/problems/design-skiplist/) |              [查看题解](/2021/10/14/skiplist/)               |    跳表    |   <strong style="color:red">困难</strong>   |
 | 1290 | [二进制链表转整数](https://leetcode-cn.com/problems/convert-binary-number-in-a-linked-list-to-integer/) | [查看题解](/2020/01/07/leetcode-1290-convert-binary-number-in-a-linked-list-to-integer/) |    链表    |  <strong style="color:green">简单</strong>  |
 

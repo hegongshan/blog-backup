@@ -3,6 +3,7 @@ title: 机器学习之局部加权线性回归
 date: 2018-08-17 19:35:13
 tags: 机器学习
 categories: 机器学习
+mathjax: true
 ---
 
 局部加权线性回归（Locally Weighted Linear Regression，LWLR）。
