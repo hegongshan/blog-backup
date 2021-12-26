@@ -1,5 +1,5 @@
 ---
-title: 在Linux存活下来之通过taskset设置CPU亲密度
+title: 在Linux中存活下来之通过taskset设置进程的CPU亲密度
 date: 2021-09-23 11:41:45
 tags: linux
 categories: linux
@@ -18,9 +18,9 @@ retrieve or set a process's CPU affinity
 ### 查询进程的CPU掩码
 
 ```shell
-[root@node14 ~]# ./test.sh &
+[root@hgs ~]# ./test.sh &
 [1] 12787
-[root@node14 ~]# taskset -p 12787
+[root@hgs ~]# taskset -p 12787
 pid 12787's current affinity mask: ffffffffffffff
 ```
 
@@ -29,20 +29,20 @@ pid 12787's current affinity mask: ffffffffffffff
 ### 设置进程的CPU掩码
 
 ```shell
-[root@node14 ~]# taskset -p 3 12787
+[root@hgs ~]# taskset -p 3 12787
 pid 12787's current affinity mask: ffffffffffffff
 pid 12787's new affinity mask: 3
-[root@node14 ~]# taskset -pc 12787
+[root@hgs ~]# taskset -pc 12787
 pid 12787's current affinity list: 0,1
 ```
 
 
 
 ```shell
-[root@node14 ~]# taskset -pc 0,3,7-11 12787
+[root@hgs ~]# taskset -pc 0,3,7-11 12787
 pid 12787's current affinity list: 0,1
 pid 12787's new affinity list: 0,3,7-11
-[root@node14 ~]# taskset -p 12787
+[root@hgs ~]# taskset -p 12787
 pid 12787's current affinity mask: f89
 ```
 

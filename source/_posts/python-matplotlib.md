@@ -165,6 +165,24 @@ clip_on		bool,超出坐标轴的部分是否隐藏
 
 Tips：**当使用圆形标记时，设置`markerfacecolor='white'`可以呈现出空心圆的效果。**
 
+#### 设置图中的字体大小
+
+```shell
+# 坐标轴标签
+plt.xlabel('xlabel', fontsize=font_size)
+plt.ylabel('ylabel', fontsize=font_size)
+
+# 坐标轴刻度
+plt.xticks(x_values, fontsize=font_size)
+plt.yticks(y_values, fontsize=font_size)
+
+# 图例
+plt.legend(fontsize=font_size)
+
+# 图片标题
+plt.title('title', fontsize=font_size)
+```
+
 ### 散点图
 
 绘制散点图，需要使用matplotlib.pyplot中的**scatter**方法

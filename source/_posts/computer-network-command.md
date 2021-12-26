@@ -126,6 +126,10 @@ www.a.shifen.com has address 182.61.200.6
 hgs:~ hegongshan$ 
 ```
 
+#### dig
+
+
+
 ### arp
 
 arp，全称为地址解析协议（Address Resolution Protocol，ARP），用于将IP地址转化为对应的MAC地址。
@@ -140,7 +144,21 @@ arp -a
 
 #### route
 
-路由表
+查看和管理路由表，设置静态路由。
+
+![查看路由表](/static/images/computer-network-route.png)
+
+1.添加路由
+
+```shell
+route add -net 192.168.20.0 netmask 255.255.255.0 gw 172.16.2.10 dev ens9f0
+```
+
+2.删除路由
+
+```shell
+route del -net 192.168.20.0 netmask 255.255.255.0 gw 172.16.2.10 dev ens9f0
+```
 
 #### traceroute/tracert
 

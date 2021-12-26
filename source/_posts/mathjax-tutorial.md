@@ -340,8 +340,8 @@ $$
 |           $\pi$            |           `\pi`            |   $\Pi$   |   `\Pi`   |
 |          $\theta$          |          `\theta`          | $\Theta$  | `\Theta`  |
 |         $ \sigma $         |          `\sigma`          | $\Sigma$  | `\Sigma`  |
-|           $\phi$           |           `\phi`           |  $\Phi$   |  `\Phi`   |
-|      $\psi$ $\varphi$      |      `\psi` `\varphi`      |  $\Psi$   |  `\Psi`   |
+|      $\phi$ $\varphi$      |     `\phi`  `\varphi`      |  $\Phi$   |  `\Phi`   |
+|           $\psi$           |           `\psi`           |  $\Psi$   |  `\Psi`   |
 |           $\mu$            |           `\mu`            |           |           |
 |          $\omega$          |          `\omega`          | $\Omega$  | `\Omega`  |
 |           $\tau$           |           `\tau`           |           |           |

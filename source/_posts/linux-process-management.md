@@ -17,6 +17,8 @@ categories: linux
 
 * -e：列出所有进程。
 * -f：按照完整格式显示进程信息。
+* `-p pid`：只显示进程号为pid的进程。
+* `-o keyword`：按照指定的字段列出进程信息。
 
 **示例：**
 
@@ -30,6 +32,32 @@ ps -ef 或者 ps aux
 
 ```shell
 ps -ef | grep 进程名
+```
+
+3.列出进程的进程号、CPU占用率和命令名称
+
+```shell
+hgs:~ hegongshan$ ps -o pid,%cpu,command
+  PID  %CPU COMMAND
+70842   0.1 -bash
+```
+
+可以使用`=`为关键字指定别名，例如
+
+```shell
+# Linux: ps -o pid=id -o %cpu,command
+# 在Linux中，使用逗号时，第一列不能使用别名
+hgs:~ hegongshan$ ps -o pid=id,%cpu,command
+   id  %CPU COMMAND
+70842   0.0 -bash
+```
+
+如果所有关键字的别名均为空，那么就不会输出表头行：
+
+```shell
+# Linux:  ps -o pid= -o pcpu= -o command= 
+hgs:~ hegongshan$ ps -o pid=,%cpu=,command=
+70842   0.0 -bash
 ```
 
 ### top

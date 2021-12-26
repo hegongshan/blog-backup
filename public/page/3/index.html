@@ -61,7 +61,7 @@
 
 
 
-  <meta name="keywords" content="Hexo">
+  <meta name="keywords" content="gongshan,hegongshan,gongshanhe,blog">
 
 
 
@@ -350,7 +350,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/09/10/busybox/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/12/10/docker-dockerfile/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
@@ -367,9 +367,9 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-                <a class="post-title-link" href="/2021/09/10/busybox/" itemprop="url">
+                <a class="post-title-link" href="/2021/12/10/docker-dockerfile/" itemprop="url">
                   
-                   文件系统的制作、安装以及卸载</a></h2>
+                   常用的Dockerfile命令</a></h2>
         
 
         <div class="post-meta">		 
@@ -382,8 +382,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-10T21:09:37+08:00">
-                2021-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-10T10:52:23+08:00">
+                2021-12-10
               </time>
             
 
@@ -398,353 +398,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-09-18T13:59:26+08:00">
-                2021-09-18
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  78
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Busybox"><a href="#Busybox" class="headerlink" title="Busybox"></a>Busybox</h3><p>官网：<a href="https://busybox.net" target="_blank" rel="noopener">https://busybox.net</a></p>
-<p>1.下载最新的稳定版Busybox</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://busybox.net/downloads/busybox-1.33.1.tar.bz2</span><br></pre></td></tr></table></figure>
-<p>2.解压</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -jxf busybox-1.33.1.tar.bz2</span><br></pre></td></tr></table></figure>
-<p>3.安装Arm64 GCC</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Ubuntu</span><br><span class="line">apt install gcc-aarch64-linux-gnu</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> CentOS</span><br><span class="line">yum install gcc-aarch64-linux-gnu</span><br></pre></td></tr></table></figure>
-<p>4.配置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make defconfig</span><br></pre></td></tr></table></figure>
-<p>5.编译</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make CROSS_COMPILE=aarch64-linux-gnu-</span><br></pre></td></tr></table></figure>
-<p>6.安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
-<p><code>_install</code>文件夹</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/09/10/linux-kernel-compile/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gongshan He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="贺巩山的博客">
-    </span>
-
-    
-      <header class="post-header">
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                <a class="post-title-link" href="/2021/09/10/linux-kernel-compile/" itemprop="url">
-                  
-                   编译Linux内核</a></h2>
-        
-
-        <div class="post-meta">		 
-		
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-10T18:47:51+08:00">
-                2021-09-10
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2021-09-16T10:22:23+08:00">
-                2021-09-16
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/operating-system/" itemprop="url" rel="index">
-                    <span itemprop="name">operating system</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  249
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>编译Linux内核，听起来似乎是一件难度极高的事情。事实上，真的如此吗？</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/09/10/linux-kernel-compile/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/09/07/docker-container-start-sshd-service/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gongshan He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="贺巩山的博客">
-    </span>
-
-    
-      <header class="post-header">
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                <a class="post-title-link" href="/2021/09/07/docker-container-start-sshd-service/" itemprop="url">
-                  
-                   在Docker容器中启动SSHD服务</a></h2>
-        
-
-        <div class="post-meta">		 
-		
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-07T21:34:55+08:00">
-                2021-09-07
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2021-09-15T11:49:23+08:00">
-                2021-09-15
+              <time title="更新于" itemprop="dateModified" datetime="2021-12-10T11:17:53+08:00">
+                2021-12-10
               </time>
             
           </span>
@@ -793,7 +448,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  314
+                  28
                 </span>
               
 
@@ -819,14 +474,12 @@
 
       
         
-          <p>在Docker容器中启动SSHD服务，并通过SSH远程登录Docker容器。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/09/07/docker-container-start-sshd-service/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h3 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a>COPY</h3><h3 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h3><h3 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h3><p>在构建镜像时执行。</p>
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><p>在运行容器时执行。</p>
+<h3 id="ARG"><a href="#ARG" class="headerlink" title="ARG"></a>ARG</h3><h3 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h3><h3 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h3><h3 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t tag_name:version dir</span><br></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -874,7 +527,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/08/14/macos-terminal-color/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/12/09/file-system-gekkofs/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
@@ -891,9 +544,9 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-                <a class="post-title-link" href="/2021/08/14/macos-terminal-color/" itemprop="url">
+                <a class="post-title-link" href="/2021/12/09/file-system-gekkofs/" itemprop="url">
                   
-                   修改macOS的终端颜色</a></h2>
+                   file-system-gekkofs</a></h2>
         
 
         <div class="post-meta">		 
@@ -906,8 +559,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-14T23:20:23+08:00">
-                2021-08-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-09T23:39:03+08:00">
+                2021-12-09
               </time>
             
 
@@ -922,8 +575,160 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-15T01:17:03+08:00">
-                2021-08-15
+              <time title="更新于" itemprop="dateModified" datetime="2021-12-09T23:39:03+08:00">
+                2021-12-09
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  0
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/12/09/io-benchmark-ior/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gongshan He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="贺巩山的博客">
+    </span>
+
+    
+      <header class="post-header">
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                <a class="post-title-link" href="/2021/12/09/io-benchmark-ior/" itemprop="url">
+                  
+                   数据带宽测试之IOR</a></h2>
+        
+
+        <div class="post-meta">		 
+		
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-09T16:06:51+08:00">
+                2021-12-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-12-10T16:12:27+08:00">
+                2021-12-10
               </time>
             
           </span>
@@ -941,8 +746,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/macos/" itemprop="url" rel="index">
-                    <span itemprop="name">macos</span>
+                  <a href="/categories/benchmark/" itemprop="url" rel="index">
+                    <span itemprop="name">benchmark</span>
                   </a>
                 </span>
 
@@ -972,7 +777,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  477
+                  473
                 </span>
               
 
@@ -998,15 +803,74 @@
 
       
         
-          <p>在Linux终端中，不同的文件类型有不同的颜色，比如目录为蓝色，可执行文件为绿色等。</p>
-<p>那么，如何将macOS的终端颜色设置为成和Linux相同呢？</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/08/14/macos-terminal-color/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h3 id="安装IOR"><a href="#安装IOR" class="headerlink" title="安装IOR"></a>安装IOR</h3><p>1.执行引导程序</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ./bootstrap</span><br><span class="line">./bootstrap:行3: autoreconf: 未找到命令</span><br></pre></td></tr></table></figure>
+<p>解决办法：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y autoconf automake libtool</span><br></pre></td></tr></table></figure>
+<p>2.执行配置程序</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure>
+<p>3.编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j5</span><br></pre></td></tr></table></figure>
+<p>编译完成后，可执行程序<code>ior</code>位于<code>${IOR}/src</code>目录下</p>
+<p>4.安装（可选）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h3 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h3><p>-i <em>N</em>: 重复几次试验。</p>
+<p>-N <em>N</em>: numTasks</p>
+<blockquote>
+<p>number of tasks that should participate in the test. 0 denotes all tasks. (default: 0)</p>
+</blockquote>
+<p>-s <em>N</em>: segmentCount</p>
+<blockquote>
+<p>number of segments in file, where a segment is a contiguous chunk of data accessed by multiple clients each writing/reading their own contiguous data (blocks) (default: 1).</p>
+</blockquote>
+<p>-b <em>N</em>: blockSize – contiguous bytes to write per task (e.g.: 8, 4k, 2m, 1g)</p>
+<blockquote>
+<p>size (in bytes) of a contiguous chunk of data accessed by a single client. It is comprised of one or more transfers (default: 1048576)</p>
+</blockquote>
+<p>-t <em>N</em>: transferSize – size of transfer in bytes (e.g.: 8, 4k, 2m, 1g)</p>
+<blockquote>
+<p>size (in bytes) of a single data buffer to be transferred in a single I/O call (default: 262144)</p>
+</blockquote>
+<p>$$<br>\mathrm{aggregate\ filesize} = numTasks \times segmentCount \times blockSize<br>$$</p>
+<p>假设有4个客户端节点，总共运行64个任务，segmentCount设置为16，blockSize设置为16MB，transferSize设置为1m。那么，每个节点需要执行4个任务，每个任务包含16个块的读写操作。每个任务一次读写1MB的数据，因此，一个块需要执行16次读写操作。总的读写数据大小为：<br>$$<br>\mathrm{aggregate\ filesize}=64 \times 16 \times 16MB = 16GB<br>$$</p>
+<h3 id="测试示例"><a href="#测试示例" class="headerlink" title="测试示例"></a>测试示例</h3><p>1.shared file: All processes access a single file, 默认情况下使用该访问模式。</p>
+<p>2.file-per-process: Each process is accessing its own file，需要添加<code>-F</code>选项。</p>
+<p>3.顺序访问模式和随机访问模式（sequential  and random access pattern）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Access Pattern \ Contention</th>
+<th style="text-align:center">shared file</th>
+<th style="text-align:center">file-per-process</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">sequential</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">random</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>16 processes ran on each client with each process writing and reading 4 GiB in total.</p>
+</blockquote>
+<p>1.shared file + sequential access pattern:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpirun -n 16 ./ior -t 1m -b 16m -s 256</span><br></pre></td></tr></table></figure>
+<p>2.shared file + random access pattern</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpirun -n 16 ./ior -t 1m -b 16m -s 256 -F</span><br></pre></td></tr></table></figure>
+<p>3.file-per-process: </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpirun -n 16 ./ior -t 1m -b 16m -s 256 -z</span><br></pre></td></tr></table></figure>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>1.<a href="https://ior.readthedocs.io/en/latest/" target="_blank" rel="noopener">https://ior.readthedocs.io/en/latest/</a></p>
+<p>2.GekkoFS — A Temporary Burst Buffer File System for HPC Applications. CLUSTER’18</p>
+<p>#### </p>
+
+          
         
       
     </div>
@@ -1054,7 +918,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/08/12/computer-network-model-and-protocol/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/12/08/linux-shell-trick/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
@@ -1071,9 +935,9 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-                <a class="post-title-link" href="/2021/08/12/computer-network-model-and-protocol/" itemprop="url">
+                <a class="post-title-link" href="/2021/12/08/linux-shell-trick/" itemprop="url">
                   
-                   计算机网络TCP/IP五层模型及各层常见协议</a></h2>
+                   Shell脚本编程技巧</a></h2>
         
 
         <div class="post-meta">		 
@@ -1086,8 +950,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-12T01:26:06+08:00">
-                2021-08-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-08T14:46:03+08:00">
+                2021-12-08
               </time>
             
 
@@ -1102,8 +966,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-15T20:35:00+08:00">
-                2021-08-15
+              <time title="更新于" itemprop="dateModified" datetime="2021-12-25T18:35:39+08:00">
+                2021-12-25
               </time>
             
           </span>
@@ -1121,8 +985,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/computer-network/" itemprop="url" rel="index">
-                    <span itemprop="name">computer network</span>
+                  <a href="/categories/shell/" itemprop="url" rel="index">
+                    <span itemprop="name">shell</span>
                   </a>
                 </span>
 
@@ -1152,7 +1016,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  133
+                  1.2k
                 </span>
               
 
@@ -1178,10 +1042,12 @@
 
       
         
-          <p>本文总结了计算机网络中常见的协议。</p>
+          <p>Shell脚本是一门比较简单的语言，其难点在于：第一，需要熟悉Linux的相关命令；第二，与众不同的独特语法。</p>
+<p>习惯了使用高级语言进行编程，切换到Shell编程，可能会不太自然。</p>
+<p>本文总结了Shell编程中与其他高级语言的不同之处。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2021/08/12/computer-network-model-and-protocol/#more" rel="contents">
+            <a class="btn" href="/2021/12/08/linux-shell-trick/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1233,7 +1099,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/08/10/ccf-csp-20190904/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/12/02/linux-yum/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
@@ -1250,9 +1116,9 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-                <a class="post-title-link" href="/2021/08/10/ccf-csp-20190904/" itemprop="url">
+                <a class="post-title-link" href="/2021/12/02/linux-yum/" itemprop="url">
                   
-                   ccf-csp-20190904</a></h2>
+                   在Linux中存活下来之软件包管理器YUM</a></h2>
         
 
         <div class="post-meta">		 
@@ -1265,8 +1131,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-10T18:47:59+08:00">
-                2021-08-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-02T21:02:14+08:00">
+                2021-12-02
               </time>
             
 
@@ -1281,8 +1147,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-10T18:47:59+08:00">
-                2021-08-10
+              <time title="更新于" itemprop="dateModified" datetime="2021-12-08T16:20:50+08:00">
+                2021-12-08
               </time>
             
           </span>
@@ -1309,7 +1175,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  181
                 </span>
               
 
@@ -1335,9 +1201,14 @@
 
       
         
-          
-            
-          
+          <p>YUM（Yellowdog Updater Modified）是Linux中的一个软件包管理器。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/12/02/linux-yum/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1385,7 +1256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/08/10/ccf-csp-20190903/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/12/02/storage-system-benchmark-io500/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
@@ -1402,9 +1273,9 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-                <a class="post-title-link" href="/2021/08/10/ccf-csp-20190903/" itemprop="url">
+                <a class="post-title-link" href="/2021/12/02/storage-system-benchmark-io500/" itemprop="url">
                   
-                   ccf-csp-20190903</a></h2>
+                   IO测试工具之IO500</a></h2>
         
 
         <div class="post-meta">		 
@@ -1417,8 +1288,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-10T18:47:56+08:00">
-                2021-08-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-02T20:26:55+08:00">
+                2021-12-02
               </time>
             
 
@@ -1433,8 +1304,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-10T18:47:56+08:00">
-                2021-08-10
+              <time title="更新于" itemprop="dateModified" datetime="2021-12-03T22:47:04+08:00">
+                2021-12-03
               </time>
             
           </span>
@@ -1461,7 +1332,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  248
                 </span>
               
 
@@ -1487,9 +1358,14 @@
 
       
         
-          
-            
-          
+          <p>官网为<a href="https://io500.org" target="_blank" rel="noopener">https://io500.org</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/12/02/storage-system-benchmark-io500/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1537,7 +1413,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/08/10/ccf-csp-20190902/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/12/02/io-test-tool-fio/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
@@ -1554,9 +1430,9 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-                <a class="post-title-link" href="/2021/08/10/ccf-csp-20190902/" itemprop="url">
+                <a class="post-title-link" href="/2021/12/02/io-test-tool-fio/" itemprop="url">
                   
-                   ccf-csp-20190902</a></h2>
+                   IO测试工具之fio</a></h2>
         
 
         <div class="post-meta">		 
@@ -1569,8 +1445,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-10T18:36:26+08:00">
-                2021-08-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-02T20:26:30+08:00">
+                2021-12-02
               </time>
             
 
@@ -1585,160 +1461,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-10T18:36:27+08:00">
-                2021-08-10
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/08/10/ccf-csp-20190901/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gongshan He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="贺巩山的博客">
-    </span>
-
-    
-      <header class="post-header">
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                <a class="post-title-link" href="/2021/08/10/ccf-csp-20190901/" itemprop="url">
-                  
-                   CCF CSP 201909-1.小明种苹果</a></h2>
-        
-
-        <div class="post-meta">		 
-		
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-10T18:36:23+08:00">
-                2021-08-10
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-16T01:29:01+08:00">
-                2021-08-16
+              <time title="更新于" itemprop="dateModified" datetime="2021-12-22T21:52:13+08:00">
+                2021-12-22
               </time>
             
           </span>
@@ -1756,8 +1480,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/ccf-csp/" itemprop="url" rel="index">
-                    <span itemprop="name">ccf csp</span>
+                  <a href="/categories/file-system/" itemprop="url" rel="index">
+                    <span itemprop="name">file system</span>
                   </a>
                 </span>
 
@@ -1787,7 +1511,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  543
+                  696
                 </span>
               
 
@@ -1813,10 +1537,10 @@
 
       
         
-          <p><img src="/static/images/ccf-csp-20190901-1.png" alt=""></p>
+          <p>fio是一个常用的I/O测试工具，基于不同的测试引擎可以产生多种类型的测试压力。其作者Jens Axboe是Linux内核的维护者之一，主要负责内核中的块设备部分，fio原本是他为了模拟读/写负载能力而开发的。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2021/08/10/ccf-csp-20190901/#more" rel="contents">
+            <a class="btn" href="/2021/12/02/io-test-tool-fio/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1868,7 +1592,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/08/05/mit6828-operating-system-engineering-lab3/">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/12/01/ceph/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gongshan He">
@@ -1885,9 +1609,9 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-                <a class="post-title-link" href="/2021/08/05/mit6828-operating-system-engineering-lab3/" itemprop="url">
+                <a class="post-title-link" href="/2021/12/01/ceph/" itemprop="url">
                   
-                   mit6.828-operating-system-engineering-lab3</a></h2>
+                   使用cephadm部署ceph</a></h2>
         
 
         <div class="post-meta">		 
@@ -1900,8 +1624,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-05T00:56:56+08:00">
-                2021-08-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-12-01T18:23:06+08:00">
+                2021-12-01
               </time>
             
 
@@ -1916,12 +1640,34 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-08-05T00:56:56+08:00">
-                2021-08-05
+              <time title="更新于" itemprop="dateModified" datetime="2021-12-22T17:06:13+08:00">
+                2021-12-22
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/file-system/" itemprop="url" rel="index">
+                    <span itemprop="name">file system</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1944,7 +1690,365 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  1k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本文记录了使用cephadm安装ceph，以及挂载和测试的全过程。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/12/01/ceph/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/11/30/linux-raid/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gongshan He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="贺巩山的博客">
+    </span>
+
+    
+      <header class="post-header">
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                <a class="post-title-link" href="/2021/11/30/linux-raid/" itemprop="url">
+                  
+                   存储设备之RAID</a></h2>
+        
+
+        <div class="post-meta">		 
+		
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-30T22:37:53+08:00">
+                2021-11-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-11-30T23:39:38+08:00">
+                2021-11-30
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  229
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>近期遇到了一个需求——删除创建的软RAID，趁机了解了下RAID的知识和操作。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/11/30/linux-raid/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.hegongshan.com/2021/11/29/linux-ipmi/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gongshan He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="贺巩山的博客">
+    </span>
+
+    
+      <header class="post-header">
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                <a class="post-title-link" href="/2021/11/29/linux-ipmi/" itemprop="url">
+                  
+                   IPMI服务器管理</a></h2>
+        
+
+        <div class="post-meta">		 
+		
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-11-29T11:17:06+08:00">
+                2021-11-29
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-11-29T11:34:16+08:00">
+                2021-11-29
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  98
                 </span>
               
 
@@ -1971,7 +2075,16 @@
       
         
           
-            
+            <a id="more"></a>
+<h3 id="什么是IPMI"><a href="#什么是IPMI" class="headerlink" title="什么是IPMI"></a>什么是IPMI</h3><p>IPMI，全称为Intelligent Platform Management Interface，智能平台管理接口。</p>
+<h3 id="安装IPMI管理工具"><a href="#安装IPMI管理工具" class="headerlink" title="安装IPMI管理工具"></a>安装IPMI管理工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> CentOS</span></span><br><span class="line">yum install -y ipmitool</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Ubuntu</span></span><br><span class="line">apt install -y ipmitool</span><br></pre></td></tr></table></figure>
+<h3 id="远程登录"><a href="#远程登录" class="headerlink" title="远程登录"></a>远程登录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipmitool -H &lt;address&gt; -U &lt;username&gt; -P &lt;password&gt; shell</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@hgs ~]$ ipmitool -H 127.0.0.1 -U admin -P admin shell</span><br></pre></td></tr></table></figure>
+<h3 id="开关机"><a href="#开关机" class="headerlink" title="开关机"></a>开关机</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">ipmitool&gt;</span><span class="bash"> power on</span></span><br><span class="line"><span class="meta">ipmitool&gt;</span><span class="bash"> power off</span></span><br></pre></td></tr></table></figure>
+<h3 id="退出登录"><a href="#退出登录" class="headerlink" title="退出登录"></a>退出登录</h3><p>使用<code>exit</code>或者<code>quit</code>，可以退出登录。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">ipmitool&gt;</span><span class="bash"> <span class="built_in">exit</span></span></span><br><span class="line"><span class="meta">ipmitool&gt;</span><span class="bash"> quit</span></span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -2011,7 +2124,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/">51</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2059,7 +2172,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">462</span>
+                  <span class="site-state-item-count">506</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2070,7 +2183,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">64</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2081,7 +2194,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-count">94</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2157,10 +2270,6 @@
                 
                   <li class="links-of-blogroll-item">
                     <a href="http://deyinliu.github.io" title="Liudeyin" target="_blank">Liudeyin</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.gaohangcs.com" title="高航的博客" target="_blank">高航的博客</a>
                   </li>
                 
               </ul>

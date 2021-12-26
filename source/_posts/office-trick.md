@@ -87,6 +87,27 @@ BBBB
 
 #### 设置幻灯片大小
 
-【设计】→【幻灯片大小】→【页面设置】
+操作步骤：点击【设计】→【幻灯片大小】→【页面设置】
 
 ![设置幻灯片大小](/static/images/powerpoint-change-the-size-of-slides.png)
+
+#### 添加幻灯片编号
+
+在制作报告Slides时，为方便他人提问，通常会在Slides中添加幻灯片编号。例如，下图中右下角的34：
+
+![幻灯片编号展示](/static/images/powerpoint-slide-number.png)
+
+操作步骤：
+
+首先，点击【插入】→【幻灯片编号】
+
+![点击幻灯片编号](/static/images/powerpoint-add-slide-numbers.png)
+
+然后，勾选`幻灯片编号`和`标题幻灯片中不显示`
+
+![勾选“幻灯片编号”和“标题幻灯片中不显示”](/static/images/powerpoint-add-slide-numbers-select-check-box.png)
+
+最后，点击`应用`或者`全部应用`按钮。
+
+其中，`应用`表示仅在当前页中添加幻灯片编号；而`全部应用`则表示在所有的幻灯片中都添加幻灯片编号。
+

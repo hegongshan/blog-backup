@@ -30,7 +30,21 @@ cd linux
 git checkout v4.4
 ```
 
-2.编译
+2.配置内核
+
+make defconfig：使用默认配置
+
+make menuconfig：使用图形界面，依赖库ncurses
+
+make xconfig：
+
+```shell
+make menuconfig
+```
+
+
+
+3.编译
 
 本文采用ARM64交叉编译，如果系统中没有安装，可以使用如下方式进行安装：
 
@@ -74,9 +88,9 @@ make: *** [prepare0] Error 2
 
 ```shell
 # Ubuntu
-apt install bc
+apt install -y bc
 
 # CentOS
-yum install bc
+yum install -y bc
 ```
 

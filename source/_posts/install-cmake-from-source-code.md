@@ -8,6 +8,8 @@ tags:
 
 <!--more-->
 
+### 安装过程
+
 1.下载源码
 
 从[CMake仓库](https://github.com/Kitware/CMake/releases )中选择需要的版本，下面以`v3.21.3`为例：
@@ -53,7 +55,7 @@ apt install -y libssl-dev
 yum install -y openssl-devel
 ```
 
-之后，重新执行引导程序即可。如果输出如下结果，则说明执行成功：
+之后，重新执行引导程序即可。若输出如下结果，则说明执行成功：
 
 ```shell
 -- Build files have been written to: /root/cmake-3.21.3
@@ -93,4 +95,10 @@ CMake suite maintained and supported by Kitware (kitware.com/cmake).
 [root@hgs cmake-3.21.3]# cd ..
 [root@hgs ~]# rm -rf cmake-3.21.3*
 ```
+
+### 参考资料
+
+* Installing CMake，https://cmake.org/install/
+
+
 

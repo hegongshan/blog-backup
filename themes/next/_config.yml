@@ -35,7 +35,8 @@ favicon:
   #ms_browserconfig: /images/browserconfig.xml
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo"
+# keywords: "Hexo"
+keywords: "gongshan,hegongshan,gongshanhe,blog"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -165,7 +166,7 @@ links:
   柳婼 の blog: https://www.liuchuo.net
   心灵港: https://www.qinjiangbo.com
   Liudeyin: http://deyinliu.github.io
-  高航的博客: https://www.gaohangcs.com
+  # 高航的博客: https://www.gaohangcs.com
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif

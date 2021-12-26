@@ -28,6 +28,31 @@ hgs:~ hegongshan$ docker run -itd --name ubuntu -p 6666:22 ubuntu:16.04
 5aef2e6988fab4d4b3259b80adae969949e9c9852b50da95eeb76f9b2f6c3d33
 ```
 
+* `--link <list>`：添加对另一个容器的链接
+
+* `--net <string>`：将容器与某个网络连接起来
+
+例如，将某个Web服务与数据库容器连接起来时，可能会遇到如下错误：
+
+> Cannot link to /xxx, as it does not belong to the default network.
+
+此时只需要按照如下步骤执行即可：
+
+```shell
+# 1.检查数据库容器使用的网络
+docker inspect <db> | grep -i network
+
+# 2.将--net设置为数据库容器的网络
+```
+
+* `--restart <string>`：指定重启策略，可能的取值有
+
+no：退出时不重启（默认）
+
+always：退出时重启
+
+on-failure：非正常退出时重启
+
 ### ps
 
 列出所有容器：
@@ -108,7 +133,7 @@ Usage:	docker rmi [OPTIONS] IMAGE [IMAGE...]
 
 在本地和容器之间复制文件。
 
-###save
+### save
 
 ```shell
 hgs:~ hegongshan$ docker save --help

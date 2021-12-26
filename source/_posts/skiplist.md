@@ -6,7 +6,7 @@ categories: data structure
 mathjax: true
 ---
 
-Skip List，跳跃链表，简称跳表，最早是由William Pugh在1989年提出。
+Skip List（跳跃链表，简称跳表），最早是由William Pugh在1989年提出。
 
 <!--more-->
 
@@ -140,7 +140,7 @@ public boolean erase(int num) {
 
 ### Redis跳表实现
 
-数据结构如下：
+Redis的跳表定义在[t_zset.c](https://github.com/redis/redis/blob/unstable/src/t_zset.c)中，数据结构如下：
 
 ```c
 typedef struct zskiplistNode {

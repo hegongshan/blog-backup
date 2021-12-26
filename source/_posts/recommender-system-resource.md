@@ -19,15 +19,12 @@ sticky: 3
 ### 论文检索平台
 
 * dblp computer science bibliography：https://dblp.uni-trier.de
-
+* 谷歌学术：https://scholar.google.com
 * arXiv（预印本）：https://arxiv.org
-
 * ACM Digital Library：https://dl.acm.org
-
+* EEE Xplore：https://ieeexplore.ieee.org
 * Web of Science：www.webofknowledge.com
-
 * 中国知网（CNKI）：https://cnki.net
-
 * 百度学术：https://xueshu.baidu.com
 
 ### 相关会议
@@ -182,7 +179,7 @@ CCF A
 
   在线查看各个会议的截稿时间
 
-### 相关导师
+### 国内相关导师
 
 #### 原985高校 
 
